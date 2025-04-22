@@ -1,0 +1,207 @@
+﻿/* CHAT BOX */
+.chatbox-container {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 300px;
+    max-height: 400px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.chatbox-header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.chatbox-messages {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+    font-size: 14px;
+}
+
+.chatbox-input {
+    display: flex;
+    border-top: 1px solid #ccc;
+}
+
+    .chatbox-input input {
+        flex-grow: 1;
+        padding: 10px;
+        border: none;
+        font-size: 14px;
+    }
+
+    .chatbox-input button {
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+.message.bot {
+    background-color: #eee;
+    padding: 6px 10px;
+    border-radius: 8px;
+    margin-bottom: 6px;
+    max-width: 80%;
+}
+
+.message.user {
+    background-color: #daf1da;
+    padding: 6px 10px;
+    border-radius: 8px;
+    margin-bottom: 6px;
+    align-self: flex-end;
+    max-width: 80%;
+}
+
+.hidden {
+    display: none;
+}
+
+.chat-trigger {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid #007bff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    cursor: pointer; /* Ajouté pour rendre l'image cliquable */
+    transition: transform 0.3s ease-in-out;
+    animation: clignerDesYeux 5s infinite; /* L'animation dure 5s et se répète à l'infini */
+    z-index: 999;
+}
+
+    /* Animation sur le clique */
+    .chat-trigger:active {
+        transform: scale(0.9); /* Réduit légèrement la taille */
+    }
+
+/*Croix cacher*/
+.chatbox-header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chatbox-close {
+    cursor: pointer; /* Curseur main */
+    font-size: 20px;
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 0 10px;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+    .chatbox-close:hover {
+        color: #ffcccc; /* Un rouge clair pour attirer l'œil */
+        transform: rotate(90deg) scale(1.2); /* Effet tournant et agrandissement */
+    }
+
+
+
+/* Conteneur du chat flottant (image + bulle + croix) */
+.chat-invite {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 999;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    padding: 8px 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+/* Chatbot trigger moderne */
+.chat-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Bulle de message au-dessus du bot */
+.chat-message-bubble {
+    background-color: #007bff;
+    color: #fff;
+    font-size: 13px;
+    padding: 10px 12px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    box-shadow: 0 10px 8px rgba(0,0,0,0.1);
+    animation: fadeIn 1s ease-out;
+}
+
+/* Avatar du bot (rond) */
+.chat-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #007bff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+}
+
+    .chat-avatar:hover {
+        transform: scale(1.05);
+    }
+
+/* Croix de fermeture */
+.chat-close {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #555;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 16px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Animation d’apparition */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

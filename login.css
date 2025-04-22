@@ -1,0 +1,68 @@
+﻿.login-style {
+    padding: 20px 15px;
+    min-height: calc(100vh - 150px);
+    box-sizing: border-box;
+    max-width: 400px;
+    width: 85%;
+    margin: 60px auto;
+    background-color: white;
+    border-radius: 20px;
+    border: 2px solid #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+    .login-style h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .login-style label {
+        display: block;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+
+    .login-style input {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    .login-style button {
+        margin-top: 20px;
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+        .login-style button:hover {
+            background-color: #0056b3;
+        }
+/*Pop up*/
+.popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    z-index: 9999;
+    transition: opacity 0.3s ease;
+}
+
+    .popup.hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+
