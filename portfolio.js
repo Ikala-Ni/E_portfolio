@@ -1,61 +1,73 @@
 ﻿document.addEventListener("DOMContentLoaded", () => {
-    // Références DOM
-    const sidebar = document.querySelector(".sidebar");
-    const toggleBtn = document.querySelector(".sidebar-toggle");
     const submenu = document.getElementById("submenu");
+    const photoCat = document.getElementById("photo-category");
+    const videoCat = document.getElementById("video-category");
+    const photoList = document.getElementById("photo-list");
+    const videoList = document.getElementById("video-list");
+    const overlay = document.getElementById("fullscreen-overlay");
+    const content = document.getElementById("fullscreen-content");
+    const toggleBtn = document.querySelector(".sidebar-toggle");
 
-    // Toggle du menu (bouton ☰)
-    if (toggleBtn && sidebar && submenu) {
-        toggleBtn.addEventListener("click", () => {
-            submenu.classList.toggle("hidden");
+    // Toggle mobile menu
+    toggleBtn?.addEventListener("click", () => {
+        submenu.classList.toggle("hidden");
+    });
+
+    // Remplit une sous-liste à partir des .media-item d’une catégorie
+    function populateList(catId, listElem) {
+        listElem.innerHTML = ""; // vider
+        const items = document
+            .getElementById(catId)
+            .querySelectorAll(".media-item .media-title");
+        items.forEach((titleEl, idx) => {
+            const li = document.createElement("li");
+            const btn = document.createElement("button");
+            btn.textContent = titleEl.textContent;
+            btn.addEventListener("click", () => {
+                // scroll vers la vignette
+                titleEl.scrollIntoView({ behavior: "smooth", block: "center" });
+            });
+            li.appendChild(btn);
+            listElem.appendChild(li);
         });
     }
 
-    // Fonction pour afficher une catégorie (photo ou vidéo)
+    // Affiche la catégorie + sa sous-liste
     function showCategory(category) {
-        // Cacher toutes les catégories
-        const allCategories = document.querySelectorAll('.portfolio-category');
-        allCategories.forEach(cat => cat.classList.add('hidden'));
+        const isPhoto = category === "photo";
+        photoCat.classList.toggle("hidden", !isPhoto);
+        videoCat.classList.toggle("hidden", isPhoto);
 
-        // Afficher la catégorie sélectionnée
-        const selected = document.getElementById(`${category}-category`);
-        if (selected) {
-            selected.classList.remove('hidden');
-        }
-
-        // (Facultatif) Garder le menu visible
-        const submenu = document.getElementById('submenu');
-        if (submenu && submenu.classList.contains('hidden')) {
-            submenu.classList.remove('hidden');
+        // peupler et afficher la bonne sous-liste
+        if (isPhoto) {
+            populateList("photo-category", photoList);
+            photoList.classList.remove("hidden");
+            videoList.classList.add("hidden");
+        } else {
+            populateList("video-category", videoList);
+            videoList.classList.remove("hidden");
+            photoList.classList.add("hidden");
         }
     }
 
-    // Affichage plein écran d'un média (image ou vidéo)
-    window.openFullscreen = function (media) {
-        const overlay = document.getElementById('fullscreen-overlay');
-        const container = document.getElementById('fullscreen-content');
+    // Attache showCategory à chaque bouton data-cat
+    document.querySelectorAll(".sidebar-menu button[data-cat]").forEach(btn => {
+        btn.addEventListener("click", () => showCategory(btn.dataset.cat));
+    });
 
-        if (!overlay || !container) return;
-
-        container.innerHTML = "";
-
-        // Cloner l’élément pour ne pas affecter l’original
-        const clone = media.cloneNode(true);
-        clone.removeAttribute('onclick');
-        clone.controls = true;
-
-        container.appendChild(clone);
-        overlay.classList.remove('hidden');
-    };
-
-    // Fermer le mode plein écran
-    window.closeFullscreen = function () {
-        const overlay = document.getElementById('fullscreen-overlay');
-        const container = document.getElementById('fullscreen-content');
-
-        if (!overlay || !container) return;
-
-        overlay.classList.add('hidden');
-        container.innerHTML = "";
-    };
+    // Fullscreen
+    document.querySelectorAll(".media-thumb").forEach(el => {
+        el.addEventListener("click", () => {
+            content.innerHTML = "";
+            const clone = el.cloneNode(true);
+            if (clone.tagName === "VIDEO") clone.controls = true;
+            content.appendChild(clone);
+            overlay.classList.remove("hidden");
+        });
+    });
+    //Fermer fullscreen
+    document.querySelector(".fullscreen-close").addEventListener("click", () => {
+        overlay.classList.add("hidden");
+        content.innerHTML = "";
+    });
 });

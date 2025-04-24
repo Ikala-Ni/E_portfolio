@@ -145,65 +145,66 @@
 
         <!-- PORTFOLIO ------------------------------------------------------------------------------------------>
         <!-- PORTFOLIO -->
-        <section id="portfolio" class="content-section hidden cv-style">
+        <section id="portfolio" class="content-section cv-style">
             <h2 class="intro title-full">Mes créations</h2>
 
             <div class="portfolio-zone">
                 <!-- SIDEBAR (droite) -->
                 <aside class="sidebar">
-                    <button class="sidebar-toggle" onclick="toggleSidebar()">☰ Catégories</button>
+                    <button class="sidebar-toggle">☰ Catégories</button>
                     <ul id="submenu" class="sidebar-menu">
-                        <li><button onclick="showCategory('photo')">Photos</button></li>
-                        <li><button onclick="showCategory('video')">Vidéos</button></li>
+                        <li>
+                            <button data-cat="photo">
+                                Photos
+                            </button><!-- sous-liste pour titres photo -->
+                            <ul id="photo-list" class="submenu-items hidden"></ul>
+                        </li>
+                        <li>
+                            <button data-cat="video">Vidéos</button>
+                            <!-- sous-liste pour titres vidéo -->
+                            <ul id="video-list" class="submenu-items hidden"></ul>
+                        </li>
                     </ul>
                 </aside>
 
                 <!-- CONTENU DU PORTFOLIO -->
                 <div class="portfolio-wrapper">
                     <div id="portfolio-content" class="portfolio-content">
-
-                        <!-- Catégorie Photos -->
+                        <!-- Photos -->
                         <div class="portfolio-category" id="photo-category">
                             <div class="media-item">
-                                <img src="img/porto1.png" alt="Photo 1" class="media-thumb" onclick="openFullscreen(this)">
-                                <p class="media-title" onclick="openFullscreen(this.previousElementSibling)">
-                                    Anniversaire 7 ans Jade
-                                </p>
+                                <img src="img/porto1.png" class="media-thumb" alt="" data-full="img/porto1.png">
+                                <p class="media-title">Anniversaire 7 ans Jade</p>
                             </div>
                             <div class="media-item">
-                                <img src="img/porto2.png" alt="Photo 2" class="media-thumb" onclick="openFullscreen(this)">
-                                <p class="media-title" onclick="openFullscreen(this.previousElementSibling)">
-                                    Anniversaire 8 ans Jade
-                                </p>
+                                <img src="img/porto2.png" class="media-thumb" alt="" data-full="img/porto1.png">
+                                <p class="media-title">Anniversaire 8 ans Jade</p>
                             </div>
+                            <!-- ... autre photo ... -->
                         </div>
-
-                        <!-- Catégorie Vidéos -->
+                        <!-- Vidéos -->
                         <div class="portfolio-category hidden" id="video-category">
                             <div class="media-item">
-                                <video src="videos/porto1.mp4" class="media-thumb" controls onclick="openFullscreen(this)"></video>
-                                <p class="media-title" onclick="openFullscreen(this.previousElementSibling)">
-                                    Vidéo 1
-                                </p>
+                                <video class="media-thumb" src="videos/porto1.mp4" controls data-full="videos/porto1.mp4"></video>
+                                <p class="media-title">Premiere communion</p>
                             </div>
                             <div class="media-item">
-                                <video src="videos/porto2.mp4" class="media-thumb" controls onclick="openFullscreen(this)"></video>
-                                <p class="media-title" onclick="openFullscreen(this.previousElementSibling)">
-                                    Vidéo 2
-                                </p>
+                                <video class="media-thumb" src="videos/porto2.mp4" controls data-full="videos/porto1.mp4"></video>
+                                <p class="media-title">E commerce eco reponsable</p>
                             </div>
+                            <!-- ... autre vidéo ... -->
                         </div>
-
                     </div>
                 </div>
             </div>
 
             <!-- OVERLAY Fullscreen -->
-            <div id="fullscreen-overlay" class="fullscreen hidden" onclick="closeFullscreen()">
+            <div id="fullscreen-overlay" class="fullscreen hidden">
                 <span class="fullscreen-close">×</span>
                 <div id="fullscreen-content"></div>
             </div>
         </section>
+
 
 
 
