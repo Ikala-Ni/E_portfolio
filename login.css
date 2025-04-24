@@ -1,0 +1,105 @@
+﻿/* login.css — responsive et harmonisé */
+
+/* 1. Conteneur commun pour login, register, reset */
+.login-style {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* espacement uniforme */
+    max-width: 400px; /* largeur maxi desktop */
+    width: 90%; /* adaptatif mobile */
+    margin: 2rem auto; /* centré + marge verticale */
+    padding: 1.5rem; /* espace intérieur */
+    background-color: #fff;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+    /* 2. Titres */
+    .login-style h2 {
+        text-align: center;
+        color: #111;
+        margin-bottom: 0.5rem;
+    }
+
+    /* 3. Labels */
+    .login-style label {
+        font-weight: 600;
+        color: #111;
+    }
+
+    /* 4. Champs input */
+    .login-style input {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 1rem;
+        color: #111;
+        box-sizing: border-box;
+        transition: border-color 0.2s;
+    }
+
+        .login-style input:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0,123,255,0.2);
+        }
+
+    /* 5. Boutons */
+    .login-style button {
+        width: 100%;
+        padding: 0.75rem;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        .login-style button:hover {
+            background-color: #0056b3;
+        }
+
+    /* 6. Messages d’erreur */
+    .login-style p#error,
+    .login-style p#login-message,
+    .login-style p#register-message,
+    .login-style p#reset-message {
+        color: #d93025;
+        font-size: 0.9rem;
+        min-height: 1.2em; /* réserve l’espace */
+    }
+
+    /* 7. Liens secondaires */
+    .login-style a {
+        color: #007bff;
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+
+        .login-style a:hover {
+            color: #0056b3;
+        }
+
+/* 8. Responsive très petit écran */
+@media (max-width: 480px) {
+    .login-style {
+        margin: 1rem;
+        padding: 1rem;
+        gap: 0.75rem;
+    }
+
+        .login-style h2 {
+            font-size: 1.5rem;
+        }
+
+        .login-style button {
+            font-size: 0.9rem;
+            padding: 0.6rem;
+        }
+}

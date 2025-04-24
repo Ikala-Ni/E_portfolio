@@ -1,0 +1,166 @@
+﻿/*=============================================
+=            CHAT WIDGET & INVITATION         =
+=============================================*/
+
+/* Conteneur de l’avatar/button d’invitation */
+.chat-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1500; /* au-dessus du footer */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Bulle incitative (“Une question ?”) */
+.chat-message-bubble {
+    background: #007bff;
+    color: #fff;
+    font-size: 13px;
+    padding: 8px 12px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Avatar cliquable */
+.chat-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid #007bff;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+    .chat-avatar:active {
+        transform: scale(0.9);
+    }
+
+/* Animation d’apparition de la bulle */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/*=============================================
+=               CHATBOX CONTAINER             =
+=============================================*/
+
+.chatbox-container {
+    position: fixed;
+    bottom: 100px; /* au-dessus du footer (~60px) */
+    right: 20px;
+    width: 300px;
+    max-height: 400px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1500;
+}
+
+/* En-tête avec titre + bouton fermer */
+.chatbox-header {
+    background: #007bff;
+    color: #fff;
+    padding: 8px 12px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chatbox-close {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: transform 0.2s, color 0.2s;
+}
+
+    .chatbox-close:hover {
+        color: #ffcccc;
+        transform: scale(1.2) rotate(90deg);
+    }
+
+
+/*=============================================
+=              CHAT MESSAGES AREA              =
+=============================================*/
+
+.chatbox-messages {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* Bulles de messages */
+.message.user {
+    align-self: flex-end;
+    background: #daf1da;
+    color: #333;
+    border-radius: 12px 12px 0 12px;
+    padding: 6px 10px;
+    max-width: 80%;
+}
+
+.message.bot {
+    align-self: flex-start;
+    background: #e5e5ea;
+    color: #000;
+    border-radius: 12px 12px 12px 0;
+    padding: 6px 10px;
+    max-width: 80%;
+}
+
+
+/*=============================================
+=                 CHAT INPUT                   =
+=============================================*/
+
+.chatbox-input {
+    display: flex;
+    border-top: 1px solid #ccc;
+}
+
+    .chatbox-input input {
+        flex-grow: 1;
+        border: none;
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+
+    .chatbox-input button {
+        background: #007bff;
+        color: #fff;
+        border: none;
+        padding: 8px 12px;
+        cursor: pointer;
+    }
+
+/*Décaler le chatbot sur mobile*/
+@media (max-width: 600px) {
+    .chat-widget, .chatbox-container {
+        bottom: 80px;
+    }
+}
