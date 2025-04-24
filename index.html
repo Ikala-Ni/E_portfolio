@@ -2,279 +2,317 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ma Présentation UI</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="chat.css">
-    <link rel="stylesheet" href="login.css">
-    <link rel="stylesheet" href="cv.css">
-    <link rel="stylesheet" href="projet.css">
-    <link rel="stylesheet" href="portfolio.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+    <!-- Liens vers les fichiers CSS pour chaque fonctionnalité -->
+    <link rel="stylesheet" href="style.css"> <!-- Styles de base -->
+    <link rel="stylesheet" href="chat.css"> <!-- Style du chatbot -->
+    <link rel="stylesheet" href="login.css"> <!-- Connexion / inscription -->
+    <link rel="stylesheet" href="cv.css"> <!-- CV -->
+    <link rel="stylesheet" href="projet.css"> <!-- Formulaire projet -->
+    <link rel="stylesheet" href="portfolio.css"> <!-- Portfolio -->
+    <!-- Icônes via Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+    <!-- Image de fond -->
     <div class="background-image"></div>
 
-    <div class="container">
-        <!-- NAV *******************************************************************************************************************************-->
-        <header>
-            <nav class="navbar">
-                <!-- Photos Slides -->
-                <a href="#" onclick="showSlides()" class="profile-link">
-                    <img src="img/accueil.jpg" alt="Photo de moi" class="profil-img">
-                </a>
-                <ul class="nav-links">
-                    <li><a href="#" onclick="showSection('presentation')">Qui suis-je?</a></li>
-                    <li><a href="#" onclick="showSection('cv')">CV</a></li>
-                    <li><a href="#" onclick="showSection('portfolio')">Portfolio</a></li>
-                    <!-- cacher la section votre projet avant -->
-                    <li><a href="#" id="nav-projet" class="hidden" onclick="showSection('projet')">Votre projet</a></li>
-                </ul>
+    <!-- Conteneur principal -->
+    <!-- NAV *******************************************************************************************************************************-->
+    <header>
+        <nav class="navbar">
+            <!-- Menu hamburger -->
+            <button class="menu-toggle">☰</button>
 
-                <ul class="nav-right">
+            <!-- Lien image profil avec slide -->
+            <a href="#" onclick="showSlides()" class="profile-link">
+                <img src="img/accueil.jpg" alt="Photo de moi" class="profil-img">
+            </a>
 
-                    <li><a href="#" id="logout-btn" class="hidden" onclick="logout()">Déconnexion</a></li>
-                    <li><a href="#" id="login-btn" onclick="showSection('login')">Connexion</a></li>
-                    <li><a href="#" id="register-btn" class="hidden" onclick="showSection('register')">Inscription</a></li>
-                </ul>
+            <!-- Liens de navigation -->
+            <ul class="nav-links">
+                <li><a href="#" onclick="showSection('presentation')">Qui suis-je?</a></li>
+                <li><a href="#" onclick="showSection('cv')">CV</a></li>
+                <li><a href="#" onclick="showSection('portfolio')">Portfolio</a></li>
+                <li><a href="#" id="nav-projet" class="hidden" onclick="showSection('projet')">Votre projet</a></li>
+            </ul>
 
-            </nav>
-        </header>
+            <!-- Connexion / déconnexion -->
+            <ul class="nav-right">
+                <li><a href="#" id="logout-btn" class="hidden" onclick="logout()">Déconnexion</a></li>
+                <li><a href="#" id="login-btn" onclick="showSection('login')">Connexion</a></li>
+                <li><a href="#" id="register-btn" class="hidden" onclick="showSection('register')">Inscription</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <main>
-            <!-- Photos Slides -->
-            <section id="slides" class="slides">
-                <img src="img/mon-image1.jpg" class="slide active">
-                <img src="img/mon-image2.jpg" class="slide">
-                <img src="img/mon-image3.jpg" class="slide">
-                <img src="img/mon-image4.jpg" class="slide">
-            </section>
+    <main>
+        <!-- Photos Slides -->
+        <section id="slides" class="slides">
+            <img src="img/mon-image1.jpg" class="slide active">
+            <img src="img/mon-image2.jpg" class="slide">
+            <img src="img/mon-image3.jpg" class="slide">
+            <img src="img/mon-image4.jpg" class="slide">
+        </section>
 
-            <!-- Sections cliquables ***************************************************************************************************************-->
+        <!-- Sections cliquables ***************************************************************************************************************-->
+        <!--  PRESENTATION - qui suis-je? ---------------------------------------------------------------------------->
+        <section id="presentation" class="about-section content-section hidden cv-style">
+            <h2 class="typewriter">Qui suis-je&nbsp;?</h2>
 
-            <!--  PRESENTATION - qui suis-je? ---------------------------------------------------------------------------->
-            <section id="presentation" class="about-section content-section hidden cv-style">
-                <h2 class="typewriter">Qui suis-je&nbsp;?</h2>
+            <p class="text-block">
+                Je suis Mercia, et je suis passionnée par le <strong>digital</strong>, le <strong>design d’interface</strong> et l’<strong>univers du numérique</strong>.
+            </p> <p class="text-block">
+                Je construis ce portfolio pour partager mes créations, mon évolution et mes projets professionnels.
+            </p>
+            <p class="text-block">
+                Je m’intéresse particulièrement au <strong>design web</strong>, au <strong>web marketing</strong> et au <strong>community management</strong>.
+            </p>
 
-                <p class="text-block">
-                    Je suis Mercia, et je suis passionnée par le <strong>digital</strong>, le <strong>design d’interface</strong> et l’<strong>univers du numérique</strong>.
-                </p> <p class="text-block">
-                    Je construis ce portfolio pour partager mes créations, mon évolution et mes projets professionnels.
-                </p>
-                <p class="text-block">
-                    Je m’intéresse particulièrement au <strong>design web</strong>, au <strong>web marketing</strong> et au <strong>community management</strong>.
-                </p>
+            <p class="text-block">
+                Mon objectif est de me former aux métiers du digital. Je veux apprendre à concevoir des visuels cohérents, des parcours utilisateurs fluides et des messages percutants.
+            </p>
 
-                <p class="text-block">
-                    Mon objectif est de me former aux métiers du digital. Je veux apprendre à concevoir des visuels cohérents, des parcours utilisateurs fluides et des messages percutants.
-                </p>
+            <p class="quote">
+                ✨ Ce site est mon premier pas vers un métier de passion et elle est en évolution comme moi.
+                Je t’invite à <strong>le parcourir</strong>, à <strong>suivre mon cheminement</strong> et à <strong>me contacter</strong> si tu veux échanger, collaborer ou simplement m’encourager dans cette belle aventure du design digital.
+            </p>
 
-                <p class="quote">
-                    ✨ Ce site est mon premier pas vers un métier de passion et elle est en évolution comme moi.
-                    Je t’invite à <strong>le parcourir</strong>, à <strong>suivre mon cheminement</strong> et à <strong>me contacter</strong> si tu veux échanger, collaborer ou simplement m’encourager dans cette belle aventure du design digital.
-                </p>
+            <img src="videos/presentation.gif" alt="Aperçu animé de mon univers" class="gif-flottant">
+        </section>
 
-                <img src="videos/presentation.gif" alt="Aperçu animé de mon univers" class="gif-flottant">
-            </section>
+        <!-- CV ------------------------------------------------------------------------------------------->
+        <section id="cv" class="content-section hidden cv-style">
+            <div class="cv-title-full">
+                <p class="cv-intro">"Créer, comprendre et transmettre – je me construis un avenir dans le design web et l’expérience utilisateur."</p>
+            </div>
+            <div class="cv-layout">
 
-            <!-- CV ------------------------------------------------------------------------------------------->
-            <section id="cv" class="content-section hidden cv-style">
-                <div class="cv-title-full">
-                    <p class="cv-intro">"Créer, comprendre et transmettre – je me construis un avenir dans le design web et l’expérience utilisateur."</p>
-                </div>
-                <div class="cv-layout">
-
-                    <div class="cv-content">
-                        <!-- TITRE + INTRO + BOUTON -->
-                        <!-- EXPERIENCES -->
-                        <div id="cv-experiences" class="cv-block">
-                            <h3>Expériences professionnelles</h3>
-                            <p>
-                                <strong>Vendeuse e-commerce – Au Fil des Soies</strong><br>
-                                Création de fiches produits attrayantes, gestion des échanges clients, retouches photo simples, et participation à l’animation des réseaux sociaux. <br>
-                                Une immersion concrète dans le digital et la vente en ligne, avec un vrai sens du détail et du service.
-                            </p>
-                        </div>
-
-                        <!-- FORMATIONS -->
-                        <div id="cv-formations" class="cv-block hidden">
-                            <h3>Formations</h3>
-                            <ul>
-                                <li><strong>Formation Développeur Web et Web Mobile</strong> (France Travail)<br>Introduction au HTML, CSS, logique JavaScript, outils numériques.</li>
-                                <li><strong>Formation Make.com</strong><br>Découverte des automatisations et de l’optimisation des flux de travail (no-code).</li>
-                                <li><strong>Projet validé : Concepteur Designer UI</strong><br>En attente d’entrée en formation – Projet en lien avec mon attrait pour le design, l'expérience utilisateur et la création de supports interactifs.</li>
-                            </ul>
-                        </div>
-
-                        <!-- COMPETENCES -->
-                        <div id="cv-competences" class="cv-block hidden">
-                            <h3>Compétences</h3>
-                            <ul>
-                                <li>🎨 <strong>Design visuel</strong> : Canva, notions de composition, typographie, harmonie des couleurs</li>
-                                <li>💻 <strong>Web</strong> : HTML/CSS débutant, esprit logique, envie de progresser vers UI/UX</li>
-                                <li>📲 <strong>Communication digitale</strong> : Réseaux sociaux, storytelling, mise en valeur de contenus</li>
-                                <li>📸 <strong>Photographie</strong> : Sens esthétique, prise de vues pour produits</li>
-                                <li>🧠 <strong>Qualités</strong> : Curiosité, autonomie, créativité, sens de l’observation</li>
-                            </ul>
-                        </div>
-
+                <div class="cv-content">
+                    <!-- TITRE + INTRO + BOUTON -->
+                    <!-- EXPERIENCES -->
+                    <div id="cv-experiences" class="cv-block">
+                        <h3>Expériences professionnelles</h3>
+                        <p>
+                            <strong>Vendeuse e-commerce – Au Fil des Soies</strong><br>
+                            Création de fiches produits attrayantes, gestion des échanges clients, retouches photo simples, et participation à l’animation des réseaux sociaux. <br>
+                            Une immersion concrète dans le digital et la vente en ligne, avec un vrai sens du détail et du service.
+                        </p>
                     </div>
 
-                    <!-- MENU LATERAL -->
-                    <aside class="cv-banner">
-                        <div class="cv-photo">
-                            <img src="img/cv.png" alt="Photo adn" />
-                        </div>
+                    <!-- FORMATIONS -->
+                    <div id="cv-formations" class="cv-block hidden">
+                        <h3>Formations</h3>
                         <ul>
-                            <li><button onclick="showCVPart('cv-experiences')">Expériences</button></li>
-                            <li><button onclick="showCVPart('cv-formations')">Formations</button></li>
-                            <li><button onclick="showCVPart('cv-competences')">Compétences</button></li>
+                            <li><strong>Formation Développeur Web et Web Mobile</strong> (France Travail)<br>Introduction au HTML, CSS, logique JavaScript, outils numériques.</li>
+                            <li><strong>Formation Make.com</strong><br>Découverte des automatisations et de l’optimisation des flux de travail (no-code).</li>
+                            <li><strong>Projet validé : Concepteur Designer UI</strong><br>En attente d’entrée en formation – Projet en lien avec mon attrait pour le design, l'expérience utilisateur et la création de supports interactifs.</li>
                         </ul>
-
-                        <a href="documents/mon_cv.pdf" download class="btn-download">📄 Télécharger mon CV complet (PDF)</a>
-
-                    </aside>
-                </div>
-            </section>
-
-            <!-- PORTFOLIO ------------------------------------------------------------------------------------------>
-            <section id="portfolio" class="content-section hidden cv-style">
-                <h2>Mon Portfolio</h2>
-
-                <!-- Menu Hamburger -->
-                <div class="portfolio-menu">
-                    <button class="menu-toggle">☰ Voir mes créations</button>
-                    <ul id="submenu" class="submenu hidden">
-                        <li><button onclick="showCategory('photo')">Mes créations photo</button></li>
-                        <li><button onclick="showCategory('video')">Mes créations vidéo</button></li>
-                    </ul>
-                </div>
-
-                <!-- Zone dynamique -->
-                <div class="portfolio-wrapper">
-                    <div id="portfolio-content" class="portfolio-content">
-                        <!-- Photos -->
-                        <div class="portfolio-category hidden" id="photo-category">
-                            <div class="media-item">
-                                <img src="img/porto1.png" alt="Photo 1" class="media-thumb" onclick="openFullscreen(this)">
-                                <p class="media-title" onclick="openFullscreen(this.previousElementSibling)">Anniversaire 7 ans Jade</p>
-                            </div>
-                            <div class="media-item">
-                                <img src="img/porto2.png" alt="Photo 2" class="media-thumb" onclick="openFullscreen(this)">
-                                <p class="media-title" onclick="openFullscreen(this.previousElementSibling)">Anniversaire 8 ans Jade</p>
-                            </div>
-                        </div>
-
-                        <!-- Vidéos -->
-                        <div class="portfolio-category hidden" id="video-category">
-                            <div class="media-item">
-                                <video src="videos/porto1.mp4" class="media-thumb" controls onclick="openFullscreen(this)"></video>
-                                <p class="media-title" onclick="openFullscreen(this.previousElementSibling)">Vidéo 1</p>
-                            </div>
-                            <div class="media-item">
-                                <video src="videos/porto2.mp4" class="media-thumb" controls onclick="openFullscreen(this)"></video>
-                                <p class="media-title" onclick="openFullscreen(this.previousElementSibling)">Vidéo 2</p>
-                            </div>
-                        </div>
                     </div>
+
+                    <!-- COMPETENCES -->
+                    <div id="cv-competences" class="cv-block hidden">
+                        <h3>Compétences</h3>
+                        <ul>
+                            <li>🎨 <strong>Design visuel</strong> : Canva, notions de composition, typographie, harmonie des couleurs</li>
+                            <li>💻 <strong>Web</strong> : HTML/CSS débutant, esprit logique, envie de progresser vers UI/UX</li>
+                            <li>📲 <strong>Communication digitale</strong> : Réseaux sociaux, storytelling, mise en valeur de contenus</li>
+                            <li>📸 <strong>Photographie</strong> : Sens esthétique, prise de vues pour produits</li>
+                            <li>🧠 <strong>Qualités</strong> : Curiosité, autonomie, créativité, sens de l’observation</li>
+                        </ul>
+                    </div>
+
                 </div>
 
-                <!-- Overlay fullscreen -->
-                <div id="fullscreen-overlay" class="fullscreen hidden" onclick="closeFullscreen()">
-                    <span class="fullscreen-close">×</span>
-                    <div id="fullscreen-content"></div>
-                </div>
-            </section>
+                <!-- MENU LATERAL -->
+                <aside class="cv-banner">
+                    <div class="cv-photo">
+                        <img src="img/cv.png" alt="Photo adn" />
+                    </div>
+                    <ul>
+                        <li><button onclick="showCVPart('cv-experiences')">Expériences</button></li>
+                        <li><button onclick="showCVPart('cv-formations')">Formations</button></li>
+                        <li><button onclick="showCVPart('cv-competences')">Compétences</button></li>
+                    </ul>
 
-            <!-- VOTRE PROJET ----------------------------------------------------------------------------->
-            <section id="projet" class="content-section hidden cv-style">
-                <h2>Votre projet</h2>
-                <form id="form-projet" class="projet-form" enctype="multipart/form-data">
-                    <label for="nom">Nom :</label>
-                    <input type="text" id="nom" name="nom" aria-label="votre nom" required>
+                    <a href="documents/mon_cv.pdf" download class="btn-download">📄 Télécharger mon CV complet (PDF)</a>
 
-                    <label for="email">Email :</label>
-                    <input type="email" id="email" name="email" aria-label="adresse e-mail" required>
+                </aside>
+            </div>
+        </section>
 
-                    <label for="description">Description du projet :</label>
-                    <textarea id="description" name="description" rows="5" aria-label="décrire votre projet" required></textarea>
-                    <label for="descr">Description:</label>
-                    <textarea id="descr" name="descr" rows="5" required></textarea>
+        <!-- PORTFOLIO ------------------------------------------------------------------------------------------>
+        <section id="portfolio" class="content-section hidden cv-style">
+            <h2>Mon Portfolio</h2>
 
-                    <label for="marie">Marie :</label>
-                    <textarea id="marie" name="marie" rows="5" required></textarea>
-
-                    <label for="fichier">Ajouter une image ou une vidéo :</label>
-                    <input type="file" id="fichier" name="fichier" accept="image/*,video/*">
-
-                    <button type="submit">Envoyer</button>
-                </form>
-            </section>
-
-            <!-- CONNEXION ----------------------------------------------------------------------------------->
-            <section id="login" class="content-section hidden cv-style">
-                <div class="login-style">
-                    <h2>Connexion</h2>
-                    <form id="login-form">
-                        <label for="login-email">Email :</label>
-                        <input type="email" id="login-email" required>
-
-                        <label for="login-password">Mot de passe :</label>
-                        <input type="password" id="login-password" required>
-
-                        <button type="submit">Se connecter</button>
-                    </form>
-                    <p id="login-message" style="color: red; margin-top: 10px;"></p>
-
-                    <p style="margin-top: 20px;">
-                        Pas encore de compte ?
-                        <a href="#" onclick="showSection('register')"> S'inscrire ici</a>
-
-                    </p>
-                </div>
-            </section>
-
-            <!-- INSCRIPTION --------------------------------------------------------------------------------->
-            <section id="register" class="content-section">
-                <div class="login-style">
-                    <h2>Créer un compte</h2>
-                    <form id="register-form">
-                        <input type="text" id="register-id" placeholder="Créer un identifiant" required>
-                        <input type="password" id="register-mdp" placeholder="Créer un mot de passe" required>
-                        <button type="submit">S’inscrire</button>
-                        <p>Déjà inscrit ? <a href="#" onclick="showSection('login')">Se connecter</a></p>
-                    </form>
-                    <p id="register-message" style="color: red; margin-top: 10px;"></p>
-                </div>
-            </section>
-
-        </main>
-
-        <!-- FOOTER PIED DE PAGE ******************************************************************************************************************-->
-        <footer class="site-footer">
-            <p>Contact : ton.email@example.com | Adresse : 123 rue de la Création, 75000 Paris</p>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/tonprofil" target="_blank" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/tonprofil" target="_blank" aria-label="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://twitter.com/tonprofil" target="_blank" aria-label="Twitter">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="https://www.facebook.com/tonprofil" target="_blank" aria-label="Facebook">
-                    <i class="fab fa-facebook"></i>
-                </a>
-                <a href="https://www.pinterest.com/tonprofil" target="_blank" aria-label="Pinterest">
-                    <i class="fab fa-pinterest"></i>
-                </a>
+            <!-- Menu Hamburger -->
+            <div class="portfolio-menu">
+                <button class="menu-toggle">☰ Voir mes créations</button>
+                <ul id="submenu" class="submenu hidden">
+                    <li><button onclick="showCategory('photo')">Mes créations photo</button></li>
+                    <li><button onclick="showCategory('video')">Mes créations vidéo</button></li>
+                </ul>
             </div>
 
+            <!-- Zone dynamique -->
+            <div class="portfolio-wrapper">
+                <div id="portfolio-content" class="portfolio-content">
+                    <!-- Photos -->
+                    <div class="portfolio-category hidden" id="photo-category">
+                        <div class="media-item">
+                            <img src="img/porto1.png" alt="Photo 1" class="media-thumb" onclick="openFullscreen(this)">
+                            <p class="media-title" onclick="openFullscreen(this.previousElementSibling)">Anniversaire 7 ans Jade</p>
+                        </div>
+                        <div class="media-item">
+                            <img src="img/porto2.png" alt="Photo 2" class="media-thumb" onclick="openFullscreen(this)">
+                            <p class="media-title" onclick="openFullscreen(this.previousElementSibling)">Anniversaire 8 ans Jade</p>
+                        </div>
+                    </div>
 
-        </footer>
+                    <!-- Vidéos -->
+                    <div class="portfolio-category hidden" id="video-category">
+                        <div class="media-item">
+                            <video src="videos/porto1.mp4" class="media-thumb" controls onclick="openFullscreen(this)"></video>
+                            <p class="media-title" onclick="openFullscreen(this.previousElementSibling)">Vidéo 1</p>
+                        </div>
+                        <div class="media-item">
+                            <video src="videos/porto2.mp4" class="media-thumb" controls onclick="openFullscreen(this)"></video>
+                            <p class="media-title" onclick="openFullscreen(this.previousElementSibling)">Vidéo 2</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    </div>
+            <!-- Overlay fullscreen -->
+            <div id="fullscreen-overlay" class="fullscreen hidden" onclick="closeFullscreen()">
+                <span class="fullscreen-close">×</span>
+                <div id="fullscreen-content"></div>
+            </div>
+        </section>
+
+        <!-- VOTRE PROJET ----------------------------------------------------------------------------->
+        <section id="projet" class="content-section hidden cv-style">
+            <h2>Votre projet</h2>
+            <form id="form-projet" class="projet-form" enctype="multipart/form-data">
+                <label for="nom">Nom :</label>
+                <input type="text" id="nom" name="nom" aria-label="votre nom" required>
+
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" aria-label="adresse e-mail" required>
+
+                <label for="description">Description du projet :</label>
+                <textarea id="description" name="description" rows="5" aria-label="décrire votre projet" required></textarea>
+                <label for="descr">Description:</label>
+                <textarea id="descr" name="descr" rows="5" required></textarea>
+
+                <label for="marie">Marie :</label>
+                <textarea id="marie" name="marie" rows="5" required></textarea>
+
+                <label for="fichier">Ajouter une image ou une vidéo :</label>
+                <input type="file" id="fichier" name="fichier" accept="image/*,video/*">
+
+                <button type="submit">Envoyer</button>
+            </form>
+        </section>
+
+        <!-- CONNEXION ----------------------------------------------------------------------------------->
+        <section id="login" class="content-section hidden cv-style">
+            <div class="login-style">
+                <h2>Connexion</h2>
+                <form id="login-form">
+                    <label for="login-email">Email :</label>
+                    <input type="email" id="login-email" required>
+
+                    <label for="login-password">Mot de passe :</label>
+                    <input type="password" id="login-password" required>
+
+                    <button type="submit">Se connecter</button>
+                </form>
+                <p id="login-message" style="color: red; margin-top: 10px;"></p>
+
+                <p style="margin-top: 20px;">
+                    Pas encore de compte ?
+                    <a href="#" onclick="showSection('register')"> S'inscrire ici</a>
+                </p>
+                <p style="margin-top: 20px;">
+                    <a href="#" id="forgot-password">Mot de passe oublié ?</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- INSCRIPTION --------------------------------------------------------------------------------->
+        <section id="register" class="content-section hidden cv-style">
+            <div class="login-style">
+                <h2>Créer un compte</h2>
+                <form id="register-form">
+                    <input type="text" id="register-id" placeholder="Créer un identifiant" required>
+                    <input type="password" id="register-mdp" placeholder="Créer un mot de passe" required>
+                    <input type="password" id="register-mdp-confirm" placeholder="Confirmer le mot de passe" required>
+
+                    <button type="submit">S’inscrire</button>
+                    <p>Déjà inscrit ? <a href="#" onclick="showSection('login')">Se connecter</a></p>
+                </form>
+                <p id="register-message" style="color: red; margin-top: 10px;"></p>
+            </div>
+        </section>
+
+        <!-- MOT DE PASSE OUBLIÉ ------------------------------------------------------------------------->
+        <section id="reset-password" class="content-section hidden cv-style">
+            <div class="login-style">
+                <h2>Réinitialiser le mot de passe</h2>
+                <form id="reset-password-form">
+                    <label for="reset-email">Email :</label>
+                    <input type="email" id="reset-email" required>
+
+                    <label for="new-password">Nouveau mot de passe :</label>
+                    <input type="password" id="new-password" required>
+                    <input type="password" id="confirm-new-password" placeholder="Confirmez le nouveau mot de passe" required>
+
+
+                    <button type="submit">Réinitialiser</button>
+                </form>
+                <p id="reset-message" style="color: red; margin-top: 10px;"></p>
+                <p style="margin-top: 20px;">
+                    <a href="#" onclick="showSection('login')">Retour à la connexion</a>
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER PIED DE PAGE ******************************************************************************************************************-->
+    <!--<footer class="site-footer">
+        <p>Contact : ton.email@example.com | Adresse : 123 rue de la Création, 75000 Paris</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/tonprofil" target="_blank" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/tonprofil" target="_blank" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://twitter.com/tonprofil" target="_blank" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.facebook.com/tonprofil" target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.pinterest.com/tonprofil" target="_blank" aria-label="Pinterest">
+                <i class="fab fa-pinterest"></i>
+            </a>
+        </div>
+    </footer>-->
+    <footer class="site-footer">
+        <p>Contact : ton.email@example.com | Adresse : 123 rue de la Création, 75000 Paris</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+        </div>
+    </footer>
 
     <!-- CHATBOT Trigger avec bulle d'invitation *****************************************************************************************************-->
     <div class="chat-widget" id="chat-widget">
@@ -309,7 +347,7 @@
     <!-- Popup de logins -->
     <div id="popup-message" class="popup hidden"></div>
 
-    <!-- TOUS LES SCRIPTS -->
+    <!-- JAVASCRIPT -->
     <script src="script.js"></script>
     <script src="chat.js"></script>
     <script src="login.js"></script>
