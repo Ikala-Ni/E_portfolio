@@ -45,5 +45,4 @@
             chatbox.classList.toggle('hidden');
         });
     }
-
 });

@@ -1,47 +1,20 @@
-﻿/* Base */
-html, body {
+﻿/* style.css - Version simplifiée et responsive */
+
+/* 1. Reset de base */
+* {
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-/* Remplacer `hidden` par la classe .hidden */
-.hidden {
-    display: none !important;
-}
-
-/*Nav*/
-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 60px;
-    background-color: #fff;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/*Contenu*/
-main {
-    flex: 1;
-    margin-top: 16px; /* même hauteur que le header */
-    padding-bottom: 60px; /* si footer fixe */
-    padding: 5px;
     box-sizing: border-box;
 }
 
-/*Pied de page*/
-footer {
-    height: 60px;
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
+/* 2. Polices et body */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    background: #f0f2f5;
+    color: #333;
 }
 
-/* L'arrière plan */
 .background-image {
     position: fixed;
     top: 0;
@@ -55,136 +28,170 @@ footer {
     filter: brightness(0.6); /* Rend le texte plus lisible */
 }
 
+/* 3. Container principal */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding-top: 80px; /* espace pour la navbar fixe */
+}
 
-/* Navigation */
+/* 4. NAVIGATION */
 .navbar {
-    background-color: #111;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0;
-    height: 60px;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    flex: 1;
-    justify-content: center;
-    height: 100%;
-}
-
-    .nav-links li {
-        flex: 1;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-        .nav-links li a {
-            color: white;
-            font-size: 20px;
-            text-decoration: none;
-            font-weight: bold;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #007bff;
-    padding: 10px 20px;
-    color: white;
-}
-
-    nav ul {
-        display: flex;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-        nav ul.nav-left li,
-        nav ul.nav-right li {
-            margin: 0 10px;
-        }
-
-    nav a {
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-    }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-
-/*Image Accueil*/
-.profil-img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid white;
-}
-
-/* Slides */
-.slides {
-    width: 100%;
-    height: 100vh;
     position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 1000;
+}
+
+    .navbar .profile-link img {
+        width: 50px;
+        border-radius: 50%;
+    }
+
+.nav-links,
+.nav-right {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+}
+
+    .nav-links a,
+    .nav-right a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+        .nav-links a:hover,
+        .nav-right a:hover {
+            color: #007bff;
+        }
+
+/* 5. SLIDER (Accueil) */
+.slides {
+    display: flex;
     overflow: hidden;
+    border-radius: 10px;
 }
 
 .slide {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    opacity: 0;
-    object-fit: cover;
-    transition: ease-in-out;
+    min-width: 100%;
+    transition: transform 0.5s ease-in-out;
+    display: none;
 }
 
     .slide.active {
-        opacity: 1;
-        z-index: 1;
+        display: block;
+        object-fit: cover;
     }
 
-/* Deploiement section du nav */
-.content-section {
-    display: block;
-    padding: 60px 20px;
-    max-width: 900px;
-    margin: auto;
-    background-color: white;
-    border-radius: 10px;
-    margin-top: 40px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+/* 6. Responsive */
+@media (max-width: 768px) {
+    .nav-links,
+    .nav-right {
+        display: none;
+        flex-direction: column;
+        background: white;
+        position: absolute;
+        top: 70px;
+        right: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 10px;
+    }
+
+    .navbar .menu-toggle {
+        display: block;
+        cursor: pointer;
+    }
+
+    /*****************************************************/
+}
+/* 🧾 Footer text & icons centrés */
+.site-footer {
+    text-align: center;
+    padding: 10px;
 }
 
-    .content-section h1, .content-section h2 {
-        font-size: 32px;
-        margin-bottom: 20px;
-    }
+.social-links {
+    justify-content: center;
+    flex-wrap: wrap;
+}
 
-    .content-section p {
-        font-size: 18px;
-        line-height: 1.6;
-    }
+/* 📱 Chat avatar responsive */
+.chat-widget {
+    width: 60px;
+    height: auto;
+}
 
-.site-footer {
-    background-color: #000;
-    color: #fff;
+
+/* 🧱 SECTIONS CONTENUS : pleine largeur, marges et padding adaptatifs */
+.content-section {
+    width: 95% !important;
+    padding: 10px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* ✅ Evite les effets de translation gênants sur mobile */
+.cv-style {
+    transform: none !important;
+}
+
+/* 🎞️ GIF animés : adaptatifs */
+.gif-flottant {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}
+
+/* 📄 CV layout : passe en colonne sur petits écrans */
+.cv-layout {
+    flex-direction: column;
+    align-items: center;
+}
+
+.cv-banner {
+    width: 100%;
     text-align: center;
-    padding: 20px;
-    font-size: 14px;
+}
+
+    .cv-banner img {
+        max-width: 150px;
+        height: auto;
+    }
+
+.cv-content {
+    width: 100%;
+}
+
+/* 🖼️ Portfolio images et vidéos : adaptatifs */
+.media-thumb {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
+
+.media-item {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* 📋 Formulaires */
+.projet-form input,
+.projet-form textarea {
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /*dimension du contenu de chaque section, dimension style cv*/
@@ -200,22 +207,6 @@ nav {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: white;
-}
-
-/*amelioration du responsive mobile*/
-@media (max-width: 768px) {
-    .cv-layout {
-        flex-direction: column;
-    }
-
-    .cv-content,
-    .cv-banner {
-        width: 100%;
-    }
-
-    .nav-links {
-        flex-direction: column;
-    }
 }
 
 /*Presentation - qui sui-je?*/
@@ -356,5 +347,63 @@ input:focus, textarea:focus, select:focus {
             color: #f0c674;
         }
 
+@media screen and (max-width: 768px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 10px 0;
+    }
 
+    .main-content {
+        margin-left: 0;
+        padding-top: 20px;
+    }
+
+    .section {
+        padding: 20px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    h1, h2, h3 {
+        font-size: 1.4rem;
+        text-align: center;
+    }
+
+    p, li {
+        font-size: 1rem;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .skills, .projects, .contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project-item, .skill-item {
+        width: 90%;
+        margin: 10px auto;
+    }
+}
+
+    /* Améliorer l'accessibilité des liens au focus */
+    a:focus, button:focus, input:focus, textarea:focus {
+        outline: 3px solid rgba(0, 123, 255, 0.1); /* Couleur du contour visible */
+        background-color: rgba(0, 255, 0, 0.1); /* Change la couleur de fond pour plus de visibilité */
+    }
+
+    /* Améliorer l'accessibilité des champs de formulaire au focus */
+    input:focus, textarea:focus, select:focus {
+        border-color: #007BFF; /* Changer la couleur de bordure */
+        background-color: rgba(0, 123, 255, 0.1); /* Changer le fond du champ */
+    }
 
