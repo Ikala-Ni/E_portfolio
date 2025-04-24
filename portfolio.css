@@ -1,15 +1,120 @@
-﻿/* Cacher les éléments avec la classe .hidden */
+﻿/* Cacher les éléments temporairement */
 .hidden {
     display: none !important;
 }
 
-/* === Menu hamburger === */
-.portfolio-menu {
-    margin-bottom: 20px;
-    text-align: left;
+/* === WRAPPER GLOBAL DU PORTFOLIO === */
+.portfolio-zone {
+    display: flex;
+    flex-direction: row-reverse; /* met la sidebar à droite */
+    align-items: flex-start;
 }
 
-.menu-toggle {
+
+/* === SIDEBAR FIXÉE À DROITE === */
+.sidebar-right {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 160px; /* plus étroite */
+    height: 100vh;
+    background-color: white;
+    color: white;
+    padding-top: 10px;
+    box-shadow: -3px 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+}
+
+/* Bouton hamburger visible sur mobile */
+.sidebar-toggle {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #f0c674;
+    cursor: pointer;
+    display: none;
+}
+
+/* Menu latéral */
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+    .sidebar-menu li {
+        margin: 10px 0;
+    }
+
+    .sidebar-menu button {
+        background: none;
+        border: none;
+        color: #f0c674;
+        padding: 10px;
+        text-align: left;
+        width: 100%;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+        .sidebar-menu button:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+/* === CONTENU DU PORTFOLIO === */
+.portfolio-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    flex: 1;
+    padding: 20px;
+    margin-right: 0;
+}
+
+/* Grille de contenu */
+.portfolio-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    width: 100%;
+}
+
+/* Une seule colonne en mobile */
+@media (max-width: 768px) {
+    .portfolio-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+    /* Structure principale */
+    .portfolio-container {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    /* Sidebar à droite */
+.sidebar {
+    width: 220px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 100px; /* Commence sous le <h2> */
+    height: fit-content;
+    z-index: 100;
+    margin-left: 30px; /* espace entre le contenu et la sidebar */
+}
+
+/* Bouton toggle (utilisé sur mobile) */
+.sidebar-toggle {
     background-color: #007bff;
     color: white;
     border: none;
@@ -18,64 +123,70 @@
     font-size: 18px;
     border-radius: 6px;
     transition: background-color 0.3s ease;
+    width: 100%;
+    margin-bottom: 10px;
+    display: none; /* visible que en mobile si tu veux */
 }
 
-    .menu-toggle:hover {
-        background-color: #0056b3;
-    }
 
-.submenu {
-    list-style: none;
-    margin-top: 10px;
-    padding: 0;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    background-color: #f9f9f9;
-    width: 220px;
-    position: absolute;
-    z-index: 10;
-}
-
-    .submenu li {
-        margin: 10px 0;
-    }
-
-        .submenu li button {
-            background-color: transparent;
-            border: none;
-            padding: 10px 16px;
-            width: 100%;
-            text-align: left;
-            cursor: pointer;
-            font-size: 16px;
+        .sidebar-toggle:hover {
+            background-color: #0056b3;
         }
 
-            .submenu li button:hover {
-                background-color: #eee;
-            }
-
-/* === Portfolio Section en 2 colonnes */
-.portfolio-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    width: 100%; /* prendre toute la largeur du bloc parent */
-}
-
-@media (max-width: 768px) {
-    .portfolio-content {
-        grid-template-columns: 1fr; /* 1 colonne sur mobile */
+    /* Menu de la sidebar */
+    .sidebar-menu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
     }
-}
 
+        .sidebar-menu li {
+            margin: 10px 0;
+        }
 
+            .sidebar-menu li button {
+                background-color: transparent;
+                border: none;
+                padding: 10px 16px;
+                width: 100%;
+                text-align: left;
+                cursor: pointer;
+                font-size: 16px;
+                color: #333;
+                border-radius: 8px;
+                transition: background-color 0.2s ease, color 0.2s ease;
+            }
+                .sidebar-menu li button:hover {
+                    background-color: #eee;
+                }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .portfolio-container {
+            flex-direction: column;
+        }
+
+        .sidebar {
+            width: 100%;
+            border-left: none;
+            border-top: 1px solid #ccc;
+            position: relative;
+            top: auto;
+        }
+
+        .sidebar-toggle {
+            width: 100%;
+        }
+    }
+
+/* Section catégorie (photos/vidéos) */
 .portfolio-category {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
 }
 
-/* Media items */
+/* Élément média */
 .media-item {
     background-color: #ffffff;
     padding: 10px;
@@ -85,20 +196,21 @@
     transition: transform 0.2s ease;
 }
 
-.media-item:hover {
+    .media-item:hover {
         transform: translateY(-5px);
-}
+    }
 
-    .media-thumb {
+/* Image / vidéo */
+.media-thumb {
     width: 100%;
-    max-width: 100%; /* pour s’adapter à la colonne */
     height: auto;
     object-fit: cover;
     border-radius: 10px;
     cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
-/* Titres de créations */
+/* Titre de création */
 .media-title {
     margin-top: 10px;
     font-size: 1rem;
@@ -112,6 +224,7 @@
         color: #007BFF;
     }
 
+/* Label optionnel */
 .media-label {
     margin-top: 6px;
     font-size: 14px;
@@ -124,7 +237,7 @@
         text-decoration: underline;
     }
 
-/* === Plein écran === */
+/* === OVERLAY PLEIN ÉCRAN === */
 .fullscreen {
     position: fixed;
     top: 0;
@@ -154,21 +267,9 @@
     color: white;
     cursor: pointer;
 }
- /*redefinir les dimensions des creations = cv style*/
-.portfolio-wrapper {
-    max-width: 800px; /* comme le CV */
-    margin: 0 auto;
-    padding: 20px;
+/*Sous menu ouvert sur ordi, caché sur mobile*/
+@media (max-width: 768px) {
+    .sidebar-menu.hidden {
+        display: none !important;
+    }
 }
-
-/* Images et vidéos en taille responsive */
-.portfolio-content .media-thumb {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
-

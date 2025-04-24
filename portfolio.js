@@ -1,54 +1,61 @@
-﻿document.addEventListener("DOMContentLoaded", function () {
-    // Fonction pour afficher ou cacher le menu hamburger
-    function toggleMenu() {
-        const submenu = document.getElementById('submenu');
-        submenu.classList.toggle('hidden');  // Ajoute ou retire la classe 'hidden'
+﻿document.addEventListener("DOMContentLoaded", () => {
+    // Références DOM
+    const sidebar = document.querySelector(".sidebar");
+    const toggleBtn = document.querySelector(".sidebar-toggle");
+    const submenu = document.getElementById("submenu");
+
+    // Toggle du menu (bouton ☰)
+    if (toggleBtn && sidebar && submenu) {
+        toggleBtn.addEventListener("click", () => {
+            submenu.classList.toggle("hidden");
+        });
     }
 
-    // Associe le bouton menu à la fonction
-    const menuToggleBtn = document.querySelector(".menu-toggle");
-    if (menuToggleBtn) {
-        menuToggleBtn.addEventListener("click", toggleMenu);
-    }
+    // Fonction pour afficher une catégorie (photo ou vidéo)
+    function showCategory(category) {
+        // Cacher toutes les catégories
+        const allCategories = document.querySelectorAll('.portfolio-category');
+        allCategories.forEach(cat => cat.classList.add('hidden'));
 
-    // Affiche la catégorie choisie (photos ou vidéos)
-    window.showCategory = function (category) {
-        const photo = document.getElementById('photo-category');
-        const video = document.getElementById('video-category');
-
-        if (category === 'photo') {
-            photo.classList.remove('hidden');
-            video.classList.add('hidden');
-        } else {
-            photo.classList.add('hidden');
-            video.classList.remove('hidden');
+        // Afficher la catégorie sélectionnée
+        const selected = document.getElementById(`${category}-category`);
+        if (selected) {
+            selected.classList.remove('hidden');
         }
 
-        // Cache le menu une fois un choix fait
+        // (Facultatif) Garder le menu visible
         const submenu = document.getElementById('submenu');
-        if (submenu) submenu.classList.add('hidden');
-    };
+        if (submenu && submenu.classList.contains('hidden')) {
+            submenu.classList.remove('hidden');
+        }
+    }
 
-    // Mode plein écran
+    // Affichage plein écran d'un média (image ou vidéo)
     window.openFullscreen = function (media) {
         const overlay = document.getElementById('fullscreen-overlay');
         const container = document.getElementById('fullscreen-content');
-        container.innerHTML = ""; // on vide le contenu existant
 
+        if (!overlay || !container) return;
+
+        container.innerHTML = "";
+
+        // Cloner l’élément pour ne pas affecter l’original
         const clone = media.cloneNode(true);
         clone.removeAttribute('onclick');
         clone.controls = true;
-        container.appendChild(clone);
 
-        overlay.classList.remove('hidden');  // Affiche l'overlay
+        container.appendChild(clone);
+        overlay.classList.remove('hidden');
     };
 
-    // Fermer plein écran
+    // Fermer le mode plein écran
     window.closeFullscreen = function () {
         const overlay = document.getElementById('fullscreen-overlay');
         const container = document.getElementById('fullscreen-content');
 
-        overlay.classList.add('hidden');  // Cache l'overlay
+        if (!overlay || !container) return;
+
+        overlay.classList.add('hidden');
         container.innerHTML = "";
     };
 });

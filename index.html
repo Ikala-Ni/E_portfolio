@@ -22,7 +22,7 @@
     <!-- Conteneur principal -->
     <!-- NAV *******************************************************************************************************************************-->
     <header>
-        <nav class="navbar">
+        <nav class="navbar fixed pannel">
             <!-- Menu hamburger -->
             <button class="menu-toggle">☰</button>
 
@@ -60,7 +60,7 @@
         <!-- Sections cliquables ***************************************************************************************************************-->
         <!--  PRESENTATION - qui suis-je? ---------------------------------------------------------------------------->
         <section id="presentation" class="about-section content-section hidden cv-style">
-            <h2 class="typewriter">Qui suis-je&nbsp;?</h2>
+            <h2 class="intro title-full">Qui suis-je&nbsp;?</h2>
 
             <p class="text-block">
                 Je suis Mercia, et je suis passionnée par le <strong>digital</strong>, le <strong>design d’interface</strong> et l’<strong>univers du numérique</strong>.
@@ -85,8 +85,8 @@
 
         <!-- CV ------------------------------------------------------------------------------------------->
         <section id="cv" class="content-section hidden cv-style">
-            <div class="cv-title-full">
-                <p class="cv-intro">"Créer, comprendre et transmettre – je me construis un avenir dans le design web et l’expérience utilisateur."</p>
+            <div class="title-full">
+                <p class="intro">"Créer, comprendre et transmettre – je me construis un avenir dans le design web et l’expérience utilisateur."</p>
             </div>
             <div class="cv-layout">
 
@@ -144,57 +144,72 @@
         </section>
 
         <!-- PORTFOLIO ------------------------------------------------------------------------------------------>
+        <!-- PORTFOLIO -->
         <section id="portfolio" class="content-section hidden cv-style">
-            <h2>Mon Portfolio</h2>
+            <h2 class="intro title-full">Mes créations</h2>
 
-            <!-- Menu Hamburger -->
-            <div class="portfolio-menu">
-                <button class="menu-toggle">☰ Voir mes créations</button>
-                <ul id="submenu" class="submenu hidden">
-                    <li><button onclick="showCategory('photo')">Mes créations photo</button></li>
-                    <li><button onclick="showCategory('video')">Mes créations vidéo</button></li>
-                </ul>
-            </div>
+            <div class="portfolio-zone">
+                <!-- SIDEBAR (droite) -->
+                <aside class="sidebar">
+                    <button class="sidebar-toggle" onclick="toggleSidebar()">☰ Catégories</button>
+                    <ul id="submenu" class="sidebar-menu">
+                        <li><button onclick="showCategory('photo')">Photos</button></li>
+                        <li><button onclick="showCategory('video')">Vidéos</button></li>
+                    </ul>
+                </aside>
 
-            <!-- Zone dynamique -->
-            <div class="portfolio-wrapper">
-                <div id="portfolio-content" class="portfolio-content">
-                    <!-- Photos -->
-                    <div class="portfolio-category hidden" id="photo-category">
-                        <div class="media-item">
-                            <img src="img/porto1.png" alt="Photo 1" class="media-thumb" onclick="openFullscreen(this)">
-                            <p class="media-title" onclick="openFullscreen(this.previousElementSibling)">Anniversaire 7 ans Jade</p>
-                        </div>
-                        <div class="media-item">
-                            <img src="img/porto2.png" alt="Photo 2" class="media-thumb" onclick="openFullscreen(this)">
-                            <p class="media-title" onclick="openFullscreen(this.previousElementSibling)">Anniversaire 8 ans Jade</p>
-                        </div>
-                    </div>
+                <!-- CONTENU DU PORTFOLIO -->
+                <div class="portfolio-wrapper">
+                    <div id="portfolio-content" class="portfolio-content">
 
-                    <!-- Vidéos -->
-                    <div class="portfolio-category hidden" id="video-category">
-                        <div class="media-item">
-                            <video src="videos/porto1.mp4" class="media-thumb" controls onclick="openFullscreen(this)"></video>
-                            <p class="media-title" onclick="openFullscreen(this.previousElementSibling)">Vidéo 1</p>
+                        <!-- Catégorie Photos -->
+                        <div class="portfolio-category" id="photo-category">
+                            <div class="media-item">
+                                <img src="img/porto1.png" alt="Photo 1" class="media-thumb" onclick="openFullscreen(this)">
+                                <p class="media-title" onclick="openFullscreen(this.previousElementSibling)">
+                                    Anniversaire 7 ans Jade
+                                </p>
+                            </div>
+                            <div class="media-item">
+                                <img src="img/porto2.png" alt="Photo 2" class="media-thumb" onclick="openFullscreen(this)">
+                                <p class="media-title" onclick="openFullscreen(this.previousElementSibling)">
+                                    Anniversaire 8 ans Jade
+                                </p>
+                            </div>
                         </div>
-                        <div class="media-item">
-                            <video src="videos/porto2.mp4" class="media-thumb" controls onclick="openFullscreen(this)"></video>
-                            <p class="media-title" onclick="openFullscreen(this.previousElementSibling)">Vidéo 2</p>
+
+                        <!-- Catégorie Vidéos -->
+                        <div class="portfolio-category hidden" id="video-category">
+                            <div class="media-item">
+                                <video src="videos/porto1.mp4" class="media-thumb" controls onclick="openFullscreen(this)"></video>
+                                <p class="media-title" onclick="openFullscreen(this.previousElementSibling)">
+                                    Vidéo 1
+                                </p>
+                            </div>
+                            <div class="media-item">
+                                <video src="videos/porto2.mp4" class="media-thumb" controls onclick="openFullscreen(this)"></video>
+                                <p class="media-title" onclick="openFullscreen(this.previousElementSibling)">
+                                    Vidéo 2
+                                </p>
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>
 
-            <!-- Overlay fullscreen -->
+            <!-- OVERLAY Fullscreen -->
             <div id="fullscreen-overlay" class="fullscreen hidden" onclick="closeFullscreen()">
                 <span class="fullscreen-close">×</span>
                 <div id="fullscreen-content"></div>
             </div>
         </section>
 
+
+
         <!-- VOTRE PROJET ----------------------------------------------------------------------------->
         <section id="projet" class="content-section hidden cv-style">
-            <h2>Votre projet</h2>
+            <h2 class="intro title-full">Vos idées prennent forme...vos projets prennent vie</h2>
             <form id="form-projet" class="projet-form" enctype="multipart/form-data">
                 <label for="nom">Nom :</label>
                 <input type="text" id="nom" name="nom" aria-label="votre nom" required>
@@ -303,7 +318,7 @@
             </a>
         </div>
     </footer>-->
-    <footer class="site-footer">
+    <footer class="site-footer fixed panel">
         <p>Contact : ton.email@example.com | Adresse : 123 rue de la Création, 75000 Paris</p>
         <div class="social-links">
             <a href="#"><i class="fab fa-linkedin"></i></a>
@@ -314,21 +329,25 @@
         </div>
     </footer>
 
-    <!-- CHATBOT Trigger avec bulle d'invitation *****************************************************************************************************-->
+    <!-- CHATBOT Trigger avec bulle d'invitation -->
     <div class="chat-widget" id="chat-widget">
         <div class="chat-message-bubble" id="chat-bubble">
             💬 Une question ?
-            <span class="chat-close" id="close-bubble">×</span>
+            <span class="chat-close" id="chat-bubble-close">×</span>
         </div>
-        <img src="img/chat.jpg" alt="Chatbot" class="chat-avatar" id="chat-trigger" onclick="openChatbox()">
+        <!-- on retire onclick="openChatbox()" -->
+        <img src="img/chat.jpg"
+             alt="Chatbot"
+             class="chat-avatar"
+             id="chat-trigger">
     </div>
-
 
     <!-- Chatbox -->
     <div class="chatbox-container hidden" id="chatbox">
         <div class="chatbox-header">
             💬 Une question ?
-            <span class="chatbox-close" onclick="closeChatbox()">       x</span>
+            <!-- on retire onclick et on ajoute un id pour le fermer en JS -->
+            <span class="chatbox-close" id="chatbox-close">×</span>
         </div>
 
         <div class="chatbox-messages" id="chat-messages">
@@ -342,8 +361,9 @@
         </form>
     </div>
 
-    <!-- son réponse bot -->
+    <!-- son réponse bot (inchangé) -->
     <audio id="bot-sound" src="sons/bot-reply.mp3" preload="auto"></audio>
+
     <!-- Popup de logins -->
     <div id="popup-message" class="popup hidden"></div>
 

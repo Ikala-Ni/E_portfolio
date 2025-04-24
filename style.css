@@ -1,49 +1,72 @@
-﻿/* style.css - Version simplifiée et responsive */
-
-/* 1. Reset de base */
+﻿/* ========================================
+   1. RESET & BOX-SIZING
+   Réinitialisation des marges, paddings,
+   et définition du box-sizing global.
+   ======================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* 2. Polices et body */
+/* ========================================
+   2. TYPOGRAPHIE & BODY
+   Police, couleurs par défaut et fond fixe.
+   ======================================== */
 body {
     font-family: 'Segoe UI', sans-serif;
     line-height: 1.6;
     background: #f0f2f5;
     color: #333;
+    padding-top: 60px; /* espace sous navbar fixe */
+    padding-bottom: 80px; /* espace au-dessus du footer fixe */
+    overflow-x: hidden; /* pas de scroll horizontal */
 }
 
+/* ========================================
+   3. BACKGROUND IMAGE
+   Fond d’accueil fixe derrière tout le contenu.
+   ======================================== */
 .background-image {
     position: fixed;
     top: 0;
     left: 0;
-    height: 100vh;
     width: 100vw;
-    background-image: url("img/fond-ecran4.png"); /* image arriere plan */
-    background-size: cover;
-    background-position: center;
-    z-index: -1; /* Placer derrière le contenu */
-    filter: brightness(0.6); /* Rend le texte plus lisible */
+    height: 100vh;
+    background: url("img/fond-ecran4.png") center/cover no-repeat;
+    z-index: -1;
+    filter: brightness(0.6);
 }
 
-/* 3. Container principal */
+/* ========================================
+   4. UTILITY CLASSES
+   .hidden pour masquage unifié
+   ======================================== */
+.hidden {
+    display: none !important;
+}
+
+/* ========================================
+   5. LAYOUT CONTAINER
+   Conteneur principal centré
+   ======================================== */
 .container {
     width: 90%;
     max-width: 1200px;
-    margin: auto;
-    padding-top: 80px; /* espace pour la navbar fixe */
+    margin: 0 auto;
 }
 
-/* 4. NAVIGATION */
+/* ========================================
+   6. NAVBAR & MENU
+   Barre fixe, liens, hamburger mobile
+   ======================================== */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: #ffffff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -63,6 +86,7 @@ body {
     list-style: none;
 }
 
+    /* Liens de la navbar */
     .nav-links a,
     .nav-right a {
         text-decoration: none;
@@ -76,226 +100,234 @@ body {
             color: #007bff;
         }
 
-/* 5. SLIDER (Accueil) */
-.slides {
-    display: flex;
-    overflow: hidden;
-    border-radius: 10px;
+/* Bouton hamburger (mobile) */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* Menu mobile (état ouvert via .show) */
+.nav-links.show,
+.nav-right.show {
+    display: flex !important;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    z-index: 1001;
+}
+
+/* ========================================
+   7. SLIDER (ACCUEIL)
+   Carrousel full-width sous navbar
+   ======================================== */
+.slides {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-top: 0; /* géré par body padding-top */
+    transition: opacity 0.3s;
+}
+
+    .slides.hidden {
+        display: none !important;
+    }
+
 .slide {
-    min-width: 100%;
-    transition: transform 0.5s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     display: none;
+    object-fit: cover;
 }
 
     .slide.active {
         display: block;
-        object-fit: cover;
     }
-
-/* 6. Responsive */
-@media (max-width: 768px) {
-    .nav-links,
-    .nav-right {
-        display: none;
-        flex-direction: column;
-        background: white;
-        position: absolute;
-        top: 70px;
-        right: 10px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        padding: 10px;
-    }
-
-    .navbar .menu-toggle {
-        display: block;
-        cursor: pointer;
-    }
-
-    /*****************************************************/
-}
-/* 🧾 Footer text & icons centrés */
-.site-footer {
-    text-align: center;
-    padding: 10px;
-}
-
-.social-links {
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-/* 📱 Chat avatar responsive */
-.chat-widget {
-    width: 60px;
-    height: auto;
-}
-
-
-/* 🧱 SECTIONS CONTENUS : pleine largeur, marges et padding adaptatifs */
-.content-section {
-    width: 95% !important;
-    padding: 10px;
-    margin: 0 auto;
-    box-sizing: border-box;
-}
-
-/* ✅ Evite les effets de translation gênants sur mobile */
+/* ========================================
+   7. CV STYLE (CONTENU)
+  Stylé hérité de toutes les contenus sections
+   ======================================== */
 .cv-style {
-    transform: none !important;
+    /* largeur fluide, max 800px pour le confort de lecture */
+    width: 90%;
+    max-width: 774px;
+    /* on centre horizontalement */
+    margin: 0 auto;
+    /* on colle le haut sous la navbar et le bas au-dessus du footer */
+    padding-top: 20px; /* ton padding interne haut */
+    padding-bottom: 20px; /* ton padding interne bas */
+    /* Hauteur minimum = 100% de la hauteur de la fenêtre 
+     moins la hauteur du header (60px) et du footer (60px) */
+    min-height: calc(100vh - 120px);
+    /* boîte blanche, ombre et coins arrondis */
+    background-color: #000; /* fond noir */
+    color: #fff; /* texte blanc */
+    /* 1. Bordure gauche épaisse (la tranche du “téléphone”) */
+    border-left: 12px solid #111; /* épaisseur et couleur sombre */
+    /* 2. Coins droits arrondis comme un smartphone */
+    border-top-right-radius: 24px;
+    border-bottom-right-radius: 24px;
+    /* 3. Côté gauche sans arrondi */
+    border-top-left-radius: 0   ;
+    border-bottom-left-radius: 0;
+    /* suppression du translateX qui cassait la full-width */
+    transform: none;
+    box-sizing: border-box;
+    /* ombre intérieure sur le côté gauche (ombre de main) */
+    box-shadow: inset 8px 0 12px -4px rgba(0,0,0,0.3);
+  transform: translateX(10px);  /* déplace visuellement de 20px vers la droite */
+
 }
 
-/* 🎞️ GIF animés : adaptatifs */
-.gif-flottant {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 20px auto;
+/* Mobile : largeur 95% et padding réduit */
+@media (max-width: 768px) {
+  .cv-style {
+    width: 95%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    min-height: calc(100vh - 120px);
+  }
 }
 
-/* 📄 CV layout : passe en colonne sur petits écrans */
-.cv-layout {
-    flex-direction: column;
-    align-items: center;
-}
 
-.cv-banner {
-    width: 100%;
-    text-align: center;
-}
-
-    .cv-banner img {
-        max-width: 150px;
-        height: auto;
+/* ========================================
+   9. CV LAYOUT (MOBILE)
+   Transformation en colonne sous 768px
+   ======================================== */
+@media (max-width: 768px) {
+    .cv-layout {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
-.cv-content {
-    width: 100%;
+    .cv-banner,
+    .cv-content {
+        width: 100%;
+    }
 }
 
-/* 🖼️ Portfolio images et vidéos : adaptatifs */
+/* ========================================
+   10. PORTFOLIO SUBMENU
+   Menu déroulant “Voir mes créations”
+   ======================================== */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    list-style: none;
+    z-index: 1000;
+}
+
+    .submenu.show {
+        display: block !important;
+    }
+
+/* ========================================
+   11. MEDIA ITEMS (PORTFOLIO)
+   Images & vidéos adaptatives
+   ======================================== */
 .media-thumb {
     width: 100%;
     height: auto;
-    max-width: 100%;
+    display: block;
 }
 
 .media-item {
-    width: 100%;
     margin-bottom: 20px;
 }
 
-/* 📋 Formulaires */
+/* ========================================
+   12. FORMULAIRES
+   Inputs & textarea pleine largeur
+   ======================================== */
 .projet-form input,
 .projet-form textarea {
     width: 100%;
     box-sizing: border-box;
 }
 
-/*dimension du contenu de chaque section, dimension style cv*/
-.cv-style {
-    padding: 20px 5px 5px 5px; /* top right bottom left */ /*haut:20 - droite:5 - bas:5 - gauche:5*/
-    min-height: calc(100vh - 150px);
-    box-sizing: border-box;
-    max-width: 765px;
-    width: 70%;
-    margin: 40px auto;
-    transform: translateX(12px); /* Décale vers la droite */
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: white;
-}
-
-/*Presentation - qui sui-je?*/
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: #ffffff;
-    color: #111111;
-    margin: 0;
-    padding: 0;
-}
-
-.about-section {
-    background-color: #ffffff;
-    padding: 60px 20px;
+/* ========================================
+   13. FOOTER
+   Pied de page fixe en bas
+   ======================================== */
+.site-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #000;
+    color: #fff;
     text-align: center;
+    padding: 10px;
+    z-index: 1000;
 }
 
-    .about-section h2 {
-        font-size: 2.5rem;
-        margin-bottom: 20px;
-        color: #111111;
-        font-weight: 600;
-    }
 
-    .about-section .intro {
-        font-size: 1.2rem;
-        font-weight: 600;
-        color: #333333;
-        margin-bottom: 30px;
-    }
 
-    .about-section .text-block {
-        font-size: 1.1rem;
-        color: #222222;
-        max-width: 800px;
-        margin: 0 auto 20px;
-        line-height: 1.8;
-    }
+/* ========================================
+   14. ACCESSIBILITÉ FOCUS
+   Styles au focus pour liens et champs
+   ======================================== */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+    outline: 3px solid rgba(0,123,255,0.3);
+    background-color: rgba(0,123,255,0.1);
+}
 
-    .about-section .quote {
-        margin-top: 40px;
-        font-style: italic;
-        font-weight: 500;
-        color: #444444;
-    }
+/* ========================================
+   15. ANIMATIONS & EFFETS DIVERS
+   Typewriter, gifs, etc.
+   ======================================== */
+.gif-flottant {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    animation: float 3s ease-in-out infinite;
+}
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
+@keyframes float {
+    0%,100% {
         transform: translateY(0);
     }
-}
 
-@media screen and (max-width: 600px) {
-    .about-section h2 {
-        font-size: 2rem;
+    50% {
+        transform: translateY(-10px);
     }
-
-    .about-section .text-block {
-        font-size: 1rem;
-    }
-}
-
-/*Gif sur qui suis je*/
-.gif-flottant {
-    width: 200px;
-    display: inline-block;
-    margin-top: 2px;
-    animation: float 3s ease-in-out infinite;
-    filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.2));
 }
 
 .typewriter {
     display: inline-block;
     overflow: hidden;
-    border-right: 2px solid #fff; /* Curseur */
+    border-right: 2px solid #fff;
     white-space: nowrap;
-    animation: typing 3s steps(20, end), blink-caret 0.75s step-end infinite;
-    font-family: 'Courier New', Courier, monospace;
-    color: #ffffff; /* ou autre si fond sombre */
-    font-size: 2rem;
+    animation: typing 3s steps(20,end), blink-caret .75s step-end infinite;
 }
 
-/* Animation machine à ecrire, quis suis je */
 @keyframes typing {
     from {
         width: 0;
@@ -306,104 +338,44 @@ body {
     }
 }
 
-/* Clignotement du curseur */
 @keyframes blink-caret {
-    from, to {
+    50% {
         border-color: transparent;
     }
-
-    50% {
-        border-color: #fff;
-    }
 }
 
-/* Améliorer l'accessibilité des liens au focus */
-a:focus, button:focus, input:focus, textarea:focus {
-    outline: 3px solid rgba(0, 123, 255, 0.1); /* Couleur du contour visible */
-    background-color: rgba(0, 255, 0, 0.1); /* Change la couleur de fond pour plus de visibilité */
-}
-
-/* Améliorer l'accessibilité des champs de formulaire au focus */
-input:focus, textarea:focus, select:focus {
-    border-color: #007BFF; /* Changer la couleur de bordure */
-    background-color: rgba(0, 123, 255, 0.1); /* Changer le fond du champ */
-}
-
-/*FOOTER RESEAUX*/
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-}
-
-    .social-links a {
-        color: #1085f5;
-        font-size: 1.5rem;
-        transition: color 0.3s ease;
+/* ========================================
+   16. MEDIA QUERIES SUPPLÉMENTAIRES
+   Ajustements texte sous 600px
+   ======================================== */
+@media (max-width: 600px) {
+    .about-section h2 {
+        font-size: 2rem;
     }
 
-        .social-links a:hover {
-            color: #f0c674;
-        }
-
-@media screen and (max-width: 768px) {
-    .sidebar {
-        position: relative;
-        width: 100%;
-        height: auto;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        padding: 10px 0;
-    }
-
-    .main-content {
-        margin-left: 0;
-        padding-top: 20px;
-    }
-
-    .section {
-        padding: 20px;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    h1, h2, h3 {
-        font-size: 1.4rem;
-        text-align: center;
-    }
-
-    p, li {
+    .about-section .text-block {
         font-size: 1rem;
     }
-
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-
-    .skills, .projects, .contact {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .project-item, .skill-item {
-        width: 90%;
-        margin: 10px auto;
-    }
 }
 
-    /* Améliorer l'accessibilité des liens au focus */
-    a:focus, button:focus, input:focus, textarea:focus {
-        outline: 3px solid rgba(0, 123, 255, 0.1); /* Couleur du contour visible */
-        background-color: rgba(0, 255, 0, 0.1); /* Change la couleur de fond pour plus de visibilité */
-    }
+/* ——————————————————————————————————————————————————
+   17. SLIDES : forcer une hauteur minimale
+   pour que le container soit visible immédiatement
+—————————————————————————————————————————————————— */
+.slides {
+    min-height: 100vh; /* par exemple 50% de la hauteur d’écran */
+}
 
-    /* Améliorer l'accessibilité des champs de formulaire au focus */
-    input:focus, textarea:focus, select:focus {
-        border-color: #007BFF; /* Changer la couleur de bordure */
-        background-color: rgba(0, 123, 255, 0.1); /* Changer le fond du champ */
-    }
+/* style.css */
+
+/* Classe réutilisable pour header & footer fixes */
+.fixed-panel {
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 10px 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
 

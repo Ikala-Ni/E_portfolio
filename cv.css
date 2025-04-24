@@ -1,24 +1,42 @@
-﻿.cv-layout {
-    display: flex;
-    flex-direction: row;
-    gap: 30px;
-    padding: 40px;
-    background-color: #111;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+﻿/* 1. Conteneur principal du CV : deux colonnes, s’empile en mobile */
+.cv-layout {
+    display: flex; /* flex container */
+    flex-direction: row; /* deux colonnes sur desktop */
+    gap: 30px; /* espace entre colonnes */
+    padding: 40px; /* espacement interne */
+    background-color: #111; /* fond sombre */
+    border-radius: 20px; /* coins arrondis */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3); /* ombre portée */
 }
 
+/* 1.a — passage en colonne sous 768px */
+@media (max-width: 768px) {
+    .cv-layout {
+        flex-direction: column; /* empilement vertical */
+        padding: 20px; /* moins de padding sur petit écran */
+        gap: 20px; /* réduit l’écart */
+    }
+}
+
+/* 2. Contenu CV (texte) prend 2/3 de la largeur */
 .cv-content {
-    flex: 2;
-    color: #f5f5f5;
+    flex: 2; /* 2 parts de l’espace */
+    color: #f5f5f5; /* texte clair */
 }
 
     .cv-content h2 {
         font-size: 2rem;
         margin-bottom: 20px;
-        color: #f0c674;
+        color: #f0c674; /* accent couleur */
     }
 
+/*  tout h2 dans une section de contenu gagne une ligne d’espace au-dessus */
+.intro {
+    margin-top: 1.5em; /* ou 1.5em, 20px… selon l’espacement désiré */
+}
+
+
+/* 3. Chaque bloc de CV (expériences, formations, compétences) */
 .cv-block {
     margin-bottom: 30px;
 }
@@ -33,19 +51,19 @@
             font-size: 1.1rem;
         }
 
+/* 4. Bandeau latéral (photo + boutons) prend 1/3 */
 .cv-banner {
-    flex: 1;
+    flex: 1; /* 1 part de l’espace */
     background-color: #1c1c1c;
     border-left: 3px solid #f0c674;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centrer internes */
     border-radius: 15px;
 }
 
-    .cv-banner ul {
-        list-style: none;
-        padding: 0;
-    }
-
+    /* 4.a — Boutons de navigation CV */
     .cv-banner button {
         background: transparent;
         color: #f0c674;
@@ -56,7 +74,7 @@
         text-align: left;
         cursor: pointer;
         border-radius: 10px;
-        transition: all 0.3s ease;
+        transition: background 0.3s, color 0.3s;
     }
 
         .cv-banner button:hover,
@@ -66,6 +84,14 @@
             font-weight: bold;
         }
 
+    .cv-banner ul {
+        list-style: none; /* ⬅️ Supprime les puces */
+        padding-left: 0; /* ⬅️ Supprime le décalage gauche */
+        margin: 0; /* (optionnel) enlève les marges */
+    }
+
+
+/* 5. Intro textuelle */
 .cv-intro {
     font-style: italic;
     margin-bottom: 1rem;
@@ -73,6 +99,7 @@
     font-size: 1.1rem;
 }
 
+/* 6. Téléchargement du CV */
 .btn-download {
     display: inline-block;
     padding: 10px 20px;
@@ -80,7 +107,7 @@
     color: #fff;
     border-radius: 8px;
     text-decoration: none;
-    margin-bottom: 10.5rem;
+    margin: 20px 0; /* marge verticale modérée */
     transition: background 0.3s;
 }
 
@@ -88,6 +115,7 @@
         background-color: #444;
     }
 
+/* 7. Badges de compétences */
 .skills-badges {
     display: flex;
     flex-wrap: wrap;
@@ -102,7 +130,8 @@
     border-radius: 20px;
     font-size: 0.9rem;
 }
- /*image laterale*/
+
+/* 8. Photo circulaire */
 .cv-photo {
     display: flex;
     justify-content: center;
@@ -115,64 +144,26 @@
         border-radius: 50%;
         object-fit: cover;
         border: 2px solid #f0c674;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.4);
     }
 
-    /*centrer l ensemble*/
-.cv-banner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/*Centré le titre*/
-.cv-title-full {
+/* 9. Titre complet centré */
+.title-full {
     width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
     text-align: center;
     margin-bottom: 30px;
     background-color: #1c1c1c;
     border: 3px solid #f0c674;
     padding: 20px;
     border-radius: 20px;
-    box-shadow: 0 5px 15px rgba(240, 198, 116, 0.2);
+    box-shadow: 0 5px 15px rgba(240,198,116,0.2);
 }
 
-
     .cv-title-full .cv-intro {
-        font-style: italic;
         color: #ccc;
         font-size: 1.1rem;
-        margin-bottom: 1rem;
     }
 
     .cv-title-full .btn-download {
-        display: inline-block;
-        margin-top: 10px;
+        margin-top: 10px; /* bouton dessous le texte */
     }
-
-.cv-banner .btn-download {
-    display: inline-block;
-    width: 100%;
-    padding: 10px 15px;
-    background: transparent;
-    color: #f0c674;
-    border: 1px solid #f0c674;
-    border-radius: 10px;
-    font-size: 0.95rem; /*réduit la police*/
-    font-weight: bold;
-    text-decoration: none;
-    text-align: center;
-    transition: all 0.3s ease;
-    margin-top: 20px;
-}
-
-    .cv-banner .btn-download:hover {
-        background-color: #1085f5;
-        color: #fff;
-        border-color: #1085f5;
-    }
-
-
-
