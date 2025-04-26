@@ -1,0 +1,430 @@
+﻿/* ========================================
+   1. RESET & BOX-SIZING
+   Réinitialisation des marges, paddings,
+   et définition du box-sizing global.
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* ========================================
+   2. TYPOGRAPHIE & BODY
+   Police, couleurs par défaut et fond fixe.
+   ======================================== */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    background: #f0f2f5;
+    color: #333;
+    padding-top: 60px; /* espace sous navbar fixe */
+    padding-bottom: 80px; /* espace au-dessus du footer fixe */
+    overflow-x: hidden; /* pas de scroll horizontal */
+}
+
+/* ========================================
+   3. BACKGROUND IMAGE
+   Fond d’accueil fixe derrière tout le contenu.
+   ======================================== */
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url("img/fond-ecran4.png") center no-repeat;
+    z-index: -1;
+    filter: brightness(0.6);
+}
+
+/* ========================================
+   4. UTILITY CLASSES
+   .hidden pour masquage unifié
+   ======================================== */
+.hidden {
+    display: none !important;
+}
+
+/* ========================================
+   5. LAYOUT CONTAINER
+   Conteneur principal centré
+   ======================================== */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ========================================
+   6. NAVBAR & MENU
+   Barre fixe, liens, hamburger mobile
+   ======================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 1000;
+}
+
+    .navbar .profile-link img {
+        width: 50px;
+        border-radius: 50%;
+    }
+
+.nav-links,
+.nav-right {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+}
+
+    /* Liens de la navbar */
+    .nav-links a,
+    .nav-right a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+        .nav-links a:hover,
+        .nav-right a:hover {
+            color: #007bff;
+        }
+
+/* Bouton hamburger (mobile) */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    header, .navbar {
+        height: 50px;
+        padding: 8px 16px;
+    }
+
+    .menu-toggle, .sidebar-toggle {
+        font-size: 20px;
+    }
+}
+
+/* Menu mobile (état ouvert via .show) */
+.nav-links.show,
+.nav-right.show {
+    display: flex !important;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    z-index: 1001;
+}
+
+/* ========================================
+   7. SLIDER (ACCUEIL)
+   Carrousel full-width sous navbar
+   ======================================== */
+.slides {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-top: 0; /* géré par body padding-top */
+    transition: opacity 0.3s;
+}
+
+    .slides.hidden {
+        display: none !important;
+    }
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: none;
+    object-fit: cover;
+}
+
+    .slide.active {
+        display: block;
+    }
+/* ========================================
+   7. CV STYLE (CONTENU)
+  Stylé hérité de toutes les contenus sections
+   ======================================== */
+.cv-style {
+    /* largeur fluide, max 800px pour le confort de lecture */
+    width: 90%;
+    max-width: 774px;
+    /* on centre horizontalement */
+    margin: 0 auto;
+    /* on colle le haut sous la navbar et le bas au-dessus du footer */
+    padding-top: 20px; /* ton padding interne haut */
+    padding-bottom: 20px; /* ton padding interne bas */
+    /* Hauteur minimum = 100% de la hauteur de la fenêtre 
+     moins la hauteur du header (60px) et du footer (60px) */
+    min-height: calc(100vh - 120px);
+    /* boîte blanche, ombre et coins arrondis */
+    background-color: #000; /* fond noir */
+    color: #fff; /* texte blanc */
+    /* 1. Bordure gauche épaisse (la tranche du “téléphone”) */
+    border-left: 12px solid #111; /* épaisseur et couleur sombre */
+    /* 2. Coins droits arrondis comme un smartphone */
+    border-top-right-radius: 24px;
+    border-bottom-right-radius: 24px;
+    /* 3. Côté gauche sans arrondi */
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    /* suppression du translateX qui cassait la full-width */
+    transform: none;
+    box-sizing: border-box;
+    /* ombre intérieure sur le côté gauche (ombre de main) */
+    box-shadow: inset 8px 0 12px -4px rgba(0,0,0,0.3);
+    transform: translateX(10px); /* déplace visuellement de 20px vers la droite */
+}
+
+/* Mobile : largeur 95% et padding réduit */
+@media (max-width: 768px) {
+    .cv-style {
+        width: 95%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        min-height: calc(100vh - 120px);
+    }
+}
+
+
+/* ========================================
+   9. CV LAYOUT (MOBILE)
+   Transformation en colonne sous 768px
+   ======================================== */
+@media (max-width: 768px) {
+    .cv-layout {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cv-banner,
+    .cv-content {
+        width: 100%;
+    }
+}
+
+/* ========================================
+   10. PORTFOLIO SUBMENU
+   Menu déroulant “Voir mes créations”
+   ======================================== */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    list-style: none;
+    z-index: 1000;
+}
+
+    .submenu.show {
+        display: block !important;
+    }
+
+/* ========================================
+   11. MEDIA ITEMS (PORTFOLIO)
+   Images & vidéos adaptatives
+   ======================================== */
+.media-thumb {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.media-item {
+    margin-bottom: 20px;
+}
+
+/* ========================================
+   12. FORMULAIRES
+   Inputs & textarea pleine largeur
+   ======================================== */
+.projet-form input,
+.projet-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ========================================
+   13. FOOTER
+   Pied de page fixe en bas
+   ======================================== */
+.site-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #000;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    z-index: 1000;
+}
+
+
+
+/* ========================================
+   14. ACCESSIBILITÉ FOCUS
+   Styles au focus pour liens et champs
+   ======================================== */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+    outline: 3px solid rgba(0,123,255,0.3);
+    background-color: rgba(0,123,255,0.1);
+}
+
+/* ========================================
+   15. ANIMATIONS & EFFETS DIVERS
+   Typewriter, gifs, etc.
+   ======================================== */
+.gif-flottant {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.typewriter {
+    display: inline-block;
+    overflow: hidden;
+    border-right: 2px solid #fff;
+    white-space: nowrap;
+    animation: typing 3s steps(20,end), blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink-caret {
+    50% {
+        border-color: transparent;
+    }
+}
+
+/* ========================================
+   16. MEDIA QUERIES SUPPLÉMENTAIRES
+   Ajustements texte sous 600px
+   ======================================== */
+@media (max-width: 600px) {
+    .about-section h2 {
+        font-size: 2rem;
+    }
+
+    .about-section .text-block {
+        font-size: 1rem;
+    }
+}
+
+/* ——————————————————————————————————————————————————
+   17. SLIDES : forcer une hauteur minimale
+   pour que le container soit visible immédiatement
+—————————————————————————————————————————————————— */
+.slides {
+    min-height: 100vh; /* par exemple 50% de la hauteur d’écran */
+}
+
+/* style.css */
+
+/* Classe réutilisable pour header & footer fixes */
+.fixed-panel {
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 10px 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+/*Limiter la largeur de ligne pour le texte principal à environ 60 ch afin d’éviter les lignes trop longues :*/
+.content-section p, .about-section .text-block {
+    max-width: 60ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Sections plein écran mobile/tablette */
+.content-section {
+    min-height: 100vh; /* occupe toute la hauteur de l'écran */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* centre verticalement */
+    align-items: center; /* centre horizontalement */
+    padding: 2rem 1rem; /* marges internes */
+    box-sizing: border-box;
+}
+
+/* Optionnel : corriger marges sur très petit écran */
+@media (max-width: 480px) {
+    .content-section {
+        padding: 1rem;
+    }
+}
+
+/* Animation d'apparition */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Appliquer aux sections */
+.content-section {
+    animation: fadeInUp 0.8s ease both;
+}

@@ -1,0 +1,242 @@
+﻿/* ========== 1. UTILITAIRES ========== */
+.hidden {
+    display: none !important;
+}
+
+/* ========== 2. CONTENEUR GLOBAL : Sidebar + Contenu ========== */
+.portfolio-zone {
+    display: flex;
+    gap: 20px;
+    position: relative; /* Pour que la sidebar soit relative au portfolio */
+}
+
+/* ========== 3. SIDEBAR HOVER ZONE ========== */
+.sidebar-hover-zone {
+    position: relative;
+    width: 60px; /* Large zone invisible pour hover stable */
+    height: 100%;
+}
+
+    .sidebar-hover-zone:hover .sidebar {
+        left: 0; /* Fait glisser la sidebar à l'affichage */
+    }
+
+/* ========== 4. SIDEBAR ========== */
+.sidebar {
+    width: 200px;
+    background: #fff;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    position: absolute;
+    top: 0;
+    left: -160px; /* Cachée par défaut */
+    z-index: 500;
+    transition: left 0.3s ease;
+}
+
+.burger-toggle {
+    display: none; /* On le montrera que sur mobile */
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 16px;
+}
+
+/* Sidebar Menu */
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+    .sidebar-menu li {
+        margin-bottom: 8px;
+    }
+
+    .sidebar-menu button {
+        width: 100%;
+        background: none;
+        border: none;
+        padding: 8px;
+        text-align: left;
+        cursor: pointer;
+        border-radius: 6px;
+        transition: background 0.2s;
+    }
+
+        .sidebar-menu button:hover {
+            background: #f0f0f0;
+        }
+
+/* Sous-listes */
+.submenu-items {
+    list-style: none;
+    padding-left: 12px;
+    margin: 6px 0 12px;
+}
+
+    .submenu-items li {
+        margin: 4px 0;
+    }
+
+    .submenu-items button {
+        background: none;
+        border: none;
+        color: #007BFF;
+        cursor: pointer;
+        font-size: 0.9rem;
+        text-align: left;
+        padding: 2px 8px;
+        border-radius: 4px;
+        transition: background 0.2s;
+    }
+
+        .submenu-items button:hover {
+            background: rgba(0,123,255,0.1);
+        }
+
+/* ========== 5. CONTENU PRINCIPAL ========== */
+.portfolio-wrapper {
+    flex: 1;
+    margin-left: 0;
+}
+
+.portfolio-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+}
+
+/* Cartes média */
+.media-item {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+    .media-item:hover {
+        transform: translateY(-4px);
+    }
+
+.media-thumb {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.media-title {
+    padding: 8px;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+/* ========== 6. OVERLAY FULLSCREEN ========== */
+.fullscreen {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.fullscreen-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 32px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* ========== 7. RESPONSIVE ========== */
+@media (max-width: 768px) {
+    /* Cacher sidebar en mobile */
+    .sidebar-hover-zone {
+        display: none;
+    }
+
+    /* Afficher burger */
+    .burger-toggle {
+        display: block;
+    }
+
+    /* Mini-header pour mobile */
+    .portfolio-mini-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+        position: sticky;
+        top: 60px;
+        z-index: 200;
+    }
+
+    .burger-toggle {
+        font-size: 28px;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .mini-header-menu {
+        display: none;
+        flex-direction: column;
+        background: #ffffff;
+        position: absolute;
+        top: 100%;
+        right: 20px;
+        width: 200px;
+        border-radius: 10px;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        padding: 10px 0;
+        animation: fadeIn 0.3s ease;
+    }
+
+        .mini-header-menu.active {
+            display: flex !important;
+        }
+
+        .mini-header-menu li {
+            list-style: none;
+        }
+
+        .mini-header-menu button {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 12px 20px;
+            text-align: left;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+            .mini-header-menu button:hover {
+                background: #f5f5f5;
+            }
+
+    /* Petite animation d'ouverture */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+ }
