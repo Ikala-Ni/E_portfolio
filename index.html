@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/E_portfolio/">
+
     <title>Ma Présentation UI</title>
 
     <!-- Liens vers les fichiers CSS pour chaque fonctionnalité -->
@@ -141,133 +143,133 @@
 
         <!-- PORTFOLIO ---------------------------------------------------------------------------------------- -->
         <!-- PORTFOLIO -->
-        <section id="portfolio" class="content-section hidden cv-style">
-            <h2 class="intro title-full">Mes créations</h2>
+<section id="portfolio" class="content-section hidden cv-style">
+  <h2 class="intro title-full">Mes créations</h2>
 
-            <!-- MINI-HEADER (Mobile only) -->
-            <div class="portfolio-mini-header">
-                <button class="burger-toggle" aria-label="Ouvrir le menu">☰</button>
-                <ul id="mini-header-menu" class="mini-header-menu hidden">
-                    <li>
-                        <button data-cat="photo">Photos</button>
-                        <ul id="photo-list-mobile" class="submenu-items hidden"></ul>
-                    </li>
-                    <li>
-                        <button data-cat="video">Vidéos</button>
-                        <ul id="video-list-mobile" class="submenu-items hidden"></ul>
-                    </li>
-                    <li>
-                        <button data-cat="carte">Cartes</button>
-                        <ul id="carte-list-mobile" class="submenu-items hidden"></ul>
-                    </li>
-                    <li>
-                        <button data-cat="logo">Logos</button>
-                        <ul id="logo-list-mobile" class="submenu-items hidden"></ul>
-                    </li>
-                    <li>
-                        <button data-cat="site">Sites Internet</button>
-                        <ul id="site-list-mobile" class="submenu-items hidden"></ul>
-                    </li>
-                </ul>
-            </div>
+  <!-- MINI-HEADER (Mobile only) -->
+  <div class="portfolio-mini-header">
+    <button class="burger-toggle" aria-label="Ouvrir le menu">☰</button>
+    <ul id="mini-header-menu" class="mini-header-menu hidden">
+      <li>
+        <button data-cat="photo">Photos</button>
+        <ul id="photo-list-mobile" class="submenu-items hidden"></ul>
+      </li>
+      <li>
+        <button data-cat="video">Vidéos</button>
+        <ul id="video-list-mobile" class="submenu-items hidden"></ul>
+      </li>
+      <li>
+        <button data-cat="carte">Cartes</button>
+        <ul id="carte-list-mobile" class="submenu-items hidden"></ul>
+      </li>
+      <li>
+        <button data-cat="logo">Logos</button>
+        <ul id="logo-list-mobile" class="submenu-items hidden"></ul>
+      </li>
+      <li>
+        <button data-cat="site">Sites Internet</button>
+        <ul id="site-list-mobile" class="submenu-items hidden"></ul>
+      </li>
+    </ul>
+  </div>
 
-            <div class="portfolio-zone">
-                <!-- SIDEBAR Hover-zone (Desktop only) -->
-                <div class="sidebar-hover-zone">
-                    <aside class="sidebar">
-                        <ul id="sidebar-menu" class="sidebar-menu">
-                            <li>
-                                <button data-cat="photo">Photos</button>
-                                <ul id="photo-list-desktop" class="submenu-items hidden"></ul>
-                            </li>
-                            <li>
-                                <button data-cat="video">Vidéos</button>
-                                <ul id="video-list-desktop" class="submenu-items hidden"></ul>
-                            </li>
-                            <li>
-                                <button data-cat="carte">Cartes</button>
-                                <ul id="carte-list-desktop" class="submenu-items hidden"></ul>
-                            </li>
-                            <li>
-                                <button data-cat="logo">Logos</button>
-                                <ul id="logo-list-desktop" class="submenu-items hidden"></ul>
-                            </li>
-                            <li>
-                                <button data-cat="site">Sites Internet</button>
-                                <ul id="site-list-desktop" class="submenu-items hidden"></ul>
-                            </li>
-                        </ul>
-                    </aside>
-                </div>
+  <div class="portfolio-zone">
+    <!-- SIDEBAR Hover-zone (Desktop only) -->
+    <div class="sidebar-hover-zone">
+      <aside class="sidebar">
+        <ul id="sidebar-menu" class="sidebar-menu">
+          <li>
+            <button data-cat="photo">Photos</button>
+            <ul id="photo-list-desktop" class="submenu-items hidden"></ul>
+          </li>
+          <li>
+            <button data-cat="video">Vidéos</button>
+            <ul id="video-list-desktop" class="submenu-items hidden"></ul>
+          </li>
+          <li>
+            <button data-cat="carte">Cartes</button>
+            <ul id="carte-list-desktop" class="submenu-items hidden"></ul>
+          </li>
+          <li>
+            <button data-cat="logo">Logos</button>
+            <ul id="logo-list-desktop" class="submenu-items hidden"></ul>
+          </li>
+          <li>
+            <button data-cat="site">Sites Internet</button>
+            <ul id="site-list-desktop" class="submenu-items hidden"></ul>
+          </li>
+        </ul>
+      </aside>
+    </div>
 
-                <!-- CONTENU DU PORTFOLIO -->
-                <div class="portfolio-wrapper">
-                    <div id="portfolio-content" class="portfolio-content">
-                        <!-- Photo category -->
-                        <div class="portfolio-category" id="photo-category">
-                            <div class="media-item">
-                                <img src="img/porto1.png" class="media-thumb" alt="Photo 1" data-full="img/porto1.png">
-                                <p class="media-title">Anniversaire 7 ans Jade</p>
-                            </div>
-                            <div class="media-item">
-                                <img src="img/porto2.png" class="media-thumb" alt="Photo 2" data-full="img/porto2.png">
-                                <p class="media-title">Anniversaire 8 ans Jade</p>
-                            </div>
-                        </div>
-                        <!-- Video category -->
-                        <div class="portfolio-category hidden" id="video-category">
-                            <div class="media-item">
-                                <video class="media-thumb" src="videos/porto1.mp4" controls data-full="videos/porto1.mp4"></video>
-                                <p class="media-title">Première communion</p>
-                            </div>
-                            <div class="media-item">
-                                <video class="media-thumb" src="videos/porto2.mp4" controls data-full="videos/porto2.mp4"></video>
-                                <p class="media-title">E-commerce éco-responsable</p>
-                            </div>
-                        </div>
-                        <!-- Carte category -->
-                        <div class="portfolio-category hidden" id="carte-category">
-                            <div class="media-item">
-                                <img class="media-thumb" src="cartes/card1.png" alt="Carte 1" data-full="cartes/card1.png">
-                                <p class="media-title">Carte n°1</p>
-                            </div>
-                            <div class="media-item">
-                                <img class="media-thumb" src="cartes/card2.png" alt="Carte 2" data-full="cartes/card2.png">
-                                <p class="media-title">Carte n°2</p>
-                            </div>
-                        </div>
-                        <!-- Logo category -->
-                        <div class="portfolio-category hidden" id="logo-category">
-                            <div class="media-item">
-                                <img class="media-thumb" src="logo/logo1.png" alt="Logo 1" data-full="logo/logo1.png">
-                                <p class="media-title">Logo n°1</p>
-                            </div>
-                            <div class="media-item">
-                                <img class="media-thumb" src="logo/logo2.png" alt="Logo 2" data-full="logo/logo2.png">
-                                <p class="media-title">Logo n°2</p>
-                            </div>
-                        </div>
-                        <!-- Site category -->
-                        <div class="portfolio-category hidden" id="site-category">
-                            <div class="media-item">
-                                <img class="media-thumb" src="sites/site1.png" alt="Site 1" data-full="sites/site1.png">
-                                <p class="media-title">Site n°1</p>
-                            </div>
-                            <div class="media-item">
-                                <img class="media-thumb" src="sites/site2.png" alt="Site 2" data-full="sites/site2.png">
-                                <p class="media-title">Site n°2</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- CONTENU DU PORTFOLIO -->
+    <div class="portfolio-wrapper">
+      <div id="portfolio-content" class="portfolio-content">
+        <!-- Photo category -->
+        <div class="portfolio-category" id="photo-category">
+          <div class="media-item">
+            <img src="img/porto1.png" class="media-thumb" alt="Photo 1" data-full="img/porto1.png">
+            <p class="media-title">Anniversaire 7 ans Jade</p>
+          </div>
+          <div class="media-item">
+            <img src="img/porto2.png" class="media-thumb" alt="Photo 2" data-full="img/porto2.png">
+            <p class="media-title">Anniversaire 8 ans Jade</p>
+          </div>
+        </div>
+        <!-- Video category -->
+        <div class="portfolio-category hidden" id="video-category">
+          <div class="media-item">
+            <video class="media-thumb" src="videos/porto1.mp4" controls data-full="videos/porto1.mp4"></video>
+            <p class="media-title">Première communion</p>
+          </div>
+          <div class="media-item">
+            <video class="media-thumb" src="videos/porto2.mp4" controls data-full="videos/porto2.mp4"></video>
+            <p class="media-title">E-commerce éco-responsable</p>
+          </div>
+        </div>
+        <!-- Carte category -->
+        <div class="portfolio-category hidden" id="carte-category">
+          <div class="media-item">
+            <img class="media-thumb" src="cartes/card1.png" alt="Carte 1" data-full="cartes/card1.png">
+            <p class="media-title">Carte n°1</p>
+          </div>
+          <div class="media-item">
+            <img class="media-thumb" src="cartes/card2.png" alt="Carte 2" data-full="cartes/card2.png">
+            <p class="media-title">Carte n°2</p>
+          </div>
+        </div>
+        <!-- Logo category -->
+        <div class="portfolio-category hidden" id="logo-category">
+          <div class="media-item">
+            <img class="media-thumb" src="logo/logo1.png" alt="Logo 1" data-full="logo/logo1.png">
+            <p class="media-title">Logo n°1</p>
+          </div>
+          <div class="media-item">
+            <img class="media-thumb" src="logo/logo2.png" alt="Logo 2" data-full="logo/logo2.png">
+            <p class="media-title">Logo n°2</p>
+          </div>
+        </div>
+        <!-- Site category -->
+        <div class="portfolio-category hidden" id="site-category">
+          <div class="media-item">
+            <img class="media-thumb" src="sites/site1.png" alt="Site 1" data-full="sites/site1.png">
+            <p class="media-title">Site n°1</p>
+          </div>
+          <div class="media-item">
+            <img class="media-thumb" src="sites/site2.png" alt="Site 2" data-full="sites/site2.png">
+            <p class="media-title">Site n°2</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-            <!-- OVERLAY fullscreen -->
-            <div id="fullscreen-overlay" class="fullscreen hidden">
-                <span class="fullscreen-close">×</span>
-                <div id="fullscreen-content"></div>
-            </div>
-        </section>
+  <!-- OVERLAY fullscreen -->
+  <div id="fullscreen-overlay" class="fullscreen hidden">
+    <span class="fullscreen-close">×</span>
+    <div id="fullscreen-content"></div>
+  </div>
+</section>
 
 
 
