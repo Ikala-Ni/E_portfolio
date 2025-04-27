@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /*========================================
       1. RÉFÉRENCES GLOBALES
-      On récupère tous les éléments du DOM dont on aura besoin.
     ========================================*/
     const slidesContainer = document.getElementById("slides");
     const slides = Array.from(document.querySelectorAll(".slide"));
@@ -20,45 +19,35 @@ document.addEventListener("DOMContentLoaded", function () {
     const navRight = document.querySelector(".nav-right");
     const chatTrigger = document.getElementById("chat-trigger");
     const chatbox = document.getElementById("chatbox");
-    const chatCloseBtn = chatbox.querySelector(".chatbox-close");
+    const chatCloseBtn = chatbox?.querySelector(".chatbox-close"); // sécurisation si chatbox absent
 
     let currentSlide = 0;  // index de la slide actuellement visible
 
     /*========================================
       2. SLIDER AUTOMATIQUE
-      Fait défiler les images toutes les 3 secondes.
     ========================================*/
     function advanceSlider() {
-        // on masque toutes les slides
         slides.forEach(s => s.classList.remove("active"));
-        // on passe à la suivante (boucle circulaire)
         currentSlide = (currentSlide + 1) % slides.length;
         slides[currentSlide].classList.add("active");
     }
-    // démarrer le slider en continu
     const slideInterval = setInterval(advanceSlider, 3000);
 
     /*========================================
       3. AFFICHER LES SLIDES (Accueil)
-      Restaure l’affichage du slider et masque les sections de contenu.
     ========================================*/
     function showSlides() {
-        // masquer toutes les sections
         contentSections.forEach(sec => sec.classList.add("hidden"));
-        // afficher le container de slides
         slidesContainer.classList.remove("hidden");
     }
 
     /*========================================
       4. NAVIGATION ENTRE SECTIONS
-      showSection(id) masque tout et affiche la section ciblée.
     ========================================*/
     function showSection(id) {
-        // masquer slider + toutes les sections
         slidesContainer.classList.add("hidden");
         contentSections.forEach(sec => sec.classList.add("hidden"));
 
-        // afficher la section demandée si elle existe
         const target = document.getElementById(id);
         if (target) {
             target.classList.remove("hidden");
@@ -69,7 +58,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /*========================================
       5. AFFICHAGE PARTIES DU CV
-      showCVPart(id) masque tous les blocs CV et n’affiche que le ciblé.
     ========================================*/
     function showCVPart(id) {
         cvBlocks.forEach(b => b.classList.add("hidden"));
@@ -81,7 +69,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /*========================================
       6. MENU DÉROULANT PORTFOLIO
-      Toggle du sous-menu “Voir mes créations”.
     ========================================*/
     if (portfolioToggle && submenu) {
         portfolioToggle.addEventListener("click", () => {
@@ -92,7 +79,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /*========================================
       7. MENU HAMBURGER MOBILE
-      Toggle des listes nav-links et nav-right.
     ========================================*/
     if (toggleMenuBtn) {
         toggleMenuBtn.addEventListener("click", () => {
@@ -103,7 +89,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /*========================================
       8. EXPOSITION GLOBALE POUR ONCLICK INLINE
-      Permet aux attributs onclick dans le HTML d’appeler ces fonctions.
     ========================================*/
     window.showSlides = showSlides;
     window.showSection = showSection;

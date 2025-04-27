@@ -1,19 +1,18 @@
-<<<<<<< HEAD
-﻿/* login.css — responsive et harmonisé */
+/* login.css — responsive, harmonisé et avec popups */
 
 /* 1. Conteneur commun pour login, register, reset */
 .login-style {
     display: flex;
     flex-direction: column;
-    gap: 1rem; /* espacement uniforme */
-    max-width: 400px; /* largeur maxi desktop */
-    width: 90%; /* adaptatif mobile */
-    margin: 2rem auto; /* centré + marge verticale */
-    padding: 1.5rem; /* espace intérieur */
+    gap: 1rem;
+    max-width: 400px;
+    width: 90%;
+    margin: 2rem auto;
+    padding: 1.5rem;
     background-color: #fff;
     border-radius: 12px;
     border: 1px solid #e0e0e0;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1), 0 10px 20px rgba(0,0,0,0.05);
     box-sizing: border-box;
 }
 
@@ -21,21 +20,23 @@
     .login-style h2 {
         text-align: center;
         color: #111;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1rem;
     }
 
     /* 3. Labels */
     .login-style label {
-        font-weight: 600;
+        font-weight: bold;
         color: #111;
+        margin-top: 10px;
     }
 
     /* 4. Champs input */
     .login-style input {
         width: 100%;
         padding: 0.75rem;
+        margin-top: 5px;
         border: 1px solid #ccc;
-        border-radius: 6px;
+        border-radius: 8px;
         font-size: 1rem;
         color: #111;
         box-sizing: border-box;
@@ -51,66 +52,21 @@
     /* 5. Boutons */
     .login-style button {
         width: 100%;
-        padding: 0.75rem;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        border-radius: 6px;
-        font-weight: 600;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: background-color 0.3s;
-=======
-﻿.login-style {
-    padding: 20px 15px;
-    min-height: calc(100vh - 150px);
-    box-sizing: border-box;
-    max-width: 400px;
-    width: 85%;
-    margin: 60px auto;
-    background-color: white;
-    border-radius: 20px;
-    border: 2px solid #e0e0e0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.05);
-}
-
-    .login-style h2 {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    .login-style label {
-        display: block;
-        margin-top: 10px;
-        font-weight: bold;
-    }
-
-    .login-style input {
-        width: 100%;
-        padding: 10px;
-        margin-top: 5px;
-        border-radius: 8px;
-        border: 1px solid #ccc;
-        box-sizing: border-box;
-    }
-
-    .login-style button {
         margin-top: 20px;
-        width: 100%;
-        padding: 10px;
+        padding: 0.75rem;
         background-color: #007bff;
         color: white;
         border: none;
         border-radius: 8px;
-        cursor: pointer;
         font-weight: bold;
->>>>>>> 98661f487dc2a32f1d705979545749a1fc7c8753
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
     }
 
         .login-style button:hover {
             background-color: #0056b3;
         }
-<<<<<<< HEAD
 
     /* 6. Messages d’erreur */
     .login-style p#error,
@@ -119,7 +75,7 @@
     .login-style p#reset-message {
         color: #d93025;
         font-size: 0.9rem;
-        min-height: 1.2em; /* réserve l’espace */
+        min-height: 1.2em; /* réserve de place pour les messages */
     }
 
     /* 7. Liens secondaires */
@@ -150,14 +106,15 @@
             padding: 0.6rem;
         }
 }
-/*Aligné plein écran mobile*/
+
+/* Alignement pour mobile plein écran */
 .login-style {
     width: 100%;
     max-width: 400px;
     margin: auto;
 }
-=======
-/*Pop up*/
+
+/* 9. Popup notification */
 .popup {
     position: fixed;
     bottom: 20px;
@@ -175,6 +132,3 @@
         opacity: 0;
         pointer-events: none;
     }
-
-
->>>>>>> 98661f487dc2a32f1d705979545749a1fc7c8753

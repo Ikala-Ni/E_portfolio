@@ -53,7 +53,6 @@
     }
 }
 
-
 /*=============================================
 =               CHATBOX CONTAINER             =
 =============================================*/
@@ -99,9 +98,8 @@
         transform: scale(1.2) rotate(90deg);
     }
 
-
 /*=============================================
-=              CHAT MESSAGES AREA              =
+=              CHAT MESSAGES AREA             =
 =============================================*/
 
 .chatbox-messages {
@@ -133,9 +131,8 @@
     max-width: 80%;
 }
 
-
 /*=============================================
-=                 CHAT INPUT                   =
+=                 CHAT INPUT                  =
 =============================================*/
 
 .chatbox-input {
@@ -157,13 +154,10 @@
         padding: 8px 12px;
         cursor: pointer;
     }
-<<<<<<< HEAD
 
-/*Décaler le chatbot sur mobile*/
+/* Décaler le chatbot sur mobile */
 @media (max-width: 600px) {
     .chat-widget, .chatbox-container {
         bottom: 80px;
     }
 }
-=======
->>>>>>> 98661f487dc2a32f1d705979545749a1fc7c8753

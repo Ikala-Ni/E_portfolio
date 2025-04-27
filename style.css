@@ -9,15 +9,12 @@
     box-sizing: border-box;
 }
 
-<<<<<<< HEAD
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
 }
 
-=======
->>>>>>> 98661f487dc2a32f1d705979545749a1fc7c8753
 /* ========================================
    2. TYPOGRAPHIE & BODY
    Police, couleurs par défaut et fond fixe.
@@ -27,9 +24,9 @@ body {
     line-height: 1.6;
     background: #f0f2f5;
     color: #333;
-    padding-top: 60px; /* espace sous navbar fixe */
-    padding-bottom: 80px; /* espace au-dessus du footer fixe */
-    overflow-x: hidden; /* pas de scroll horizontal */
+    padding-top: 60px;
+    padding-bottom: 80px;
+    overflow-x: hidden;
 }
 
 /* ========================================
@@ -42,11 +39,7 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-<<<<<<< HEAD
-    background: url("img/fond-ecran4.png") center no-repeat;
-=======
     background: url("img/fond-ecran4.png") center/cover no-repeat;
->>>>>>> 98661f487dc2a32f1d705979545749a1fc7c8753
     z-index: -1;
     filter: brightness(0.6);
 }
@@ -99,7 +92,6 @@ body {
     list-style: none;
 }
 
-    /* Liens de la navbar */
     .nav-links a,
     .nav-right a {
         text-decoration: none;
@@ -122,20 +114,9 @@ body {
     cursor: pointer;
 }
 
-<<<<<<< HEAD
-@media (max-width: 600px) {
-    header, .navbar {
-        height: 50px;
-        padding: 8px 16px;
-    }
-
-    .menu-toggle, .sidebar-toggle {
-        font-size: 20px;
-=======
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
->>>>>>> 98661f487dc2a32f1d705979545749a1fc7c8753
     }
 }
 
@@ -163,8 +144,9 @@ body {
     width: 100%;
     overflow: hidden;
     border-radius: 10px;
-    margin-top: 0; /* géré par body padding-top */
+    margin-top: 0;
     transition: opacity 0.3s;
+    min-height: 100vh;
 }
 
     .slides.hidden {
@@ -183,73 +165,40 @@ body {
     .slide.active {
         display: block;
     }
+
 /* ========================================
-   7. CV STYLE (CONTENU)
-  Stylé hérité de toutes les contenus sections
+   8. CV STYLE (CONTENU)
    ======================================== */
 .cv-style {
-    /* largeur fluide, max 800px pour le confort de lecture */
     width: 90%;
     max-width: 774px;
-    /* on centre horizontalement */
     margin: 0 auto;
-    /* on colle le haut sous la navbar et le bas au-dessus du footer */
-    padding-top: 20px; /* ton padding interne haut */
-    padding-bottom: 20px; /* ton padding interne bas */
-    /* Hauteur minimum = 100% de la hauteur de la fenêtre 
-     moins la hauteur du header (60px) et du footer (60px) */
+    padding-top: 20px;
+    padding-bottom: 20px;
     min-height: calc(100vh - 120px);
-    /* boîte blanche, ombre et coins arrondis */
-    background-color: #000; /* fond noir */
-    color: #fff; /* texte blanc */
-    /* 1. Bordure gauche épaisse (la tranche du “téléphone”) */
-    border-left: 12px solid #111; /* épaisseur et couleur sombre */
-    /* 2. Coins droits arrondis comme un smartphone */
+    background-color: #000;
+    color: #fff;
+    border-left: 12px solid #111;
     border-top-right-radius: 24px;
     border-bottom-right-radius: 24px;
-    /* 3. Côté gauche sans arrondi */
-<<<<<<< HEAD
     border-top-left-radius: 0;
-=======
-    border-top-left-radius: 0   ;
->>>>>>> 98661f487dc2a32f1d705979545749a1fc7c8753
     border-bottom-left-radius: 0;
-    /* suppression du translateX qui cassait la full-width */
-    transform: none;
+    transform: translateX(10px);
     box-sizing: border-box;
-    /* ombre intérieure sur le côté gauche (ombre de main) */
     box-shadow: inset 8px 0 12px -4px rgba(0,0,0,0.3);
-<<<<<<< HEAD
-    transform: translateX(10px); /* déplace visuellement de 20px vers la droite */
-=======
-  transform: translateX(10px);  /* déplace visuellement de 20px vers la droite */
-
->>>>>>> 98661f487dc2a32f1d705979545749a1fc7c8753
 }
 
-/* Mobile : largeur 95% et padding réduit */
 @media (max-width: 768px) {
-<<<<<<< HEAD
     .cv-style {
         width: 95%;
         padding-top: 10px;
         padding-bottom: 10px;
         min-height: calc(100vh - 120px);
     }
-=======
-  .cv-style {
-    width: 95%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    min-height: calc(100vh - 120px);
-  }
->>>>>>> 98661f487dc2a32f1d705979545749a1fc7c8753
 }
-
 
 /* ========================================
    9. CV LAYOUT (MOBILE)
-   Transformation en colonne sous 768px
    ======================================== */
 @media (max-width: 768px) {
     .cv-layout {
@@ -266,7 +215,6 @@ body {
 
 /* ========================================
    10. PORTFOLIO SUBMENU
-   Menu déroulant “Voir mes créations”
    ======================================== */
 .submenu {
     display: none;
@@ -287,7 +235,6 @@ body {
 
 /* ========================================
    11. MEDIA ITEMS (PORTFOLIO)
-   Images & vidéos adaptatives
    ======================================== */
 .media-thumb {
     width: 100%;
@@ -301,7 +248,6 @@ body {
 
 /* ========================================
    12. FORMULAIRES
-   Inputs & textarea pleine largeur
    ======================================== */
 .projet-form input,
 .projet-form textarea {
@@ -311,7 +257,6 @@ body {
 
 /* ========================================
    13. FOOTER
-   Pied de page fixe en bas
    ======================================== */
 .site-footer {
     position: fixed;
@@ -325,11 +270,8 @@ body {
     z-index: 1000;
 }
 
-
-
 /* ========================================
    14. ACCESSIBILITÉ FOCUS
-   Styles au focus pour liens et champs
    ======================================== */
 a:focus,
 button:focus,
@@ -341,7 +283,6 @@ textarea:focus {
 
 /* ========================================
    15. ANIMATIONS & EFFETS DIVERS
-   Typewriter, gifs, etc.
    ======================================== */
 .gif-flottant {
     max-width: 100%;
@@ -352,7 +293,7 @@ textarea:focus {
 }
 
 @keyframes float {
-    0%,100% {
+    0%, 100% {
         transform: translateY(0);
     }
 
@@ -387,7 +328,6 @@ textarea:focus {
 
 /* ========================================
    16. MEDIA QUERIES SUPPLÉMENTAIRES
-   Ajustements texte sous 600px
    ======================================== */
 @media (max-width: 600px) {
     .about-section h2 {
@@ -399,17 +339,9 @@ textarea:focus {
     }
 }
 
-/* ——————————————————————————————————————————————————
-   17. SLIDES : forcer une hauteur minimale
-   pour que le container soit visible immédiatement
-—————————————————————————————————————————————————— */
-.slides {
-    min-height: 100vh; /* par exemple 50% de la hauteur d’écran */
-}
-
-/* style.css */
-
-/* Classe réutilisable pour header & footer fixes */
+/* ========================================
+   17. FIXED PANEL STYLES
+   ======================================== */
 .fixed-panel {
     background-color: #ffffff;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -417,33 +349,33 @@ textarea:focus {
     width: 100%;
     box-sizing: border-box;
 }
-<<<<<<< HEAD
-/*Limiter la largeur de ligne pour le texte principal à environ 60 ch afin d’éviter les lignes trop longues :*/
+
+/* ========================================
+   18. CONTENT SECTION
+   ======================================== */
 .content-section p, .about-section .text-block {
     max-width: 60ch;
     margin-left: auto;
     margin-right: auto;
 }
 
-/* Sections plein écran mobile/tablette */
 .content-section {
-    min-height: 100vh; /* occupe toute la hauteur de l'écran */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* centre verticalement */
-    align-items: center; /* centre horizontalement */
-    padding: 2rem 1rem; /* marges internes */
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
     box-sizing: border-box;
+    animation: fadeInUp 0.8s ease both;
 }
 
-/* Optionnel : corriger marges sur très petit écran */
 @media (max-width: 480px) {
     .content-section {
         padding: 1rem;
     }
 }
 
-/* Animation d'apparition */
 @keyframes fadeInUp {
     0% {
         opacity: 0;
@@ -455,13 +387,3 @@ textarea:focus {
         transform: translateY(0);
     }
 }
-
-/* Appliquer aux sections */
-.content-section {
-    animation: fadeInUp 0.8s ease both;
-}
-=======
-
-
-
->>>>>>> 98661f487dc2a32f1d705979545749a1fc7c8753

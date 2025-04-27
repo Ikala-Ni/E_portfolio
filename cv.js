@@ -29,25 +29,24 @@ document.addEventListener("DOMContentLoaded", function () {
     // Rendre la fonction disponible globalement
     window.showCVPart = showCVPart;
 
-<<<<<<< HEAD
-    // Mobile only
-    // Mobile only
+    /** 
+     * Comportement spécifique pour mobile :
+     * clic sur un titre H3 pour déplier/replier son contenu.
+     */
     if (window.innerWidth < 600) {
         document.querySelectorAll('.cv-block').forEach(block => {
             const h3 = block.querySelector('h3');
-            const content = h3.nextElementSibling;
-            content.classList.add('hidden');
-            h3.addEventListener('click', () => {
-                content.classList.toggle('hidden');
-            });
+            const content = h3?.nextElementSibling;
+            if (h3 && content) {
+                content.classList.add('hidden');
+                h3.addEventListener('click', () => {
+                    content.classList.toggle('hidden');
+                });
+            }
         });
     }
-
 
     // Afficher par défaut la section "Expériences" au chargement
     showCVPart('cv-experiences');
 
-
-=======
->>>>>>> 98661f487dc2a32f1d705979545749a1fc7c8753
 });

@@ -1,60 +1,44 @@
 ﻿/* 1. Conteneur principal du CV : deux colonnes, s’empile en mobile */
 .cv-layout {
-    display: flex; /* flex container */
-<<<<<<< HEAD
-    flex-direction: row; /* 2 colonnes sur desktop */
-=======
+    display: flex;
     flex-direction: row; /* deux colonnes sur desktop */
->>>>>>> 98661f487dc2a32f1d705979545749a1fc7c8753
-    gap: 30px; /* espace entre colonnes */
-    padding: 40px; /* espacement interne */
-    background-color: #111; /* fond sombre */
-    border-radius: 20px; /* coins arrondis */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3); /* ombre portée */
+    gap: 30px;
+    padding: 40px;
+    background-color: #111;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
-<<<<<<< HEAD
 /* 1.a — passage en colonne sous 600px */
 @media (max-width: 600px) {
+    .cv-layout {
+        flex-direction: column;
+        padding: 20px;
+    }
+
     .content-section {
         padding-bottom: 80px; /* espace pour le footer/chat */
     }
 }
 
-
-/* 2. Contenu CV (texte) prend 2/3 de la largeur */
+/* 2. Contenu CV (texte) prend plus de place */
 .cv-content {
-    flex: 4; /* 4 parts de l’espace */
-=======
-/* 1.a — passage en colonne sous 768px */
-@media (max-width: 768px) {
-    .cv-layout {
-        flex-direction: column; /* empilement vertical */
-        padding: 20px; /* moins de padding sur petit écran */
-        gap: 20px; /* réduit l’écart */
-    }
-}
-
-/* 2. Contenu CV (texte) prend 2/3 de la largeur */
-.cv-content {
-    flex: 2; /* 2 parts de l’espace */
->>>>>>> 98661f487dc2a32f1d705979545749a1fc7c8753
-    color: #f5f5f5; /* texte clair */
+    flex: 4;
+    color: #f5f5f5;
 }
 
     .cv-content h2 {
         font-size: 2rem;
         margin-bottom: 20px;
-        color: #f0c674; /* accent couleur */
+        color: #f0c674;
     }
 
-/*  tout h2 dans une section de contenu gagne une ligne d’espace au-dessus */
+/* Ajoute de l'espace avant les sections */
 .intro {
-    margin-top: 1.5em; /* ou 1.5em, 20px… selon l’espacement désiré */
+    margin-top: 1.5em;
 }
 
-
-/* 3. Chaque bloc de CV (expériences, formations, compétences) */
+/* 3. Chaque bloc de CV */
 .cv-block {
     margin-bottom: 30px;
 }
@@ -69,23 +53,19 @@
             font-size: 1.1rem;
         }
 
-/* 4. Bandeau latéral (photo + boutons) prend 1/3 */
+/* 4. Bandeau latéral (photo + boutons) */
 .cv-banner {
-<<<<<<< HEAD
-    flex: 2; /* 2 part de l’espace */
-=======
-    flex: 1; /* 1 part de l’espace */
->>>>>>> 98661f487dc2a32f1d705979545749a1fc7c8753
+    flex: 2;
     background-color: #1c1c1c;
     border-left: 3px solid #f0c674;
     padding: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* centrer internes */
+    align-items: center;
     border-radius: 15px;
 }
 
-    /* 4.a — Boutons de navigation CV */
+    /* 4.a — Boutons navigation */
     .cv-banner button {
         background: transparent;
         color: #f0c674;
@@ -107,11 +87,10 @@
         }
 
     .cv-banner ul {
-        list-style: none; /* ⬅️ Supprime les puces */
-        padding-left: 0; /* ⬅️ Supprime le décalage gauche */
-        margin: 0; /* (optionnel) enlève les marges */
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
     }
-
 
 /* 5. Intro textuelle */
 .cv-intro {
@@ -129,7 +108,7 @@
     color: #fff;
     border-radius: 8px;
     text-decoration: none;
-    margin: 20px 0; /* marge verticale modérée */
+    margin: 20px 0;
     transition: background 0.3s;
 }
 
@@ -181,26 +160,19 @@
     box-shadow: 0 5px 15px rgba(240,198,116,0.2);
 }
 
-    .cv-title-full .cv-intro {
+    .title-full .cv-intro {
         color: #ccc;
         font-size: 1.1rem;
     }
 
-    .cv-title-full .btn-download {
-        margin-top: 10px; /* bouton dessous le texte */
+    .title-full .btn-download {
+        margin-top: 10px;
     }
-<<<<<<< HEAD
 
 /* Mobile : nav au-dessus */
 @media (max-width: 600px) {
-    .cv-layout {
-        flex-direction: column; /* Passe en colonne */
-        padding: 20px;
-    }
-
-    /*Ligne pour forcer l'ordre */
     .cv-banner {
-        order: -1; /* Met la bannière AVANT le contenu en mobile */
+        order: -1;
         flex-direction: row;
         justify-content: center;
         background-color: transparent;
@@ -226,34 +198,12 @@
             border-radius: 8px;
         }
 
-        .cv-banner .btn-cv-link {
-            display: block;
-            background: transparent;
-            color: #f0c674;
-            border: 1px solid #f0c674;
-            padding: 10px 15px;
-            margin-bottom: 10px;
-            width: 100%;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 10px;
-            transition: background 0.3s, color 0.3s;
-        }
-
-            .cv-banner .btn-cv-link:hover {
-                background-color: #f0c674;
-                color: #111;
-                font-weight: bold;
-            }
-
-
     .cv-photo {
-        display: none; /*Cache la photo */
+        display: none; /* Cache la photo en mobile */
     }
 }
 
 /* Bouton téléchargement spécial mobile */
-
 .btn-cv-link {
     background: #1085f5;
     color: #fff;
@@ -267,15 +217,13 @@
     text-align: center;
 }
 
-        .btn-cv-link:hover {
-            background-color: #444;
-        }
+    .btn-cv-link:hover {
+        background-color: #444;
+    }
 
-/* Visible seulement en mobile */
+/* Cache le bouton spécial mobile si nécessaire */
 @media (max-width: 600px) {
     .btn-cv-link {
         display: none !important;
     }
 }
-=======
->>>>>>> 98661f487dc2a32f1d705979545749a1fc7c8753
