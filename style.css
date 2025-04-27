@@ -39,7 +39,7 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: url("img/fond-ecran4.png") center/cover no-repeat;
+    background: center/cover no-repeat;
     z-index: -1;
     filter: brightness(0.6);
 }
