@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 ﻿/* ========== 1. UTILITAIRES ========== */
+=======
+﻿/* 1. Utilitaire pour masquer */
+>>>>>>> 98661f487dc2a32f1d705979545749a1fc7c8753
 .hidden {
     display: none !important;
 }
 
+<<<<<<< HEAD
 /* ========== 2. CONTENEUR GLOBAL : Sidebar + Contenu ========== */
 .portfolio-zone {
     display: flex;
@@ -22,12 +27,22 @@
     }
 
 /* ========== 4. SIDEBAR ========== */
+=======
+/* 2. Conteneur global : sidebar + contenu */
+.portfolio-zone {
+    display: flex;
+    gap: 20px;
+}
+
+/* 3. Sidebar style “carte” */
+>>>>>>> 98661f487dc2a32f1d705979545749a1fc7c8753
 .sidebar {
     width: 200px;
     background: #fff;
     padding: 16px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+<<<<<<< HEAD
     position: absolute;
     top: 0;
     left: -160px; /* Cachée par défaut */
@@ -45,6 +60,28 @@
 }
 
 /* Sidebar Menu */
+=======
+    position: sticky;
+    top: 100px; /* sous le h2 */
+    align-self: start;
+}
+
+/* 3a. Bouton toggle (mobile) */
+.sidebar-toggle {
+    display: none;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* 3b. Menu de la sidebar */
+>>>>>>> 98661f487dc2a32f1d705979545749a1fc7c8753
 .sidebar-menu {
     list-style: none;
     padding: 0;
@@ -70,6 +107,7 @@
             background: #f0f0f0;
         }
 
+<<<<<<< HEAD
 /* Sous-listes */
 .submenu-items {
     list-style: none;
@@ -110,6 +148,21 @@
 }
 
 /* Cartes média */
+=======
+/* 4. Contenu principal */
+.portfolio-wrapper {
+    flex: 1;
+}
+
+/* 5. Grille responsive */
+.portfolio-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+    gap: 16px;
+}
+
+/* 6. Carte média */
+>>>>>>> 98661f487dc2a32f1d705979545749a1fc7c8753
 .media-item {
     background: #fff;
     border-radius: 10px;
@@ -135,7 +188,11 @@
     color: #333;
 }
 
+<<<<<<< HEAD
 /* ========== 6. OVERLAY FULLSCREEN ========== */
+=======
+/* 7. Overlay fullscreen */
+>>>>>>> 98661f487dc2a32f1d705979545749a1fc7c8753
 .fullscreen {
     position: fixed;
     inset: 0;
@@ -155,6 +212,7 @@
     cursor: pointer;
 }
 
+<<<<<<< HEAD
 /* ========== 7. RESPONSIVE ========== */
 @media (max-width: 768px) {
     /* Cacher sidebar en mobile */
@@ -240,3 +298,31 @@
     }
 
  }
+=======
+/* Sous-listes de titres, indentées */
+.submenu-items {
+    list-style: none;
+    padding-left: 12px;
+    margin: 6px 0 12px;
+}
+
+    .submenu-items li {
+        margin: 4px 0;
+    }
+
+    .submenu-items button {
+        background: none;
+        border: none;
+        color: #007BFF;
+        cursor: pointer;
+        font-size: 0.9rem;
+        text-align: left;
+        padding: 2px 8px;
+        border-radius: 4px;
+        transition: background 0.2s;
+    }
+
+        .submenu-items button:hover {
+            background: rgba(0,123,255,0.1);
+        }
+>>>>>>> 98661f487dc2a32f1d705979545749a1fc7c8753

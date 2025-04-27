@@ -157,6 +157,7 @@
         padding: 8px 12px;
         cursor: pointer;
     }
+<<<<<<< HEAD
 
 /*Décaler le chatbot sur mobile*/
 @media (max-width: 600px) {
@@ -164,3 +165,5 @@
         bottom: 80px;
     }
 }
+=======
+>>>>>>> 98661f487dc2a32f1d705979545749a1fc7c8753

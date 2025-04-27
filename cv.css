@@ -1,7 +1,11 @@
 ﻿/* 1. Conteneur principal du CV : deux colonnes, s’empile en mobile */
 .cv-layout {
     display: flex; /* flex container */
+<<<<<<< HEAD
     flex-direction: row; /* 2 colonnes sur desktop */
+=======
+    flex-direction: row; /* deux colonnes sur desktop */
+>>>>>>> 98661f487dc2a32f1d705979545749a1fc7c8753
     gap: 30px; /* espace entre colonnes */
     padding: 40px; /* espacement interne */
     background-color: #111; /* fond sombre */
@@ -9,6 +13,7 @@
     box-shadow: 0 10px 30px rgba(0,0,0,0.3); /* ombre portée */
 }
 
+<<<<<<< HEAD
 /* 1.a — passage en colonne sous 600px */
 @media (max-width: 600px) {
     .content-section {
@@ -20,6 +25,20 @@
 /* 2. Contenu CV (texte) prend 2/3 de la largeur */
 .cv-content {
     flex: 4; /* 4 parts de l’espace */
+=======
+/* 1.a — passage en colonne sous 768px */
+@media (max-width: 768px) {
+    .cv-layout {
+        flex-direction: column; /* empilement vertical */
+        padding: 20px; /* moins de padding sur petit écran */
+        gap: 20px; /* réduit l’écart */
+    }
+}
+
+/* 2. Contenu CV (texte) prend 2/3 de la largeur */
+.cv-content {
+    flex: 2; /* 2 parts de l’espace */
+>>>>>>> 98661f487dc2a32f1d705979545749a1fc7c8753
     color: #f5f5f5; /* texte clair */
 }
 
@@ -52,7 +71,11 @@
 
 /* 4. Bandeau latéral (photo + boutons) prend 1/3 */
 .cv-banner {
+<<<<<<< HEAD
     flex: 2; /* 2 part de l’espace */
+=======
+    flex: 1; /* 1 part de l’espace */
+>>>>>>> 98661f487dc2a32f1d705979545749a1fc7c8753
     background-color: #1c1c1c;
     border-left: 3px solid #f0c674;
     padding: 20px;
@@ -166,6 +189,7 @@
     .cv-title-full .btn-download {
         margin-top: 10px; /* bouton dessous le texte */
     }
+<<<<<<< HEAD
 
 /* Mobile : nav au-dessus */
 @media (max-width: 600px) {
@@ -253,3 +277,5 @@
         display: none !important;
     }
 }
+=======
+>>>>>>> 98661f487dc2a32f1d705979545749a1fc7c8753

@@ -9,12 +9,15 @@
     box-sizing: border-box;
 }
 
+<<<<<<< HEAD
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
 }
 
+=======
+>>>>>>> 98661f487dc2a32f1d705979545749a1fc7c8753
 /* ========================================
    2. TYPOGRAPHIE & BODY
    Police, couleurs par défaut et fond fixe.
@@ -39,7 +42,11 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
+<<<<<<< HEAD
     background: url("img/fond-ecran4.png") center no-repeat;
+=======
+    background: url("img/fond-ecran4.png") center/cover no-repeat;
+>>>>>>> 98661f487dc2a32f1d705979545749a1fc7c8753
     z-index: -1;
     filter: brightness(0.6);
 }
@@ -115,6 +122,7 @@ body {
     cursor: pointer;
 }
 
+<<<<<<< HEAD
 @media (max-width: 600px) {
     header, .navbar {
         height: 50px;
@@ -123,6 +131,11 @@ body {
 
     .menu-toggle, .sidebar-toggle {
         font-size: 20px;
+=======
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+>>>>>>> 98661f487dc2a32f1d705979545749a1fc7c8753
     }
 }
 
@@ -195,24 +208,42 @@ body {
     border-top-right-radius: 24px;
     border-bottom-right-radius: 24px;
     /* 3. Côté gauche sans arrondi */
+<<<<<<< HEAD
     border-top-left-radius: 0;
+=======
+    border-top-left-radius: 0   ;
+>>>>>>> 98661f487dc2a32f1d705979545749a1fc7c8753
     border-bottom-left-radius: 0;
     /* suppression du translateX qui cassait la full-width */
     transform: none;
     box-sizing: border-box;
     /* ombre intérieure sur le côté gauche (ombre de main) */
     box-shadow: inset 8px 0 12px -4px rgba(0,0,0,0.3);
+<<<<<<< HEAD
     transform: translateX(10px); /* déplace visuellement de 20px vers la droite */
+=======
+  transform: translateX(10px);  /* déplace visuellement de 20px vers la droite */
+
+>>>>>>> 98661f487dc2a32f1d705979545749a1fc7c8753
 }
 
 /* Mobile : largeur 95% et padding réduit */
 @media (max-width: 768px) {
+<<<<<<< HEAD
     .cv-style {
         width: 95%;
         padding-top: 10px;
         padding-bottom: 10px;
         min-height: calc(100vh - 120px);
     }
+=======
+  .cv-style {
+    width: 95%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    min-height: calc(100vh - 120px);
+  }
+>>>>>>> 98661f487dc2a32f1d705979545749a1fc7c8753
 }
 
 
@@ -386,6 +417,7 @@ textarea:focus {
     width: 100%;
     box-sizing: border-box;
 }
+<<<<<<< HEAD
 /*Limiter la largeur de ligne pour le texte principal à environ 60 ch afin d’éviter les lignes trop longues :*/
 .content-section p, .about-section .text-block {
     max-width: 60ch;
@@ -428,3 +460,8 @@ textarea:focus {
 .content-section {
     animation: fadeInUp 0.8s ease both;
 }
+=======
+
+
+
+>>>>>>> 98661f487dc2a32f1d705979545749a1fc7c8753

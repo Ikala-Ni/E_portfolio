@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿/* projet.css — formulaire “Votre projet” responsive et harmonisé */
 
 /* 1. Conteneur du formulaire */
@@ -88,3 +89,46 @@
     max-width: 600px;
     margin: auto;
 }
+=======
+﻿
+/*FORMULAIRE VOTRE PROJET*/
+.projet-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    margin-bottom: 80px; /* espace pour footer */
+}
+
+    .projet-form label {
+        margin-top: 15px;
+        font-weight: bold;
+    }
+
+
+    .projet-form input,
+    .projet-form textarea {
+        margin-top: 40px;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 1em;
+    }
+
+    .projet-form button {
+        background-color: #000;
+        color: white;
+        border: none;
+        margin-top: 20px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+        .projet-form button:hover {
+            background-color: #444;
+        }
+>>>>>>> 98661f487dc2a32f1d705979545749a1fc7c8753

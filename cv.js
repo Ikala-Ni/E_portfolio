@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Rendre la fonction disponible globalement
     window.showCVPart = showCVPart;
 
+<<<<<<< HEAD
     // Mobile only
     // Mobile only
     if (window.innerWidth < 600) {
@@ -47,4 +48,6 @@ document.addEventListener("DOMContentLoaded", function () {
     showCVPart('cv-experiences');
 
 
+=======
+>>>>>>> 98661f487dc2a32f1d705979545749a1fc7c8753
 });
