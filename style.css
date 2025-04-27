@@ -33,22 +33,35 @@ body {
    3. BACKGROUND IMAGE
    Fond d’accueil fixe derrière tout le contenu.
    ======================================== */
-.background-image {
+.background-image .background-imageLocal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: center/cover no-repeat;
+    background: url('img/fond-ecran4.png') no-repeat center center;
+    background: url('/E_portfolio/img/fond-ecran4.png') no-repeat center center; /*pour git*/
+    background-size: cover;
     z-index: -1;
     filter: brightness(0.6);
 }
 
-/* ========================================
+.background-imageLocal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('img/fond-ecran4.png') no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+    filter: brightness(0.6);
+}
+    /* ========================================
    4. UTILITY CLASSES
    .hidden pour masquage unifié
    ======================================== */
-.hidden {
+    .hidden {
     display: none !important;
 }
 

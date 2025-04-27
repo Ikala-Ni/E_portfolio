@@ -17,7 +17,8 @@
 </head>
 <body>
     <!-- Image de fond -->
-    <div><img src="img/fond-ecran4.png" alt="Fond d'écran" class="background-image"></div>
+    <div class="background-image"></div>
+    <div class="background-imageLocal"></div>
 
     <!-- Conteneur principal -->
     <!-- NAV -->
@@ -361,56 +362,56 @@
 
     </main>
 
-        <!-- footer ------------------------------------------------------------------------------------------------------>
-        <footer class="site-footer fixed panel">
-            <p>Contact : ton.email@example.com | Adresse : 123 rue de la Création, 75000 Paris</p>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/tonprofil"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/tonprofil"><i class="fab fa-github"></i></a>
-                <a href="https://twitter.com/tonprofil"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.facebook.com/tonprofil"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.pinterest.com/tonprofil"><i class="fab fa-pinterest"></i></a>
-            </div>
-        </footer>
+    <!-- footer ------------------------------------------------------------------------------------------------------>
+    <footer class="site-footer fixed panel">
+        <p>Contact : ton.email@example.com | Adresse : 123 rue de la Création, 75000 Paris</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/tonprofil"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/tonprofil"><i class="fab fa-github"></i></a>
+            <a href="https://twitter.com/tonprofil"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.facebook.com/tonprofil"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.pinterest.com/tonprofil"><i class="fab fa-pinterest"></i></a>
+        </div>
+    </footer>
 
-        <!-- CHATBOT widget + bulle d'invitation ----------------------------------------------------------------------->
-        <div class="chat-widget" id="chat-widget">
-            <div class="chat-message-bubble" id="chat-bubble">
-                💬 Une question ?
-                <span class="chat-close" id="chat-bubble-close">×</span>
-            </div>
-            <img src="img/chat.jpg" alt="Chatbot" class="chat-avatar" id="chat-trigger">
+    <!-- CHATBOT widget + bulle d'invitation ----------------------------------------------------------------------->
+    <div class="chat-widget" id="chat-widget">
+        <div class="chat-message-bubble" id="chat-bubble">
+            💬 Une question ?
+            <span class="chat-close" id="chat-bubble-close">×</span>
+        </div>
+        <img src="img/chat.jpg" alt="Chatbot" class="chat-avatar" id="chat-trigger">
+    </div>
+
+    <!-- Chatbot box -->
+    <div class="chatbox-container hidden" id="chatbox">
+        <div class="chatbox-header">
+            💬 Une question ?
+            <span class="chatbox-close" id="chatbox-close">×</span>
         </div>
 
-        <!-- Chatbot box -->
-        <div class="chatbox-container hidden" id="chatbox">
-            <div class="chatbox-header">
-                💬 Une question ?
-                <span class="chatbox-close" id="chatbox-close">×</span>
-            </div>
-
-            <div class="chatbox-messages" id="chat-messages">
-                <div class="message bot">Bonjour ! Comment puis-je vous aider ? 😊</div>
-                <div class="message bot">Tu peux m'expliquer ce que tu veux créer, je t’écoute ! 💡</div>
-            </div>
-
-            <form class="chatbox-input" id="chat-form">
-                <input type="text" id="chat-input" placeholder="Écrivez un message..." required />
-                <button type="submit">Envoyer</button>
-            </form>
+        <div class="chatbox-messages" id="chat-messages">
+            <div class="message bot">Bonjour ! Comment puis-je vous aider ? 😊</div>
+            <div class="message bot">Tu peux m'expliquer ce que tu veux créer, je t’écoute ! 💡</div>
         </div>
 
-        <audio id="bot-sound" src="sons/bot-reply.mp3" preload="auto"></audio>
+        <form class="chatbox-input" id="chat-form">
+            <input type="text" id="chat-input" placeholder="Écrivez un message..." required />
+            <button type="submit">Envoyer</button>
+        </form>
+    </div>
 
-        <!-- Popup de logins -->
-        <div id="popup-message" class="popup hidden"></div>
+    <audio id="bot-sound" src="sons/bot-reply.mp3" preload="auto"></audio>
 
-        <!-- JAVASCRIPT -------------------------------------------------------------------------------------------------->
-        <script src="script.js"></script>
-        <script src="chat.js"></script>
-        <script src="login.js"></script>
-        <script src="projet.js"></script>
-        <script src="cv.js"></script>
-        <script src="portfolio.js"></script>
+    <!-- Popup de logins -->
+    <div id="popup-message" class="popup hidden"></div>
+
+    <!-- JAVASCRIPT -------------------------------------------------------------------------------------------------->
+    <script src="script.js"></script>
+    <script src="chat.js"></script>
+    <script src="login.js"></script>
+    <script src="projet.js"></script>
+    <script src="cv.js"></script>
+    <script src="portfolio.js"></script>
 </body>
 </html>
