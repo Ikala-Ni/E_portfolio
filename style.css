@@ -40,7 +40,7 @@ body {
     width: 100vw;
     height: 100vh;
     background: url('img/fond-ecran4.png') no-repeat center center;
-    background: url('/E_portfolio/img/fond-ecran4.png') no-repeat center center; /*pour git*/
+    background: url('/E_portfolio/img/fond-ecran4.png') no-repeat center center; /* pour GitHub */
     background-size: cover;
     z-index: -1;
     filter: brightness(0.6);
@@ -57,11 +57,12 @@ body {
     z-index: -1;
     filter: brightness(0.6);
 }
-    /* ========================================
+
+/* ========================================
    4. UTILITY CLASSES
    .hidden pour masquage unifié
    ======================================== */
-    .hidden {
+.hidden {
     display: none !important;
 }
 
@@ -84,12 +85,13 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background: rgba(255,255,255,0.1); /* glassmorphism */
+    backdrop-filter: blur(10px);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 1rem 2rem;
+    color: white;
     z-index: 1000;
 }
 
@@ -101,14 +103,14 @@ body {
 .nav-links,
 .nav-right {
     display: flex;
-    gap: 15px;
+    gap: 1.5rem;
     list-style: none;
 }
 
     .nav-links a,
     .nav-right a {
         text-decoration: none;
-        color: #333;
+        color: white;
         font-weight: bold;
         transition: color 0.3s;
     }
@@ -123,29 +125,42 @@ body {
     display: none;
     background: none;
     border: none;
-    font-size: 1.5rem;
+    font-size: 2rem;
     cursor: pointer;
+    color: white;
 }
 
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
     }
-}
 
-/* Menu mobile (état ouvert via .show) */
-.nav-links.show,
-.nav-right.show {
-    display: flex !important;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 10px;
-    z-index: 1001;
+    .nav-links,
+    .nav-right {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0,0,0,0.8);
+        backdrop-filter: blur(5px);
+        gap: 2rem;
+        padding-top: 2rem;
+    }
+
+        .nav-links.show,
+        .nav-right.show {
+            display: flex !important;
+        }
+
+            .nav-links.show a,
+            .nav-right.show a {
+                font-size: 1.5rem;
+                color: #fff;
+            }
 }
 
 /* ========================================
@@ -186,8 +201,7 @@ body {
     width: 90%;
     max-width: 774px;
     margin: 0 auto;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 20px 0;
     min-height: calc(100vh - 120px);
     background-color: #000;
     color: #fff;
@@ -204,8 +218,7 @@ body {
 @media (max-width: 768px) {
     .cv-style {
         width: 95%;
-        padding-top: 10px;
-        padding-bottom: 10px;
+        padding: 10px 0;
         min-height: calc(100vh - 120px);
     }
 }
@@ -306,7 +319,7 @@ textarea:focus {
 }
 
 @keyframes float {
-    0%, 100% {
+    0%,100% {
         transform: translateY(0);
     }
 
@@ -366,7 +379,8 @@ textarea:focus {
 /* ========================================
    18. CONTENT SECTION
    ======================================== */
-.content-section p, .about-section .text-block {
+.content-section p,
+.about-section .text-block {
     max-width: 60ch;
     margin-left: auto;
     margin-right: auto;
@@ -400,3 +414,9 @@ textarea:focus {
         transform: translateY(0);
     }
 }
+
+/* Corrige le contenu qui passe sous la navbar fixe */
+body {
+    padding-top: 70px; /* Adapter cette valeur selon la hauteur exacte de ta navbar */
+}
+

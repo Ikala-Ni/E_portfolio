@@ -26,14 +26,14 @@
     <header>
         <nav class="navbar fixed pannel">
             <!-- Menu hamburger -->
-            <button class="menu-toggle">☰</button>
+            <button class="menu-toggle" aria-label="Ouvrir le menu">☰</button>
 
-            <!-- Lien image profil avec slide -->
+            <!-- Profil image lien accueil -->
             <a href="#" onclick="showSlides()" class="profile-link">
-                <img src="img/accueil.jpg" alt="Photo maison accueil" class="profil-img">
+                <img src="img/accueil.jpg" alt="Photo accueil" class="profil-img">
             </a>
 
-            <!-- Liens de navigation -->
+            <!-- Navigation -->
             <ul class="nav-links">
                 <li><a href="#" onclick="showSection('presentation')">Qui suis-je?</a></li>
                 <li><a href="#" onclick="showSection('cv')">CV</a></li>
@@ -41,14 +41,29 @@
                 <li><a href="#" id="nav-projet" class="hidden" onclick="showSection('projet')">Votre projet</a></li>
             </ul>
 
-            <!-- Connexion / déconnexion -->
             <ul class="nav-right">
                 <li><a href="#" id="logout-btn" class="hidden" onclick="logout()">Déconnexion</a></li>
                 <li><a href="#" id="login-btn" onclick="showSection('login')">Connexion</a></li>
                 <li><a href="#" id="register-btn" class="hidden" onclick="showSection('register')">Inscription</a></li>
             </ul>
+
+            <!-- Menu Mobile (initialement caché) -->
+            <div class="mobile-menu hidden" id="mobile-menu">
+                <ul>
+                    <li><a href="#" onclick="showSection('presentation')">Qui suis-je?</a></li>
+                    <li><a href="#" onclick="showSection('cv')">CV</a></li>
+                    <li><a href="#" onclick="showSection('portfolio')">Portfolio</a></li>
+                    <li><a href="#" id="nav-projet-mobile" class="hidden" onclick="showSection('projet')">Votre projet</a></li>
+                    <li><a href="#" id="login-btn-mobile" onclick="showSection('login')">Connexion</a></li>
+                    <li><a href="#" id="register-btn-mobile" class="hidden" onclick="showSection('register')">Inscription</a></li>
+                    <li><a href="#" id="logout-btn-mobile" class="hidden" onclick="logout()">Déconnexion</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
+
+
+
 
     <main>
         <!-- Photos Slides -->
