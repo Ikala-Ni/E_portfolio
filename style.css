@@ -33,7 +33,7 @@ body {
    3. BACKGROUND IMAGE
    Fond d’accueil fixe derrière tout le contenu.
    ======================================== */
-.background-image .background-imageLocal {
+.background-image {
     position: fixed;
     top: 0;
     left: 0;
