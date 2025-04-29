@@ -76,6 +76,11 @@ body {
     margin: 0 auto;
 }
 
+/* Décale le contenu principal sous la navbar fixe */
+body {
+    padding-top: 70px; /* Ajustez cette valeur à la hauteur de votre navbar */
+}
+
 /* ========================================
    6. NAVBAR & MENU
    Barre fixe, liens, hamburger mobile

@@ -80,5 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
     /* 8. Expose functions globally */
     window.showSlides = showSlides;
     window.showSection = showSection;
-    window.showCVPart = showCVPart;
+
 });
+
+
