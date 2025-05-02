@@ -1,436 +1,61 @@
 ﻿<!DOCTYPE html>
 <html lang="fr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ma Présentation UI</title>
-
-    <!-- Liens vers les fichiers CSS pour chaque fonctionnalité -->
-    <link rel="stylesheet" href="style.css"> <!-- Styles de base -->
-    <link rel="stylesheet" href="chat.css"> <!-- Style du chatbot -->
-    <link rel="stylesheet" href="login.css"> <!-- Connexion / inscription -->
-    <link rel="stylesheet" href="cv.css"> <!-- CV -->
-    <link rel="stylesheet" href="projet.css"> <!-- Formulaire projet -->
-    <link rel="stylesheet" href="portfolio.css"> <!-- Portfolio -->
-    <link rel="stylesheet" href="images.css"> <!-- Images pour github -->
-    <!-- Icônes via Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Mercia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="accueil.css" />
 </head>
+
 <body>
-    <!-- Image de fond -->
-    <div class="background-image"></div>
-    <div class="background-imageLocal"></div>
-
-    <!-- Conteneur principal -->
-    <!-- NAV -->
-    <header>
-        <nav class="navbar fixed pannel">
-            <!-- Menu hamburger -->
-            <button class="menu-toggle" aria-label="Ouvrir le menu">☰</button>
-
-            <!-- Profil image lien accueil -->
-            <a href="#" onclick="showSlides()" class="profile-link">
-                <img src="img/accueil.jpg" alt="Photo accueil" class="profil-img">
-            </a>
-
-            <!-- Navigation -->
-            <ul class="nav-links">
-                <li><a href="#" onclick="showSection('presentation')">Qui suis-je?</a></li>
-                <li><a href="#" onclick="showSection('cv')">CV</a></li>
-                <li><a href="#" onclick="showSection('portfolio')">Portfolio</a></li>
-                <li><a href="#" id="nav-projet" class="hidden" onclick="showSection('projet')">Votre projet</a></li>
-            </ul>
-
-            <ul class="nav-right">
-                <li><a href="#" id="logout-btn" class="hidden" onclick="logout()">Déconnexion</a></li>
-                <li><a href="#" id="login-btn" onclick="showSection('login')">Connexion</a></li>
-                <li><a href="#" id="register-btn" class="hidden" onclick="showSection('register')">Inscription</a></li>
-            </ul>
-
-            <!-- Menu Mobile (initialement caché) -->
-            <div class="mobile-menu hidden" id="mobile-menu">
-                <ul>
-                    <li><a href="#" onclick="showSection('presentation')">Qui suis-je?</a></li>
-                    <li><a href="#" onclick="showSection('cv')">CV</a></li>
-                    <li><a href="#" onclick="showSection('portfolio')">Portfolio</a></li>
-                    <li><a href="#" id="nav-projet-mobile" class="hidden" onclick="showSection('projet')">Votre projet</a></li>
-                    <li><a href="#" id="login-btn-mobile" onclick="showSection('login')">Connexion</a></li>
-                    <li><a href="#" id="register-btn-mobile" class="hidden" onclick="showSection('register')">Inscription</a></li>
-                    <li><a href="#" id="logout-btn-mobile" class="hidden" onclick="logout()">Déconnexion</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-
-
-
-
-    <main>
-        <!-- Photos Slides -->
-        <section id="slides" class="slides">
-            <img src="img/mon-image1.jpg" class="slide active">
-            <img src="img/mon-image2.jpg" class="slide">
-            <img src="img/mon-image3.jpg" class="slide">
-            <img src="img/mon-image4.jpg" class="slide">
-        </section>
-
-        <!-- PRESENTATION -->
-        <section id="presentation" class="about-section content-section hidden cv-style">
-            <h2 class="intro title-full">Qui suis-je&nbsp;?</h2>
-
-            <p class="text-block">
-                Je suis Mercia, et je suis passionnée par le <strong>digital</strong>, le <strong>design d’interface</strong> et l’<strong>univers du numérique</strong>.
-            </p>
-            <p class="text-block">
-                Je construis ce portfolio pour partager mes créations, mon évolution et mes projets professionnels.
-            </p>
-            <p class="text-block">
-                Je m’intéresse particulièrement au <strong>design web</strong>, au <strong>web marketing</strong> et au <strong>community management</strong>.
-            </p>
-
-            <p class="text-block">
-                Mon objectif est de me former aux métiers du digital. Je veux apprendre à concevoir des visuels cohérents, des parcours utilisateurs fluides et des messages percutants.
-            </p>
-
-            <p class="quote">
-                ✨ Ce site est mon premier pas vers un métier de passion et il est en évolution comme moi.
-                Je t’invite à <strong>le parcourir</strong>, à <strong>suivre mon cheminement</strong> et à <strong>me contacter</strong> si tu veux échanger, collaborer ou simplement m’encourager dans cette belle aventure du design digital.
-            </p>
-
-            <img src="videos/presentation.gif" alt="Aperçu animé de mon univers" class="gif-flottant">
-        </section>
-
-        <!-- CV -->
-        <section id="cv" class="content-section hidden cv-style">
-            <p class="intro title-full">"Créer, comprendre et transmettre – je me construis un avenir dans le design web et l’expérience utilisateur."</p>
-
-            <div class="cv-layout">
-                <div class="cv-content">
-                    <!-- EXPERIENCES -->
-                    <div id="cv-experiences" class="cv-block">
-                        <h3>Expériences professionnelles</h3>
-                        <p>
-                            <strong>Vendeuse e-commerce – Au Fil des Soies</strong><br>
-                            Création de fiches produits attrayantes, gestion des échanges clients, retouches photo simples, et participation à l’animation des réseaux sociaux.<br>
-                            Une immersion concrète dans le digital et la vente en ligne, avec un vrai sens du détail et du service.
-                        </p>
-                    </div>
-
-                    <!-- FORMATIONS -->
-                    <div id="cv-formations" class="cv-block hidden">
-                        <h3>Formations</h3>
-                        <ul>
-                            <li><strong>Formation Développeur Web et Web Mobile</strong> (France Travail)<br>Introduction au HTML, CSS, logique JavaScript, outils numériques.</li>
-                            <li><strong>Formation Make.com</strong><br>Découverte des automatisations et de l’optimisation des flux de travail (no-code).</li>
-                            <li><strong>Projet validé : Concepteur Designer UI</strong><br>En attente d’entrée en formation – Projet en lien avec mon attrait pour le design, l'expérience utilisateur et la création de supports interactifs.</li>
-                        </ul>
-                    </div>
-
-                    <!-- COMPETENCES -->
-                    <div id="cv-competences" class="cv-block hidden">
-                        <h3>Compétences</h3>
-                        <ul>
-                            <li>🎨 <strong>Design visuel</strong> : Canva, notions de composition, typographie, harmonie des couleurs</li>
-                            <li>💻 <strong>Web</strong> : HTML/CSS débutant, esprit logique, envie de progresser vers UI/UX</li>
-                            <li>📲 <strong>Communication digitale</strong> : Réseaux sociaux, storytelling, mise en valeur de contenus</li>
-                            <li>📸 <strong>Photographie</strong> : Sens esthétique, prise de vues pour produits</li>
-                            <li>🧠 <strong>Qualités</strong> : Curiosité, autonomie, créativité, sens de l’observation</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- MENU LATERAL -->
-                <aside class="cv-banner">
-                    <div class="cv-photo">
-                        <img src="img/cv.png" alt="Photo adn" />
-                    </div>
-                    <ul>
-                        <li><button onclick="showCVPart('cv-experiences')">Expériences</button></li>
-                        <li><button onclick="showCVPart('cv-formations')">Formations</button></li>
-                        <li><button onclick="showCVPart('cv-competences')">Compétences</button></li>
-                        <li><a href="documents/mon_cv.pdf" download class="btn-cv-link">📄 Télécharger le cv complet </a></li>
-                    </ul>
-                </aside>
-            </div>
-        </section>
-        <!-- PORTFOLIO ---------------------------------------------------------------------------------------- -->
-        <section id="portfolio" class="content-section hidden cv-style">
-            <h2 class="intro title-full">Mes créations</h2>
-
-            <!-- MINI-HEADER (Mobile only) -->
-            <div class="portfolio-mini-header">
-                <button class="burger-toggle" aria-label="Ouvrir le menu">☰</button>
-                <ul id="mini-header-menu" class="mini-header-menu hidden">
-                    <li>
-                        <button data-cat="photo">Photos</button>
-                        <ul id="photo-list-mobile" class="submenu-items hidden"></ul>
-                    </li>
-                    <li>
-                        <button data-cat="video">Vidéos</button>
-                        <ul id="video-list-mobile" class="submenu-items hidden"></ul>
-                    </li>
-                    <li>
-                        <button data-cat="carte">Cartes</button>
-                        <ul id="carte-list-mobile" class="submenu-items hidden"></ul>
-                    </li>
-                    <li>
-                        <button data-cat="logo">Logos</button>
-                        <ul id="logo-list-mobile" class="submenu-items hidden"></ul>
-                    </li>
-                    <li>
-                        <button data-cat="site">Sites Internet</button>
-                        <ul id="site-list-mobile" class="submenu-items hidden"></ul>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="portfolio-zone">
-                <!-- SIDEBAR Hover-zone (Desktop only) -->
-                <div class="sidebar-hover-zone">
-                    <aside class="sidebar">
-                        <ul id="sidebar-menu" class="sidebar-menu">
-                            <li>
-                                <button data-cat="photo">Photos</button>
-                                <ul id="photo-list-desktop" class="submenu-items hidden"></ul>
-                            </li>
-                            <li>
-                                <button data-cat="video">Vidéos</button>
-                                <ul id="video-list-desktop" class="submenu-items hidden"></ul>
-                            </li>
-                            <li>
-                                <button data-cat="carte">Cartes</button>
-                                <ul id="carte-list-desktop" class="submenu-items hidden"></ul>
-                            </li>
-                            <li>
-                                <button data-cat="logo">Logos</button>
-                                <ul id="logo-list-desktop" class="submenu-items hidden"></ul>
-                            </li>
-                            <li>
-                                <button data-cat="site">Sites Internet</button>
-                                <ul id="site-list-desktop" class="submenu-items hidden"></ul>
-                            </li>
-                        </ul>
-                    </aside>
-                </div>
-
-                <!-- CONTENU DU PORTFOLIO -->
-                <div class="portfolio-wrapper">
-                    <div id="portfolio-content" class="portfolio-content">
-                        <!-- Photo category -->
-                        <div class="portfolio-category" id="photo-category">
-                            <div class="media-item">
-                                <!--<img src="img/porto1.png" class="media-thumb" alt="Photo 1" data-full="img/porto1.png">-->
-                                <img src="img/porto1.png" class="media-thumb" alt="Photo 1" data-full="E_portfolio/porto1.png"> <!-- png github -->
-                                <p class="media-title">Anniversaire 7 ans Jade</p>
-                            </div>
-                            <div class="media-item">
-                                <!--<img src="img/porto2.png" class="media-thumb" alt="Photo 2" data-full="img/porto2.png">-->
-                                <img src="img/porto2.png" class="media-thumb" alt="Photo 1" data-full="E_portfolio/porto2.png"> <!-- png github -->
-                                <p class="media-title">Anniversaire 8 ans Jade</p>
-                            </div>
-                        </div>
-                        <!-- Video category -->
-                        <div class="portfolio-category hidden" id="video-category">
-                            <div class="media-item">
-                                <video class="media-thumb" src="videos/porto1.mp4" controls data-full="videos/porto1.mp4"></video>
-                                <p class="media-title">Première communion</p>
-                            </div>
-                            <div class="media-item">
-                                <video class="media-thumb" src="videos/porto2.mp4" controls data-full="videos/porto2.mp4"></video>
-                                <p class="media-title">E-commerce éco-responsable</p>
-                            </div>
-                        </div>
-                        <!-- Carte category -->
-                        <div class="portfolio-category hidden" id="carte-category">
-                            <div class="media-item">
-                                <img class="media-thumb" src="cartes/card1.png" alt="Carte 1" data-full="cartes/card1.png">
-                                <p class="media-title">Carte n°1</p>
-                            </div>
-                            <div class="media-item">
-                                <img class="media-thumb" src="cartes/card2.png" alt="Carte 2" data-full="cartes/card2.png">
-                                <p class="media-title">Carte n°2</p>
-                            </div>
-                        </div>
-                        <!-- Logo category -->
-                        <div class="portfolio-category hidden" id="logo-category">
-                            <div class="media-item">
-                                <img class="media-thumb" src="logo/logo1.png" alt="Logo 1" data-full="logo/logo1.png">
-                                <p class="media-title">Logo n°1</p>
-                            </div>
-                            <div class="media-item">
-                                <img class="media-thumb" src="logo/logo2.png" alt="Logo 2" data-full="logo/logo2.png">
-                                <p class="media-title">Logo n°2</p>
-                            </div>
-                        </div>
-                        <!-- Site category -->
-                        <div class="portfolio-category hidden" id="site-category">
-                            <div class="media-item">
-                                <img class="media-thumb" src="sites/site1.png" alt="Site 1" data-full="sites/site1.png">
-                                <p class="media-title">Site n°1</p>
-                            </div>
-                            <div class="media-item">
-                                <img class="media-thumb" src="sites/site2.png" alt="Site 2" data-full="sites/site2.png">
-                                <p class="media-title">Site n°2</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- OVERLAY fullscreen -->
-            <div id="fullscreen-overlay" class="fullscreen hidden">
-                <span class="fullscreen-close">×</span>
-                <div id="fullscreen-content"></div>
-            </div>
-        </section>
-        <!-- VOTRE PROJET ----------------------------------------------------------------------------->
-        <section id="projet" class="content-section hidden cv-style">
-            <h2 class="intro title-full">Vos idées prennent forme...vos projets prennent vie</h2>
-            <form id="form-projet" class="projet-form" enctype="multipart/form-data">
-                <label for="nom">Nom :</label>
-                <input type="text" id="nom" name="nom" aria-label="votre nom" required>
-
-                <label for="email">Email :</label>
-                <input type="email" id="email" name="email" aria-label="adresse e-mail" required>
-
-                <label for="description">Description du projet :</label>
-                <textarea id="description" name="description" rows="5" aria-label="décrire votre projet" required></textarea>
-
-                <label for="descr">Description:</label>
-                <textarea id="descr" name="descr" rows="5" required></textarea>
-
-                <label for="marie">Marie :</label>
-                <textarea id="marie" name="marie" rows="5" required></textarea>
-
-                <label for="fichier">Ajouter une image ou une vidéo :</label>
-                <input type="file" id="fichier" name="fichier" accept="image/*,video/*">
-
-                <button type="submit">Envoyer</button>
-            </form>
-        </section>
-
-        <!-- CONNEXION ----------------------------------------------------------------------------------->
-        <section id="login" class="content-section hidden cv-style">
-            <div class="login-style">
-                <h2>Connexion</h2>
-                <form id="login-form" autocomplete="off">
-                    <label for="login-email">Email :</label>
-                    <input type="email" id="login-email" required>
-
-                    <label for="login-password">Mot de passe :</label>
-                    <input type="password" id="login-password" required>
-
-                    <button type="submit">Se connecter</button>
-                </form>
-                <p id="login-message" style="color: red; margin-top: 10px;"></p>
-
-                <p style="margin-top: 20px;">
-                    Pas encore de compte ?
-                    <a href="#" onclick="showSection('register')"> S'inscrire ici</a>
-                </p>
-                <p style="margin-top: 20px;">
-                    <a href="#" id="forgot-password">Mot de passe oublié ?</a>
-                </p>
-            </div>
-        </section>
-
-        <!-- INSCRIPTION --------------------------------------------------------------------------------->
-        <section id="register" class="content-section hidden cv-style">
-            <div class="login-style">
-                <h2>Créer un compte</h2>
-                <form id="register-form" autocomplete="off">
-                    <label for="register-id">E-mail ou numéro de téléphone :</label>
-                    <input type="text" id="register-id" required>
-
-                    <label for="register-mdp">Mot de passe :</label>
-                    <input type="password" id="register-mdp" required>
-
-                    <label for="register-mdp-confirm">Confirmer le mot de passe :</label>
-                    <input type="password" id="register-mdp-confirm" required>
-
-                    <button type="submit">S’inscrire</button>
-                    <p>Déjà inscrit ? <a href="#" onclick="showSection('login')">Se connecter</a></p>
-                </form>
-                <p id="register-message" style="color: red; margin-top: 10px;"></p>
-            </div>
-        </section>
-
-        <!-- MOT DE PASSE OUBLIÉ ------------------------------------------------------------------------->
-        <section id="reset-password" class="content-section hidden cv-style">
-            <div class="login-style">
-                <h2>Réinitialiser le mot de passe</h2>
-                <form id="reset-password-form" autocomplete="off">
-                    <label for="reset-email">Email :</label>
-                    <input type="email" id="reset-email" required>
-
-                    <label for="new-password">Nouveau mot de passe :</label>
-                    <input type="password" id="new-password" required>
-
-                    <label for="confirm-new-password">Confirmez le nouveau mot de passe :</label>
-                    <input type="password" id="confirm-new-password" required>
-
-                    <button type="submit">Réinitialiser</button>
-                </form>
-                <p id="reset-message" style="color: red; margin-top: 10px;"></p>
-                <p style="margin-top: 20px;">
-                    <a href="#" onclick="showSection('login')">Retour à la connexion</a>
-                </p>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- footer ------------------------------------------------------------------------------------------------------>
-    <footer class="site-footer fixed panel">
-        <p>Contact : ton.email@example.com | Adresse : 123 rue de la Création, 75000 Paris</p>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/tonprofil"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/tonprofil"><i class="fab fa-github"></i></a>
-            <a href="https://twitter.com/tonprofil"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.facebook.com/tonprofil"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.pinterest.com/tonprofil"><i class="fab fa-pinterest"></i></a>
+    <div class="container">
+        <!-- Colonne gauche (1/3) avec image de fond -->
+        <div class="image">
+            <img src="img/mercia.jpg" alt="fond" />
         </div>
-    </footer>
 
-    <!-- CHATBOT widget + bulle d'invitation ----------------------------------------------------------------------->
-    <div class="chat-widget" id="chat-widget">
-        <div class="chat-message-bubble" id="chat-bubble">
-            💬 Une question ?
-            <span class="chat-close" id="chat-bubble-close">×</span>
+        <!-- Colonne droite (2/3) avec contenu -->
+        <div class="content">
+            <!-- Haut : titre et navigation -->
+            <div class="top-bar">
+                <h1>Portfolio</h1>  
+                <nav class="nav-links" role="navigation">
+                    <a href="#" class="nav-link" data-section="presentation">Qui suis‑je</a>
+                    <a href="#" class="nav-link" data-section="cv">Mon CV</a>
+                    <a href="#" class="nav-link" data-section="portfolio">Mes créations</a>
+                    <a href="#" class="nav-link" data-section="contact">Me contacter</a>
+                </nav>               
+            </div>
+
+            <!-- Milieu : une image à gauche, un texte à droite -->
+            <div class="middle-section">
+                <div class="left-text">
+                    <div>
+                        <h2>Bonjour, je suis Mercia</h2>
+                    </div>
+                    <div>
+                        <h2 class="subtitle">Je suis une apprentie en designer d'interface</h2>
+                    </div>
+                </div>
+                <div class="right-image">
+                    <img src="img/cv.png" alt="illustration" />
+                </div>
+            </div>
+
+            <!-- Bas : deux boutons centrés -->
+            <div class="bottom-buttons">
+                <button type="button" class="nav-btn" data-section="portfolio">Mes créations</button>
+                <button type="button" class="nav-btn" id="visit-btn">Visitez</button>
+              </div>
         </div>
-        <img src="img/chat.jpg" alt="Chatbot" class="chat-avatar" id="chat-trigger">
     </div>
-
-    <!-- Chatbot box -->
-    <div class="chatbox-container hidden" id="chatbox">
-        <div class="chatbox-header">
-            💬 Une question ?
-            <span class="chatbox-close" id="chatbox-close">×</span>
-        </div>
-
-        <div class="chatbox-messages" id="chat-messages">
-            <div class="message bot">Bonjour ! Comment puis-je vous aider ? 😊</div>
-            <div class="message bot">Tu peux m'expliquer ce que tu veux créer, je t’écoute ! 💡</div>
-        </div>
-
-        <form class="chatbox-input" id="chat-form">
-            <input type="text" id="chat-input" placeholder="Écrivez un message..." required />
-            <button type="submit">Envoyer</button>
-        </form>
-    </div>
-
-    <audio id="bot-sound" src="sons/bot-reply.mp3" preload="auto"></audio>
-
-    <!-- Popup de logins -->
-    <div id="popup-message" class="popup hidden"></div>
 
     <!-- JAVASCRIPT -------------------------------------------------------------------------------------------------->
-    <script src="script.js"></script>
-    <script src="chat.js"></script>
-    <script src="login.js"></script>
-    <script src="projet.js"></script>
-    <script src="cv.js"></script>
-    <script src="portfolio.js"></script>
-    <script src="images.js"></script>
+    <!-- on inclut le script juste avant </body> -->
+    <script src="accueil.js"></script> 
 </body>
+
 </html>
