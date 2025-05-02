@@ -1,4 +1,5 @@
-﻿/**
+﻿
+/**
  * script.js — principal
  * Gère slider, sections, CV, portfolio, menu mobile, chatbot.
  */
@@ -82,5 +83,3 @@ document.addEventListener("DOMContentLoaded", function () {
     window.showSection = showSection;
 
 });
-
-

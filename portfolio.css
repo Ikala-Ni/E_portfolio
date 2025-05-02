@@ -168,6 +168,13 @@
     .burger-toggle {
         display: block;
     }
+    .burger-toggle {
+        display: block;
+        font-size: 28px;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
 
     /* Mini-header pour mobile */
     .portfolio-mini-header {
@@ -182,13 +189,6 @@
         position: sticky;
         top: 60px;
         z-index: 200;
-    }
-
-    .burger-toggle {
-        font-size: 28px;
-        background: none;
-        border: none;
-        cursor: pointer;
     }
 
     .mini-header-menu {

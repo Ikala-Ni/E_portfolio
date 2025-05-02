@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +7,7 @@
     <title>Ma Présentation UI</title>
 
     <!-- Liens vers les fichiers CSS pour chaque fonctionnalité -->
-    <link rel="stylesheet" href="style.css"> <!-- Styles de base -->
+    <link rel="stylesheet" href="main.css"> <!-- Styles de base -->
     <link rel="stylesheet" href="chat.css"> <!-- Style du chatbot -->
     <link rel="stylesheet" href="login.css"> <!-- Connexion / inscription -->
     <link rel="stylesheet" href="cv.css"> <!-- CV -->
@@ -425,11 +426,30 @@
     <div class="overlay hidden" id="nav-overlay"></div>
 
     <!-- JAVASCRIPT -------------------------------------------------------------------------------------------------->
-    <script src="script.js"></script>
+    <script src="main.js"></script>
     <script src="chat.js"></script>
     <script src="login.js"></script>
     <script src="projet.js"></script>
     <script src="cv.js"></script>
     <script src="portfolio.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const hash = window.location.hash;
+        
+            if (hash) {
+                // Extrait l'id de section sans le #
+                const sectionId = hash.substring(1);
+        
+                // Recherche le lien du menu qui cible cette section
+                const navLink = document.querySelector(`[data-section="${sectionId}"]`);
+        
+                if (navLink) {
+                    // Simule un clic dessus pour activer le comportement de ton menu
+                    navLink.click();
+                }
+            }
+        });
+    </script>
 </body>
 </html>
