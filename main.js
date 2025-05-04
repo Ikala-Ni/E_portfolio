@@ -53,6 +53,12 @@ document.addEventListener("DOMContentLoaded", function () {
             navLinks.classList.remove("show");
             navRight.classList.remove("show");
         }
+
+        if (target) {
+            target.classList.remove("hidden");
+            target.scrollIntoView({ behavior: "smooth" });
+          }
+          
     }
 
     /* 5. showCVPart(id) */
@@ -81,5 +87,19 @@ document.addEventListener("DOMContentLoaded", function () {
     /* 8. Expose functions globally */
     window.showSlides = showSlides;
     window.showSection = showSection;
+
+    // Après window.showSection = showSection;
+const initial = window.location.hash.substring(1);
+if (initial) {
+  showSection(initial);
+}
+// Et pour gérer les changements de hash ultérieurs :
+window.addEventListener("hashchange", () => {
+  const sec = window.location.hash.substring(1);
+  showSection(sec);
+});
+
+
+    
 
 });
