@@ -79,6 +79,8 @@ document.addEventListener("DOMContentLoaded", function () {
     /* 7. Hamburger mobile toggle */
     if (toggleMenuBtn) {
         toggleMenuBtn.addEventListener("click", () => {
+             // Masquer les sections quand on bascule le menu
+    showSection(); 
             navLinks.classList.toggle("show");   /* ← affiche/masque mobile nav */
             navRight.classList.toggle("show");
         });

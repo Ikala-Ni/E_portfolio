@@ -1,61 +1,68 @@
-﻿<!DOCTYPE html>
+﻿<!-- index.html (complet) -->
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio Mercia</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="accueil.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Mercia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="accueil.css" />
 </head>
 
 <body>
-    <div class="container">
-        <!-- Colonne gauche (1/3) avec image de fond -->
-        <div class="image">
-            <img src="img/mercia.jpg" alt="fond" />
-        </div>
-
-        <!-- Colonne droite (2/3) avec contenu -->
-        <div class="content">
-            <!-- Haut : titre et navigation -->
-            <div class="top-bar">
-                <h1>Portfolio</h1>  
-                <nav class="nav-links" role="navigation">
-                    <a href="#" class="nav-link" data-section="presentation">Qui suis‑je</a>
-                    <a href="#" class="nav-link" data-section="cv">Mon CV</a>
-                    <a href="#" class="nav-link" data-section="portfolio">Mes créations</a>
-                    <a href="#" class="nav-link" data-section="contact">Me contacter</a>
-                </nav>               
-            </div>
-
-            <!-- Milieu : une image à gauche, un texte à droite -->
-            <div class="middle-section">
-                <div class="left-text">
-                    <div>
-                        <h2>Bonjour, je suis Mercia</h2>
-                    </div>
-                    <div>
-                        <h2 class="subtitle">Je suis une apprentie en designer d'interface</h2>
-                    </div>
-                </div>
-                <div class="right-image">
-                    <img src="img/cv.png" alt="illustration" />
-                </div>
-            </div>
-
-            <!-- Bas : deux boutons centrés -->
-            <div class="bottom-buttons">
-                <button type="button" class="nav-btn" data-section="portfolio">Mes créations</button>
-                <button type="button" class="nav-btn" id="visit-btn">Visitez</button>
-              </div>
-        </div>
+  <!-- CONTAINER principal contient image + contenu (avec top-bar à l'intérieur) -->
+  <div class="container">
+    <!-- Colonne image -->
+    <div class="image">
+      <img src="img/mercia.jpg" alt="fond" />
     </div>
 
-    <!-- JAVASCRIPT -------------------------------------------------------------------------------------------------->
-    <!-- on inclut le script juste avant </body> -->
-    <script src="accueil.js"></script> 
-</body>
+    <!-- Colonne contenu -->
+    <div class="content">
+      <!-- Bloc 1 : Titre H1 aligné à gauche -->
+      <div class="main-header">
+        <h1>Portfolio</h1>
+      </div>
+    
+      <!-- Bloc 2 : Sous-titre H2 centré -->
+      <div class="top-bar">
+        <h2 class="subtitle">Bonjour, je suis Mercia</h2>
+        <h2 class="subtitle">Je suis une apprentie designer d'interface</h2>
+      </div>
+    
+      <!-- Bloc 3 : Grille 1/3 vide – 1/3 image – 1/3 liens -->
+      <div class="middle-section inner-grid">
+        <div></div> <!-- 1/3 vide -->
+    
+        <div class="cv-image">
+          <img src="img/cv.png" alt="illustration" />
+        </div>
+    
+        <nav class="nav-links">
+          <a href="#contact" class="nav-link">Me contacter</a>
+          <a href="#portfolio" class="nav-link">Mes créations</a>
+          <a href="#cv" class="nav-link">Mon CV</a>
+          <a href="#presentation" class="nav-link">Qui suis-je</a>
+        </nav>
+      </div>
+  
+      <div class="bottom-buttons">
+        <button class="nav-btn" data-section="portfolio">Mes créations</button>
+        <button class="nav-btn" id="visit-btn">Visitez</button>
+      </div>
+    </div>
+  </div>
 
+  <!-- JS pour nav links (pas de hamburger) -->
+  <script>
+    document.querySelectorAll('.nav-link, .nav-btn').forEach(el => {
+      el.addEventListener('click', () => {
+        const section = el.getAttribute('data-section') || el.getAttribute('href').substring(1);
+        if (section) window.location.href = `main.html#${section}`;
+      });
+    });
+  </script>
+</body>
 </html>
