@@ -169,7 +169,7 @@ html, body {
 /*MOBILE RESPONSIVE*/
 @media (max-width: 768px) {
   .container {
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 40% 60%;
     height: auto;
   }
   .content {
@@ -180,8 +180,25 @@ html, body {
   overflow-y: auto;
   }
   .main-header h1 {
+    font-size: 2.2rem;  /* réduit le H1 */
     text-align: center;
+    margin-bottom: 20px;
   }
+
+  .top-bar h2 {
+    font-size: 1.4rem;  /* réduit les H2 */
+  }
+
+  .top-bar .subtitle {
+    font-size: 1.2rem;  /* réduit la sous-titre */
+    margin-bottom: 10px;
+  }
+
+  .top-bar {
+    padding: 15px; /* réduit le padding pour éviter le débordement */
+    margin: 20px 0;
+  }
+
 
   .inner-grid > .grid-box {
     width: 100%;
@@ -191,6 +208,11 @@ html, body {
     grid-template-columns: 1fr; /* empilement vertical */
     row-gap: 20px;
   }
+
+  .grid-box .nav-links a {
+    font-size: 1rem;       /* ajuste les liens pour plus de lisibilité */
+  }
+
   .nav-links {
     align-items: center;
     gap: 20px;
@@ -199,6 +221,11 @@ html, body {
   .bottom-buttons {
     flex-direction: column;
     gap: 15px;
+  }
+
+  .bottom-buttons button {
+    font-size: 0.95rem;    /* évite les boutons trop larges */
+    padding: 10px 18px;
   }
   .contact-section {
     margin: auto;
