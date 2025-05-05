@@ -1,20 +1,29 @@
 ﻿/* ===== accueil.css ===== */
 /* 1. RESET + typo Poppins, fond noir et texte blanc */
 html, body {
-  margin: 0; padding: 0;
-  width: 100%; height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
   font-family: 'Poppins', sans-serif;
-  background: black; color: white;
+  background: black;
+  color: white;
+  overflow: hidden; /* empêcher le scroll global */
 }
-
 
 /* 2. .container: grid 1fr 2fr, plein écran */
 .container {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  width: 100vw; height: 100vh;
+  width: 100vw;
+  height: 100vh;
 }
-.image img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.8); }
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.8);
+}
 
 /* 3. .content: grid 4 rangées auto/auto/1fr/auto */
 .content {
@@ -22,110 +31,177 @@ html, body {
   grid-template-rows: auto auto 1fr auto;
   padding: 20px;
   box-sizing: border-box;
-  overflow-y: auto;  /* active le scroll vertical si besoin */
+  overflow-y: auto;
+  height: 100vh; /* nécessaire pour forcer scroll local */
 }
 
 /* 3.1 H1 via .main-header */
+
 .main-header h1 {
-  font-family: 'Roboto', sans-serif; /* police dédiée */
+  font-family: 'Roboto', sans-serif;
   font-size: 3rem;
   color: #00ccff;
   letter-spacing: 2px;
   margin: 0;
-  text-align: left; /* alignement à gauche */
-  margin-bottom: 40px; /* ajoute de l’espace sous le h1 */
+  text-align: left;
+  margin-bottom: 40px;
 }
 
 /* 3.2 .top-bar H2 centré */
 .top-bar {
   text-align: center;
-  margin: 20px 0;
-}
-.top-bar .subtitle {
-  font-size: 1.8rem;
-  font-weight: 600;
-  margin: 0;
+  margin: 30px 0;
+  background-color: black;
+  border-left: 4px solid rgba(255,255,255,0.1);
+  border-right: 4px solid rgba(255,255,255,0.1); /* bordure noire uniquement ici */
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px black;
 }
 
-/* 3.3 .inner-grid: 3 colonnes, gap 20px, align-items center */
+.top-bar h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1;
+  font-family: 'Poppins', sans-serif;
+}
+
+.top-bar .subtitle {
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+/* 3.3 .inner-grid: 3 colonnes */
+.inner-grid > .grid-box {
+  height: 100%;
+  margin: 60px 1;
+}
+
 .inner-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr; /* 3 parts égales pour vide, image, nav */
+  grid-template-columns: 1fr 1fr 1fr; /* toutes les colonnes égales */
   gap: 20px;
-  align-items: center;
+  align-items: stretch; /* étendre chaque colonne à même hauteur */
+  text-align: center;
 }
-.cv-image img {
-  width: 100%; /* dimensions actuelles conservées */
-  max-width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(255,255,255,0.1);
-}
-.nav-links {
+
+
+/* 3.3.1 .grid-box: style commun aux 3 colonnes */
+.grid-box {
+  background-color: black;
+  border-left: 3px solid #00ccff;
+  padding: 20px;
   display: flex;
-  flex-direction: column-reverse; /* ordre bas->haut */
-  justify-content: center;
-  align-items: flex-end; /* aligné à droite */
-  gap: 30px; /* augmente l’espace vertical entre les liens */
-  padding-right: 20px;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
+  height: 100%; /* occuper toute la hauteur */
+  box-sizing: border-box;
 }
-.nav-links a { color: #00ccff; /* bleu clair */
+
+/* 3.3.2 image dans la grid-box */
+.grid-box img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+
+/* 3.3.3 liens dans la grid-box */
+.grid-box .nav-links {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center; /* centrer horizontalement */
+  gap: 30px;
+  padding: 0; /* supprime tout décalage */
+  text-align: center; /* centre le texte à l'intérieur du conteneur */
+}
+.grid-box .nav-links a {
+  color: #00ccff;
   text-decoration: none;
   font-weight: bold;
   font-size: 1.1rem;
- }
+  text-align: center;
+}
 
-/* 3.4 .bottom-buttons: flex centré, gap*/
+/* 3.3.4 contact dans la grid-box */
+.contact-section {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.contact-section p {
+  margin: 6px 0;
+}
+.contact-section a {
+  color: #00ccff;
+  text-decoration: underline;
+}
+
+
+/* 4 .bottom-buttons */
 .bottom-buttons {
   display: flex;
   justify-content: center;
   gap: 20px;
-  margin-top: 20px;
+  margin-top: 60px;
 }
-.bottom-buttons button { 
-  padding: 12px 24px; 
-  border-radius: 30px; 
-  border: none; 
-  cursor: pointer; 
+.bottom-buttons button {
+  padding: 12px 24px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.bottom-buttons button:first-child {
+  background: #0077ff;
+  color: #fff;
+}
+.bottom-buttons button:last-child {
+  background: #00cc99;
+  color: #fff;
 }
 
-.bottom-buttons button:first-child { 
-  background: #0077ff; 
-  color: #fff; 
-}
-
-.bottom-buttons button:last-child { 
-  background: #00cc99; 
-  color: #fff; 
-}
-
-/* 4. MEDIA QUERIES mobile: stack, responsive 60/40 */
+/*MOBILE RESPONSIVE*/
 @media (max-width: 768px) {
-  .container { 
-    grid-template-columns: 50% 50%; /* à personnaliser*/
-    height: auto; /*important : pas de hauteur fixe */
+  .container {
+    grid-template-columns: 50% 50%;
+    height: auto;
   }
-  .content { 
-    grid-template-rows: auto auto auto auto; 
-    row-gap: 20px; 
-    padding: 10px; 
-    height: auto; /* permet au contenu de grandir selon besoin */
-    overflow-y: auto;
+  .content {
+    grid-template-rows: auto auto auto auto;
+    row-gap: 20px;
+    padding: 10px;
+    height: 100vh;
+  overflow-y: auto;
   }
-
   .main-header h1 {
     text-align: center;
   }
-  .inner-grid { 
-    grid-template-columns: 1fr; 
-    row-gap: 20px; 
-  }
 
+  .inner-grid > .grid-box {
+    width: 100%;
+  }
+  
+  .inner-grid {
+    grid-template-columns: 1fr; /* empilement vertical */
+    row-gap: 20px;
+  }
   .nav-links {
-     gap: 20px; 
-     align-items: center; 
-    }
-  .bottom-buttons { 
-    flex-direction: column; 
-    gap: 15px; 
+    align-items: center;
+    gap: 20px;
+    padding: 0;
+  }
+  .bottom-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .contact-section {
+    margin: auto;
+    max-width: 80%;
   }
 }

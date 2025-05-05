@@ -29,40 +29,54 @@
       <!-- Bloc 2 : Sous-titre H2 centré -->
       <div class="top-bar">
         <h2 class="subtitle">Bonjour, je suis Mercia</h2>
-        <h2 class="subtitle">Je suis une apprentie designer d'interface</h2>
+        <h2 class="subtitle">Je suis une apprentie designer d'interface
+          <p>Ce site est mon portfolio</p>
+        </h2>
       </div>
-    
-      <!-- Bloc 3 : Grille 1/3 vide – 1/3 image – 1/3 liens -->
-      <div class="middle-section inner-grid">
-        <div></div> <!-- 1/3 vide -->
-    
-        <div class="cv-image">
-          <img src="img/cv.png" alt="illustration" />
+
+     
+       <!-- Bloc 3: Grille 1/3 vide – 1/3 image – 1/3 liens -->
+       <div class="inner-grid">
+        <!-- 1/3 : Contact -->
+        <div class="grid-box">
+          <div class="contact-section hidden" id="contact-card">
+            <p><strong>Contactez-moi</strong></p>
+            <p><strong>Adresse :</strong> 123 Rue de Paris, 75000</p>
+            <p><strong>Téléphone :</strong> +33 6 12 34 56 78</p>
+            <p><strong>Email :</strong> mercia@email.com</p>
+            <p><a href="https://www.linkedin.com/in/tonprofil" target="_blank">LinkedIn</a></p>
+            <p><a href="https://www.facebook.com/tonprofil" target="_blank">Facebook</a></p>
+          </div>
         </div>
-    
-        <nav class="nav-links">
-          <a href="#contact" class="nav-link">Me contacter</a>
-          <a href="#portfolio" class="nav-link">Mes créations</a>
-          <a href="#cv" class="nav-link">Mon CV</a>
-          <a href="#presentation" class="nav-link">Qui suis-je</a>
-        </nav>
+      
+        <!-- 2/3 : Image -->
+        <div class="grid-box">
+          <div class="cv-image">
+            <img src="img/cv.png" alt="illustration" />
+          </div>
+        </div>
+      
+        <!-- 3/3 : Liens -->
+        <div class="grid-box">
+          <nav class="nav-links">
+            
+            
+            <a href="#" class="nav-link" data-section="cv">Mon CV</a>
+            <a href="#" class="nav-link" data-section="presentation">Qui suis-je</a>  
+            <a href="#" class="nav-link" data-section="collaborateur">Collaborations précédentes</a>
+            
+          </nav>
+        </div>
       </div>
-  
+
+      <!-- Bloc 4 : Boutons -->
       <div class="bottom-buttons">
         <button class="nav-btn" data-section="portfolio">Mes créations</button>
         <button class="nav-btn" id="visit-btn">Visitez</button>
       </div>
-    </div>
-  </div>
+      
 
-  <!-- JS pour nav links (pas de hamburger) -->
-  <script>
-    document.querySelectorAll('.nav-link, .nav-btn').forEach(el => {
-      el.addEventListener('click', () => {
-        const section = el.getAttribute('data-section') || el.getAttribute('href').substring(1);
-        if (section) window.location.href = `main.html#${section}`;
-      });
-    });
-  </script>
+  <!-- Script JS (chargé en dernier pour être sûr que le DOM est prêt) -->
+  <script src="accueil.js" defer></script>
 </body>
 </html>
