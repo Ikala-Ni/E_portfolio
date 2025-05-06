@@ -24,9 +24,12 @@
 
     <!-- Conteneur principal -->
     <!-- NAV -->
+
     <header>
+       
+    <!-- Navigation principale -->
         <nav class="navbar fixed pannel">
-            <!-- Menu hamburger -->
+            <!-- Menu hamburger Menu hamburger pour petits écrans -->
             <button class="menu-toggle" aria-label="Ouvrir le menu">☰</button>
 
             <!-- Profil image lien accueil -->
@@ -34,11 +37,17 @@
                 <img src="img/accueil.jpg" alt="Photo accueil" class="profil-img">
             </a>
 
+            <!-- Logo centré au milieu du header
+            <div class="header-logo-container">
+                <img src="img/logo.png" alt="Logo du site" class="header-logo">
+            </div> -->
+
             <!-- Navigation -->
             <ul class="nav-links">
                 <li><a href="#" onclick="showSection('presentation')">Qui suis-je?</a></li>
                 <li><a href="#" onclick="showSection('cv')">CV</a></li>
                 <li><a href="#" onclick="showSection('portfolio')">Portfolio</a></li>
+                <li><a href="index.html">Contact</a></li>  
                 <li><a href="#" id="nav-projet" class="hidden" onclick="showSection('projet')">Votre projet</a></li>
             </ul>
 
