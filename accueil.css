@@ -44,7 +44,7 @@ html, body {
   letter-spacing: 2px;
   margin: 0;
   text-align: left;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 /* 3.2 .top-bar H2 centré */
@@ -59,19 +59,22 @@ html, body {
   box-shadow: 0 4px 12px black;
 }
 
-.top-bar h2 {
-  font-size: 2rem;
+.top-bar h2.subtitle {
+  font-size: 2.50rem;
   font-weight: 700;
-  margin: 0;
-  line-height: 1;
-  font-family: 'Poppins', sans-serif;
+  margin-bottom: 10px;
 }
 
-.top-bar .subtitle {
-  font-size: 1.6rem;
+.top-bar .p1 {
+  font-size: 2.00rem;  /* un peu plus petit que h2 */
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.top-bar .p2 {
+  font-size: 1.80rem;  /* plus petit que p1 */
   font-weight: 400;
-  margin: 0;
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 /* 3.3 .inner-grid: 3 colonnes */
@@ -185,21 +188,20 @@ html, body {
     margin-bottom: 20px;
   }
 
-  .top-bar h2 {
-    font-size: 1.4rem;  /* réduit les H2 */
-  }
-
-  .top-bar .subtitle {
-    font-size: 1.2rem;  /* réduit la sous-titre */
-    margin-bottom: 10px;
-  }
-
   .top-bar {
     padding: 15px; /* réduit le padding pour éviter le débordement */
     margin: 20px 0;
   }
-
-
+  
+  .top-bar h2.subtitle {
+    font-size: 1.3rem;
+  }
+  .top-bar .p1 {
+    font-size: 1.10rem;
+  }
+  .top-bar .p2 {
+    font-size: 0.95rem;
+  }
   .inner-grid > .grid-box {
     width: 100%;
   }
@@ -231,4 +233,6 @@ html, body {
     margin: auto;
     max-width: 80%;
   }
+
+
 }
