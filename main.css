@@ -81,14 +81,29 @@ body {
    LOGO CENTRÉ DANS LE HEADER
    ======================================== */
 
+/* Le conteneur du logo devient un calque absolu centré */
+.header-logo-container {
+    position: absolute;
+    left: 50%;                     /* on place son point d’ancrage à 50% du parent */
+    transform: translateX(-50%);   /* on le recule de la moitié de sa propre largeur :contentReference[oaicite:0]{index=0} */
+    top: 50%;                      /* si tu veux le centrer aussi verticalement */
+    transform: translate(-50%, -50%);
+  }
 
+  /* Ajuste la taille du logo ici */
+.header-logo {
+    padding-top: 5%;
+    height: 400px;   /* ou la valeur que tu souhaites */
+    width: auto;
+    display: block;
+  }
 
 /* ========================================
    6. NAVBAR & MENU
    Barre fixe, liens, hamburger mobile
    ======================================== */
 .navbar {
-    position: fixed;
+    position: fixed;            /* pour que l’absolu soit relatif à la navbar */
     top: 0;
     left: 0;
     width: 100%;
@@ -97,7 +112,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 0 2rem;
+    height: 80px;
     color: white;
     z-index: 1000;
 }
@@ -141,6 +157,46 @@ body {
     .menu-toggle {
         display: block;
     }
+
+    /* ================================
+   Mobile overrides (max‑width: 768px)
+   ================================ */
+@media (max-width: 768px) {
+    /* 1) Alléger la navbar pour mobile */
+    .navbar {
+      padding: 0.5rem 1rem;            /* moins de padding horizontal */
+    }
+  
+    /* 2) Recentrement vertical différent si nécessaire */
+    .header-logo-container {
+      top: 20%;                        /* un peu plus haut sur petit écran */
+      transform: translate(-50%, -40%);/* on ajuste le translateY :contentReference[oaicite:0]{index=0} */
+    }
+  
+    /* 3) Logo responsive via clamp() */
+    .header-logo {
+      height: clamp(180px, 25vw, 200px); /* taille fluide entre 100px et 200px :contentReference[oaicite:1]{index=1} */
+      width: auto;
+    }
+  }
+  
+  /* ================================
+     Ultra‑mobile (max‑width: 480px)
+     ================================ */
+  @media (max-width: 480px) {
+    .navbar {
+      padding: 0.4rem 0.8rem;
+    }
+    .header-logo-container {
+      top: 35%;                        
+      transform: translate(-50%, -35%);
+    }
+    .header-logo {
+      padding-top: 5%;
+      height: clamp(80px, 30vw, 150px);
+    }
+  }
+  
 
     .nav-links,
     .nav-right {
