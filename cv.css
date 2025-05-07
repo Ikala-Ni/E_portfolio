@@ -7,6 +7,7 @@
     background-color: #111;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    flex-wrap: wrap; /* 🛠️ Ajout : permet le passage à la ligne en cas de débordement */
 }
 
 /* 1.a — passage en colonne sous 600px */
@@ -18,6 +19,12 @@
 
     .content-section {
         padding-bottom: 80px; /* espace pour le footer/chat */
+    }
+
+    .cv-content,
+    .cv-banner {
+        flex: none;         /* 🛠️ Ajout : évite que les flex ratios perturbent la mise en colonne */
+        width: 100%;        /* 🛠️ Ajout : assure que chaque colonne prend toute la largeur */
     }
 }
 
@@ -221,9 +228,14 @@
         background-color: #444;
     }
 
-/* Cache le bouton spécial mobile si nécessaire 
+/* Cache le bouton spécial mobile si nécessaire */
 @media (max-width: 600px) {
     .btn-cv-link {
         display: none !important;
     }
-}*/
+}
+
+/* 🛠️ Ajout global pour éviter les débordements inattendus */
+* {
+    box-sizing: border-box;
+}
