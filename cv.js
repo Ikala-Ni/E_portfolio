@@ -1,24 +1,26 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     /** 
-     * Affiche la partie de CV identifiée par partId,
-     * masque les autres et met à jour le bouton actif. 
+     * Affiche la partie de CV identifiï¿½e par partId,
+     * masque les autres et met ï¿½ jour le bouton actif. 
      */
+   
     function showCVPart(partId) {
+        const target = document.getElementById(partId);
         // 1. Cacher tous les blocs
         document.querySelectorAll('.cv-block').forEach(part => {
             part.classList.add('hidden');
         });
-
-        // 2. Afficher le bloc ciblé
-        const target = document.getElementById(partId);
+        
+        // 2. Afficher le bloc ciblï¿½
+       
         if (target) {
             target.classList.remove('hidden');
         } else {
             console.warn("Partie de CV introuvable :", partId);
         }
 
-        // 3. Mettre à jour l’état “active” des boutons
+        // 3. Mettre ï¿½ jour lï¿½ï¿½tat ï¿½activeï¿½ des boutons
         document.querySelectorAll('.cv-banner button').forEach(btn => {
             btn.classList.toggle('active',
                 btn.getAttribute('onclick')?.includes(partId)
@@ -30,8 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
     window.showCVPart = showCVPart;
 
     /** 
-     * Comportement spécifique pour mobile :
-     * clic sur un titre H3 pour déplier/replier son contenu.
+     * Comportement spï¿½cifique pour mobile :
+     * clic sur un titre H3 pour dï¿½plier/replier son contenu.
      */
     if (window.innerWidth < 600) {
         document.querySelectorAll('.cv-block').forEach(block => {
@@ -46,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Afficher par défaut la section "Expériences" au chargement
+    // Afficher par dï¿½faut la section "Expï¿½riences" au chargement
     showCVPart('cv-experiences');
 
 });
