@@ -221,5 +221,9 @@
         background-color: #444;
     }
 
-
-
+/* Cache le bouton spécial mobile si nécessaire 
+@media (max-width: 600px) {
+    .btn-cv-link {
+        display: none !important;
+    }
+}*/
