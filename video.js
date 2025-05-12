@@ -1,45 +1,47 @@
 // ============================================
 // video.js
-// Logique dédiée au mini-player vidéo
+// Gère le mini-player uniquement si on quitte la section vidéo pendant la lecture
 // ============================================
 
-// Attendre le chargement complet du DOM
 window.addEventListener('DOMContentLoaded', () => {
-  // Récupérer toutes les sections interactives
-  const sections = document.querySelectorAll('.content-section');
+  const videoSection = document.getElementById('video-section');
+  const mainVideo = document.getElementById('video-section-player');
   const miniPlayer = document.getElementById('mini-player');
   const miniVideo = document.getElementById('mini-video');
   const miniClose = document.getElementById('mini-close');
-  const mainVideo = document.getElementById('videoLogoADN-player');
 
-  // Parcourir chaque section pour y attacher un événement click
-  sections.forEach(section => {
-    section.addEventListener('click', () => {
-      // Ne déclencher le mini-player que pour la section Logo ADN
-      if (section.id === 'videoLogoADN') {
-        // Mettre en pause la vidéo principale
-        mainVideo.pause();
-        // Synchroniser la source et la position
-        miniVideo.src = mainVideo.currentSrc;
-        miniVideo.currentTime = mainVideo.currentTime;
-        // Lancer la lecture en mini
-        miniVideo.play();
-        // Afficher le mini-player
-        miniPlayer.classList.remove('hidden');
-      }
-    });
+  let wasPlaying = false;
+
+  // Surveille les changements de style sur la section vidéo
+  const observer = new MutationObserver(() => {
+    const isHidden = videoSection.classList.contains('hidden');
+
+    if (isHidden && !mainVideo.paused) {
+      // L'utilisateur quitte la section pendant la lecture
+      wasPlaying = true;
+      mainVideo.pause();
+
+      // Transfert vers le mini-player
+      miniVideo.src = mainVideo.querySelector('source').src || mainVideo.currentSrc;
+      miniVideo.currentTime = mainVideo.currentTime;
+      miniVideo.play();
+      miniPlayer.classList.remove('hidden');
+    }
   });
 
-  // Gestion de la fermeture du mini-player
+  // Observer les changements d'attributs (pour détecter .hidden)
+  observer.observe(videoSection, { attributes: true, attributeFilter: ['class'] });
+
+  // Fermer le mini-player et reprendre la lecture principale
   miniClose.addEventListener('click', () => {
-    // Synchroniser le temps de la vidéo principale
-    mainVideo.currentTime = miniVideo.currentTime;
-    // Reprendre la lecture principale
-    mainVideo.play();
-    // Masquer le mini-player
+    if (wasPlaying) {
+      mainVideo.currentTime = miniVideo.currentTime;
+      mainVideo.play();
+    }
+
     miniPlayer.classList.add('hidden');
-    // Arrêter et nettoyer la source du mini-video
     miniVideo.pause();
     miniVideo.src = '';
+    wasPlaying = false;
   });
 });
