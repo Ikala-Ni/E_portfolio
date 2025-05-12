@@ -11,7 +11,7 @@
 /* Positionnement et apparence du mini-player */
 #mini-player {
   position: fixed;
-  bottom: 20px;
+  top: 80px; /* Hauteur du header */
   right: 20px;
   width: 250px;
   height: 140px;
@@ -20,7 +20,10 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
   overflow: hidden;
   z-index: 1000;
+  max-height: calc(100vh - 80px - 100px); /* Hauteur de la fenêtre - header - footer */
+  transition: all 0.3s ease;
 }
+
 
 #mini-player video {
   width: 100%;
@@ -38,4 +41,39 @@
   color: #fff;
   font-size: 18px;
   cursor: pointer;
+}
+
+/* Responsive pour tablette et mobile */
+@media (max-width: 768px) {
+  #mini-player {
+    top: auto;
+    bottom: 20px;
+    right: 5%;
+    left: 5%;
+    width: 90%;
+    height: 180px;
+    border-radius: 12px;
+  }
+}
+
+/* Encore plus petit écran (ex. téléphone en mode portrait) */
+@media (max-width: 480px) {
+  #mini-player {
+    height: 160px;
+  }
+
+  #mini-close {
+    font-size: 24px;
+    top: 8px;
+    right: 8px;
+  }
+}
+@media (max-width: 768px) {
+  #video-section {
+    background-color: #000;
+    position: fixed;
+    padding-top: 80px; /* Espace pour ne pas chevaucher le header */
+    min-height: 100vh; /* S'assurer que la section prend toute la hauteur de l'écran */
+    box-sizing: border-box;
+  }
 }
