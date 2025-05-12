@@ -40,7 +40,7 @@ html, body {
 .main-header h1 {
   font-family: 'Roboto', sans-serif;
   font-size: 3rem;
-  color: #00ccff;
+  color: #00aaff;
   letter-spacing: 2px;
   margin: 0;
   text-align: left;
@@ -52,8 +52,8 @@ html, body {
   text-align: center;
   margin: 30px 0;
   background-color: black;
-  border-left: 4px solid rgba(255,255,255,0.1);
-  border-right: 4px solid rgba(255,255,255,0.1); /* bordure noire uniquement ici */
+  border-left: 4px solid rgba(182, 103, 38, 0.1);
+  border-right: 4px solidrgba(182, 103, 38, 0.1); /* bordure noire uniquement ici */
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 4px 12px black;
@@ -95,7 +95,7 @@ html, body {
 /* 3.3.1 .grid-box: style commun aux 3 colonnes */
 .grid-box {
   background-color: black;
-  border-left: 3px solid #00ccff;
+  border-left: 4px solid rgba(182, 103, 38, 0.1);
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -125,7 +125,7 @@ html, body {
   text-align: center; /* centre le texte à l'intérieur du conteneur */
 }
 .grid-box .nav-links a {
-  color: #00ccff;
+  color: #00aaff;
   text-decoration: none;
   font-weight: bold;
   font-size: 1.1rem;
@@ -141,7 +141,7 @@ html, body {
   margin: 6px 0;
 }
 .contact-section a {
-  color: #00ccff;
+  color: #00aaff;
   text-decoration: underline;
 }
 
@@ -161,11 +161,11 @@ html, body {
   font-size: 1rem;
 }
 .bottom-buttons button:first-child {
-  background: #0077ff;
+  background: #00aaff;
   color: #fff;
 }
 .bottom-buttons button:last-child {
-  background: #00cc99;
+  background: #00b894;
   color: #fff;
 }
 
