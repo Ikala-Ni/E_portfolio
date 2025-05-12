@@ -106,11 +106,28 @@ html, body {
 }
 
 /* 3.3.2 image dans la grid-box */
+/* Animation au survol pour les images dans .grid-box */
 .grid-box img {
   width: 100%;
   height: auto;
   border-radius: 12px;
   object-fit: contain;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+/* Effet au survol (desktop) */
+.grid-box img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Effet tactile (mobile) : quand l'utilisateur tape */
+@media (hover: none) and (pointer: coarse) {
+  .grid-box img:active {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
 }
 
 
