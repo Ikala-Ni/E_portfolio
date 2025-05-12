@@ -157,10 +157,15 @@ body {
     list-style: none;
 }
 
-    .nav-links a,
-    .nav-right a {
+    .nav-links a {
         text-decoration: none;
         color: white;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+    .nav-right a {
+        text-decoration: none;
+        color: #00aaff;
         font-weight: bold;
         transition: color 0.3s;
     }
@@ -224,6 +229,7 @@ body {
         gap: 2rem;
         padding-top: 2rem;
     }
+    
 
         .nav-links.show,
         .nav-right.show {
