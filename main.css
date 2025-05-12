@@ -377,6 +377,15 @@ body {
     z-index: 1000;
 }
 
+.index-link a {
+    color: #fff;
+    text-decoration: none; /* Optionnel : enlève le soulignement */
+}
+
+.index-link a:hover {
+    color: #00aaff; /* Optionnel : couleur au survol */
+}
+
 /* Style général des icônes */
 .site-footer .social-links a {
     color: #ffffff; /* Couleur par défaut des icônes */
