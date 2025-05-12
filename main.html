@@ -33,7 +33,7 @@
             <button class="menu-toggle" aria-label="Ouvrir le menu">☰</button>
 
             <!-- Zone de gauche : profil / accueil -->
-            <a href="#" onclick="showSlides()" class="profile-link">
+            <a href="index.html"class="profile-link">
                 <img src="img/accueil.jpg" alt="Photo accueil" class="profil-img">
             </a>
 
@@ -74,12 +74,18 @@
 
     <main>
        <!-- Nouvelle section ADN video -->
-        <section id="video-section" class="video-section">
+        <section id="video-section" class="video-section hidden">
             <video controls autoplay>
               <source src="videos/logoVideoADN.mp4" type="video/mp4">
               Votre navigateur ne supporte pas la lecture vidéo.
             </video>
+            <!-- Mini-player container (initially hidden) -->
+            <div id="mini-player" class="hidden">
+                <video id="mini-video" src="" muted autoplay></video>
+                <button id="mini-close">×</button>
+            </div>
           </section>
+            
         <!-- Photos Slides -->
         <section id="slides" class="slides">
             <img src="img/mon-image1.jpg" class="slide active">
