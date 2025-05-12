@@ -101,6 +101,24 @@ window.addEventListener("hashchange", () => {
   showSection(sec);
 });
 
+//ADN Video
+const video = document.getElementById('portfolio-video');
+
+  // Lecture avec son
+  video.muted = false;
+
+  // Pause en survol
+  video.addEventListener('mouseenter', () => {
+    video.pause();
+  });
+
+  video.addEventListener('mouseleave', () => {
+    video.play();
+  });
+
+  // Désactiver la boucle
+  video.loop = false;
+
 
     
 

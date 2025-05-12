@@ -73,6 +73,13 @@
     </header>
 
     <main>
+       <!-- Nouvelle section ADN video -->
+        <section id="video-section" class="video-section">
+            <video controls autoplay>
+              <source src="videos/logoVideoADN.mp4" type="video/mp4">
+              Votre navigateur ne supporte pas la lecture vidéo.
+            </video>
+          </section>
         <!-- Photos Slides -->
         <section id="slides" class="slides">
             <img src="img/mon-image1.jpg" class="slide active">
@@ -391,7 +398,7 @@
     <footer class="site-footer fixed panel">
         <p>Contact : ton.email@example.com | Adresse : 123 rue de la Création, 75000 Paris</p>
         <div class="social-links">
-            <a href="https://www.linkedin.com/in/tonprofil"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.linkedin.com/in/merciarandrianome"><i class="fab fa-linkedin"></i></a>
             <a href="https://github.com/tonprofil"><i class="fab fa-github"></i></a>
             <a href="https://twitter.com/tonprofil"><i class="fab fa-twitter"></i></a>
             <a href="https://www.facebook.com/tonprofil"><i class="fab fa-facebook"></i></a>
@@ -405,19 +412,18 @@
             💬 Une question ?
             <span class="chat-close" id="chat-bubble-close">×</span>
         </div>
-        <img src="img/chat.jpg" alt="Chatbot" class="chat-avatar" id="chat-trigger">
+        <img src="img/mercia.png" alt="Chatbot" class="chat-avatar" id="chat-trigger">
     </div>
 
     <!-- Chatbot box -->
     <div class="chatbox-container hidden" id="chatbox">
         <div class="chatbox-header">
             💬 Une question ?
-            <span class="chatbox-close" id="chatbox-close">×</span>
+            <span class="chatbox-close" id="chatbox-close"></span>
         </div>
 
         <div class="chatbox-messages" id="chat-messages">
             <div class="message bot">Bonjour ! Comment puis-je vous aider ? 😊</div>
-            <div class="message bot">Tu peux m'expliquer ce que tu veux créer, je t’écoute ! 💡</div>
         </div>
 
         <form class="chatbox-input" id="chat-form">
