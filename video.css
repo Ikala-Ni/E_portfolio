@@ -54,6 +54,8 @@
     height: 180px;
     border-radius: 12px;
     margin-top: -30px;
+    bottom: 80px; /* Augmentez cette valeur pour éloigner le lecteur du bas de l'écran */
+    
     /* Ajuste la valeur selon le besoin */
     /* Ou utiliser transform si c'est mieux visuellement */
     /* transform: translateY(-30px); */

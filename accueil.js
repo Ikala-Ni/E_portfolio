@@ -4,8 +4,11 @@ console.log("accueil.js chargé");
 document.addEventListener("DOMContentLoaded", () => {
   const baseUrl = "main.html";
 
-  // fonction qui redirige vers main.html ou main.html#section
-  function redirectToSection(sectionId) {
+ // Fonction de redirection avec gestion du son pour #video-section
+  function redirectToSection(sectionId, wantsAudio = false) {
+    if (sectionId === "video-section") {
+      sessionStorage.setItem("playVideoWithSound", wantsAudio ? "true" : "false");
+    }
     if (sectionId) {
       window.location.href = `${baseUrl}#${sectionId}`;
     } else {

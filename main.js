@@ -119,6 +119,21 @@ const video = document.getElementById('portfolio-video');
   // Désactiver la boucle
   video.loop = false;
 
+  window.addEventListener("DOMContentLoaded", () => {
+  const video = document.getElementById("video-section-player");
+  const shouldPlayWithSound = sessionStorage.getItem("playVideoWithSound") === "true";
+
+  if (window.location.hash === "#video-section") {
+    video.muted = !shouldPlayWithSound;
+    video.play().catch(err => {
+      console.warn("Erreur de lecture :", err);
+    });
+  }
+
+  sessionStorage.removeItem("playVideoWithSound");
+});
+
+
 
     
 
