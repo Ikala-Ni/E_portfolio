@@ -1,10 +1,11 @@
 // ============================================
 // video.js
 // Gère le mini-player uniquement si on quitte la section vidéo
+// et le hover pause/play de la vidéo ADN
 // ============================================
 
 window.addEventListener('DOMContentLoaded', () => {
-  // Récupération des éléments du DOM avec garde
+  // 1. Récupération des éléments du DOM
   const videoSection = document.getElementById('video-section');
   const mainVideo = document.getElementById('video-section-player');
   const miniPlayer = document.getElementById('mini-player');
@@ -16,16 +17,16 @@ window.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  let wasPlaying = false;
+  let wasPlaying = true;
 
-  // Observer via IntersectionObserver au lieu de MutationObserver pour fiabilité
+  // 2. Observer la visibilité de la section vidéo principale
   const io = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      // Si la section n'est plus visible (user scrolle) et la vidéo était en lecture
       if (!entry.isIntersecting && !mainVideo.paused) {
         wasPlaying = true;
         mainVideo.pause();
-        // Transfert vers le mini-player
+
+        // Transfert vers mini-player
         const sourceURL = mainVideo.querySelector('source')?.src || mainVideo.currentSrc;
         miniVideo.src = sourceURL;
         miniVideo.currentTime = mainVideo.currentTime;
@@ -37,7 +38,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   io.observe(videoSection);
 
-  // Fermer le mini-player et reprendre la lecture principale
+  // 3. Fermeture du mini-player et reprise lecture principale
   miniClose.addEventListener('click', () => {
     if (wasPlaying) {
       mainVideo.currentTime = miniVideo.currentTime;
@@ -48,4 +49,21 @@ window.addEventListener('DOMContentLoaded', () => {
     miniVideo.removeAttribute('src');
     wasPlaying = false;
   });
+
+  // ============================================
+  // 4. Gestion de la vidéo ADN (hover play/pause)
+  // ============================================
+  const videoHover = document.getElementById('portfolio-video');
+  if (videoHover) {
+    videoHover.muted = false;
+    videoHover.loop = false;
+
+    videoHover.addEventListener('mouseenter', () => {
+      videoHover.pause();
+    });
+
+    videoHover.addEventListener('mouseleave', () => {
+      videoHover.play();
+    });
+  }
 });

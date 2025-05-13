@@ -36,4 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
       redirectToSection(section);
     });
   });
+
+  document.querySelectorAll('[data-play-audio="true"]').forEach(el => {
+  el.addEventListener('click', () => {
+    sessionStorage.setItem("playVideoWithSound", "true");
+  });
+});
+
 });
