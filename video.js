@@ -19,37 +19,59 @@ window.addEventListener('DOMContentLoaded', () => {
 
   let wasPlaying = true;
 
-  // 2. Observer la visibilité de la section vidéo principale
-  const io = new IntersectionObserver(entries => {
+// ============================================
+  // 2. Observation de la section vidéo principale
+  // ============================================
+  const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
+      // CHANGEMENT : déclenchement si la vidéo n’est plus visible DU TOUT
       if (!entry.isIntersecting && !mainVideo.paused) {
         wasPlaying = true;
         mainVideo.pause();
 
-        // Transfert vers mini-player
+        // CHANGEMENT : récupération dynamique de la source et du temps actuel
         const sourceURL = mainVideo.querySelector('source')?.src || mainVideo.currentSrc;
         miniVideo.src = sourceURL;
         miniVideo.currentTime = mainVideo.currentTime;
-        miniVideo.play();
+
         miniPlayer.classList.remove('hidden');
+        miniVideo.play();
+      }
+
+      // CHANGEMENT : si la section redevient visible, arrêter le mini-player
+      if (entry.isIntersecting && !miniPlayer.classList.contains('hidden')) {
+        miniPlayer.classList.add('hidden');
+        miniVideo.pause();
+        miniVideo.removeAttribute('src');
+
+        if (wasPlaying) {
+          mainVideo.play();
+        }
+        wasPlaying = false;
       }
     });
-  }, { root: null, threshold: 0 });
+  }, {
+    root: null,
+    threshold: 0, // CHANGEMENT : déclenche dès que l’élément sort totalement du viewport
+  });
 
-  io.observe(videoSection);
+  observer.observe(videoSection);
 
-  // 3. Fermeture du mini-player et reprise lecture principale
+  // ============================================
+  // 3. Fermeture manuelle du mini-player
+  // ============================================
   miniClose.addEventListener('click', () => {
     if (wasPlaying) {
+      // CHANGEMENT : synchronisation du temps de lecture avec la vidéo principale
       mainVideo.currentTime = miniVideo.currentTime;
       mainVideo.play();
     }
+
     miniPlayer.classList.add('hidden');
     miniVideo.pause();
     miniVideo.removeAttribute('src');
     wasPlaying = false;
   });
-
   // ============================================
   // 4. Gestion de la vidéo ADN (hover play/pause)
   // ============================================
