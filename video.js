@@ -26,20 +26,24 @@ window.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       // CHANGEMENT : déclenchement si la vidéo n’est plus visible DU TOUT
       if (!entry.isIntersecting && !mainVideo.paused) {
+        console.log("Vidéo principale n'est plus visible, lancement mini-player.");
+        
         wasPlaying = true;
-        mainVideo.pause();
+        const currentTime = mainVideo.currentTime;
 
         // CHANGEMENT : récupération dynamique de la source et du temps actuel
         const sourceURL = mainVideo.querySelector('source')?.src || mainVideo.currentSrc;
+        
+        mainVideo.pause();    
         miniVideo.src = sourceURL;
-        miniVideo.currentTime = mainVideo.currentTime;
-
-        miniPlayer.classList.remove('hidden');
+        miniVideo.currentTime = currentTime;
         miniVideo.play();
+        miniPlayer.classList.remove('hidden');
       }
 
       // CHANGEMENT : si la section redevient visible, arrêter le mini-player
       if (entry.isIntersecting && !miniPlayer.classList.contains('hidden')) {
+        console.log("Retour à la section vidéo principale.");
         miniPlayer.classList.add('hidden');
         miniVideo.pause();
         miniVideo.removeAttribute('src');
@@ -61,6 +65,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // 3. Fermeture manuelle du mini-player
   // ============================================
   miniClose.addEventListener('click', () => {
+    console.log("Fermeture mini-player.");
     if (wasPlaying) {
       // CHANGEMENT : synchronisation du temps de lecture avec la vidéo principale
       mainVideo.currentTime = miniVideo.currentTime;
