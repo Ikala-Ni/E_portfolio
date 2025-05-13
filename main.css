@@ -267,7 +267,7 @@ body {
 
 @media (max-width: 768px) {
     .cv-style {
-        width: 95%;
+        width: 100%;
         padding: 10px 0;
         min-height: calc(100vh - 120px);
     }
