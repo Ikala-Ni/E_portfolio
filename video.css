@@ -98,5 +98,9 @@
     padding-top: 80px; /* Espace pour ne pas chevaucher le header */
     min-height: 100vh; /* S'assurer que la section prend toute la hauteur de l'écran */
     box-sizing: border-box;
+    overflow: hidden; /* Empêche le défilement interne */
+     margin: 0; /* Supprime tout espace inutile */
+     width: 100%;
   }
+ 
 }

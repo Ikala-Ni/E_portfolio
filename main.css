@@ -546,7 +546,7 @@ body {
 }
 
 .content-section {
-   
+    z-index: 100; /* En dessous de l'overlay */
     position: relative;
 }
 
