@@ -158,6 +158,9 @@
 /* Décaler le chatbot sur mobile */
 @media (max-width: 600px) {
     .chat-widget, .chatbox-container {
-        bottom: 80px;
+        bottom: 5px;
+    }
+    .chat-message-bubble {
+       font-size: 10px; 
     }
 }
