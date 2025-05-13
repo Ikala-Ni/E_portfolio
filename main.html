@@ -76,7 +76,8 @@
        <!-- Nouvelle section ADN video -->
     <section id="video-section" class="video-section hidden content-section">
       <video id="video-section-player" controls autoplay muted playsinline>
-        <source src="videos/logoVideoADN.mp4" type="video/mp4">
+          <source src="videos/logoVideoADN.mp4" type="video/mp4" media="(min-width: 769px)">
+         <source src="videos/logoVideoADN-mobile.mp4" type="video/mp4" media="(max-width: 768px)">
         Votre navigateur ne supporte pas la lecture vidéo.
       </video>
 
