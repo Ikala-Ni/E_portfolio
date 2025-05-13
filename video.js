@@ -5,18 +5,30 @@
 // ============================================
 
 window.addEventListener('DOMContentLoaded', () => {
+  // Détection si l'utilisateur est sur un appareil mobile (écran <= 768px)
+  const isMobile = window.innerWidth <= 768;
+  
   // 1. Récupération des éléments du DOM
   const videoSection = document.getElementById('video-section');
   const mainVideo = document.getElementById('video-section-player');
   const miniPlayer = document.getElementById('mini-player');
   const miniVideo = document.getElementById('mini-video');
   const miniClose = document.getElementById('mini-close');
+  const source = mainVideo.querySelector('source');
 
   if (!videoSection || !mainVideo || !miniPlayer || !miniVideo || !miniClose) {
     console.warn('video.js: éléments manquants, annulation du script mini-player.');
     return;
   }
+  // CHANGEMENT : Selon si on est sur mobile ou non, on charge une vidéo différente
+  if (isMobile) {
+    source.src = 'videos/logoVideoADN-mobile.mp4';  // Vidéo pour mobile
+  } else {
+    source.src = 'videos/logoVideoADN.mp4';  // Vidéo pour desktop/tablette
+  }
+  mainVideo.load(); // Recharge la vidéo pour appliquer le changement de source
 
+  
   let wasPlaying = true;
 
 // ============================================
