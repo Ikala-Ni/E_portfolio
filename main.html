@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="cv.css"> <!-- CV -->
     <link rel="stylesheet" href="projet.css"> <!-- Formulaire projet -->
     <link rel="stylesheet" href="portfolio.css"> <!-- Portfolio -->
-     <link rel="stylesheet" href="video.css"> <!-- video accueil ADN -->
+    <link rel="stylesheet" href="video.css"> <!-- video accueil ADN -->
+    <link rel="stylesheet" href="slides.css"> <!-- slides des creations portfolio -->
 
     <!-- Icônes via Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -257,7 +258,14 @@
                         <!-- Carte category -->
                         <div class="portfolio-category hidden" id="carte-category">
                             <div class="media-item">
-                                <img class="media-thumb" src="cartes/card1.png" alt="Carte 1" data-full="cartes/card1.png">
+                                <div class="slider">
+                                    <div class="slide-track">
+                                        <div class="slide"><img src="cartes/mariage1.png" alt="livret de mariage 1"></div>
+                                        <div class="slide"><img src="cartes/mariage2.png" alt="livret de mariage 2"></div>
+                                        <div class="slide"><img src="cartes/mariage3.png" alt="livret de mariage 3"></div>
+                                        <div class="slide"><img src="cartes/mariage4.png" alt="livret de mariage 4"></div>
+                                    </div>
+                            </div>
                                 <p class="media-title">Carte n°1</p>
                             </div>
                             <div class="media-item">
@@ -453,6 +461,7 @@
     <script src="cv.js"></script>
     <script src="portfolio.js"></script>
     <script src="video.js"></script>
+    <script src="slides.js"></script>
 
 
     <script>
