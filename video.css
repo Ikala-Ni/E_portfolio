@@ -5,27 +5,26 @@
 
 /* Masquer le mini-player tant qu'il n'est pas activé */
 .mini-player.hidden {
-  display: none;
-  
-
+  display: none;  
 }
 
-/* Positionnement et apparence du mini-player */
-.mini-player {
-  position: fixed;
-  top: 80px; /* Hauteur du header */
-  right: 20px;
-  width: 250px;
-  height: 140px;
-  background: rgba(0, 0, 0, 0.8);
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+
+.video-section {
+  background-color: #000;
+  padding-top: 80px; /* évite chevauchement du header */
+  min-height: calc(100vh - 80px); /* plein écran moins le header */
+  position: relative;
+  box-sizing: border-box;
   overflow: hidden;
-  z-index: 1000;
-  max-height: calc(100vh - 80px - 100px); /* Hauteur de la fenêtre - header - footer */
-  transition: all 0.3s ease;
 }
 
+.video-section video {
+  width: 100%;
+  height: auto;
+  max-height: 80vh; /* ajustez selon votre design */
+  display: block;
+  margin: 0 auto;
+}
 
 .mini-player video {
   width: 100%;
