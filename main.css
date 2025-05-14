@@ -133,7 +133,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(17, 17, 17, 0.1); /* glassmorphism rgba(17, 17, 17, 0.1) */
+    background: rgba(0, 0, 0, 0.5); /* glassmorphism rgba(17, 17, 17, 0.1) */
     backdrop-filter: blur(10px);
     display: flex;
     justify-content: space-between;
@@ -143,6 +143,12 @@ body {
     color: white;
     z-index: 1000;
     overflow: visible;         /* pour laisser déborder le logo si besoin */
+}
+
+/* Style pour lien actif */
+.navbar a.active {
+  color: #ffcc00;
+  text-decoration: underline;
 }
 
     .navbar .profile-link img {
@@ -385,7 +391,10 @@ body {
     color: #bd081c;
 }
 
-
+.footer p {
+  font-size: 0.875rem;
+  margin-top: 1rem;
+}
 
 /* ========================================
    14. ACCESSIBILITÉ FOCUS
