@@ -1,5 +1,4 @@
-﻿
-/*========================================
+﻿/*========================================
 1. RESET & BOX-SIZING
 Réinitialisation des marges, paddings,
 et définition du box-sizing global.
@@ -17,17 +16,28 @@ html, body {
 }
 
 /* ========================================
+   UTILITY CLASSES
+   .hidden pour masquage unifié
+   ======================================== */
+.hidden {
+    display: none !important;
+}
+
+
+/* ========================================
    2. TYPOGRAPHIE & BODY
    Police, couleurs par défaut et fond fixe.
    ======================================== */
 body {
     font-family: 'Segoe UI', sans-serif;
     line-height: 1.6;
-    background: #f0f2f5;
+    
     color: #333;
     padding-top: 60px;
     padding-bottom: 80px;
     overflow-x: hidden;
+
+    padding-top: 70px; /* Adapter cette valeur selon la hauteur exacte de ta navbar */
 }
 
 /* ========================================
@@ -40,32 +50,12 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: url('img/fond-ecran4.png') no-repeat center center;
-    background: url('/E_portfolio/img/fond-ecran4.png') no-repeat center center; /* pour GitHub */
+    background: url('./img/fond-ecran4.png') no-repeat center center;
     background-size: cover;
     z-index: -1;
     filter: brightness(0.6);
 }
 
-.background-imageLocal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: url('img/fond-ecran4.png') no-repeat center center;
-    background-size: cover;
-    z-index: -1;
-    filter: brightness(0.6);
-}
-
-/* ========================================
-   4. UTILITY CLASSES
-   .hidden pour masquage unifié
-   ======================================== */
-.hidden {
-    display: none !important;
-}
 
 /* ========================================
    5. LAYOUT CONTAINER
@@ -182,31 +172,30 @@ body {
         }
 
 /* Bouton hamburger (mobile) */
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    color: white;
-}
+        .menu-toggle{
+            display: none;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: white;
+        }
   
   
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
-
     /* ================================
     Mobile header
    ================================ */
 /* ——— Adaptation mobile : logo plus étroit, conteneur plus large ——— */
 @media (max-width: 768px) {
+     .menu-toggle {
+        display: block;
+    }
+
     .header-logo-container {
       left: 20%;        /* commence plus à gauche */
       width: 60%;       /* prend 60% de la largeur pour rester lisible */
 
-          /* Suppression du fond et des styles décoratifs */
+    /* Suppression du fond et des styles décoratifs */
     background-color: transparent;
     border: none;
     box-shadow: none;
@@ -214,12 +203,11 @@ body {
     border-radius: 0;
     background: rgba(0, 5, 7, 0.1);
     }
+
     .header-logo {
       max-height: auto;  /* un peu plus petit verticalement */
     }
-  }
   
-
     .nav-links,
     .nav-right {
         display: none;
@@ -428,14 +416,6 @@ textarea:focus {
     }
 }
 
-.typewriter {
-    display: inline-block;
-    overflow: hidden;
-    border-right: 2px solid #fff;
-    white-space: nowrap;
-    animation: typing 3s steps(20,end), blink-caret .75s step-end infinite;
-}
-
 @keyframes typing {
     from {
         width: 0;
@@ -515,10 +495,6 @@ textarea:focus {
     }
 }
 
-/* Corrige le contenu qui passe sous la navbar fixe */
-body {
-    padding-top: 70px; /* Adapter cette valeur selon la hauteur exacte de ta navbar */
-}
 
 @media (min-width: 768px) {
     .navbar {
@@ -532,7 +508,6 @@ body {
     }
 }
 
-/*pour faire le fond noir du burger mobile*/
 /* Overlay noir semi-transparent */
 .overlay {
     position: fixed;
@@ -548,7 +523,7 @@ body {
     display: none;
 }
 
-.nav-links.show,
+.nav-links.show,    
 .nav-right.show {
     z-index: 3000; /* Au-dessus de l'overlay */
     position: fixed;
@@ -559,5 +534,51 @@ body {
     position: relative;
 }
 
+/* ----- OPTION 2 : Masquer le contenu quand le menu mobile est ouvert ----- */
+/* Facultatif : cacher les sections spécifiques: .hero, .portfolio, etc. */
+body.menu-open .hero,
+body.menu-open .portfolio,
+body.menu-open .contact {
+  display: none !important;
+}
 
+/* 3.3.2 image dans la grid-box */
+/* Animation au survol pour les images dans .grid-box */
+.grid-box img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: contain;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
 
+/* Effet au survol (desktop) */
+.grid-box img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Effet tactile (mobile) : quand l'utilisateur tape */
+@media (hover: none) and (pointer: coarse) {
+  .grid-box img {
+    transition: transform 0.3s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    animation: bounceScroll 1.2s ease-in-out infinite;
+  }
+
+  /* Animation de rebond subtil */
+@keyframes bounceScroll {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+  .grid-box img:active {
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+}

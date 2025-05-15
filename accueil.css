@@ -124,8 +124,24 @@ html, body {
 
 /* Effet tactile (mobile) : quand l'utilisateur tape */
 @media (hover: none) and (pointer: coarse) {
+  .grid-box img {
+    transition: transform 0.3s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    animation: bounceScroll 1.2s ease-in-out infinite;
+  }
+
+  /* Animation de rebond subtil */
+@keyframes bounceScroll {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
   .grid-box img:active {
-    transform: scale(1.05);
+    transform: scale(1.05) translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   }
 }
